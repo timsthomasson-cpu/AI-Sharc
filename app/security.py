@@ -89,6 +89,11 @@ def unsign_card_id(value):
     return None
 
 
+def escape_html(s):
+    import html as _h
+    return _h.escape(s or "")
+
+
 def new_card_id():
     return uuid_short()
 

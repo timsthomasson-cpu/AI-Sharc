@@ -1,6 +1,6 @@
 # AI Sharc — aisharc.com: setup, DNS and run guide
 
-Last updated: 2026-11-11 (Stage 1 live). Owner: Tim (with Devin).
+Last updated: 2026-11-11 (Stage 3 built on `stage-3-monetize`). Owner: Tim (with Devin).
 
 ## What is live right now
 
@@ -43,7 +43,7 @@ SendGrid must be told to expect these BEFORE the records are added (Devin/Tim cr
 **Order of operations:** create the SendGrid sender domain → collect exact CNAME/TXT values → add ALL records in one registrar batch (site + email) → verify in SendGrid → only then enable live email sends. No test or real emails from the domain before verification.
 
 ## Tim's two pending picks (not build blockers)
-1. **Monitoring months included with the Final card: 3 or 4.** Build assumption: **4** (Devin's recommendation: $99 ÷ 4 = $24.75/mo embedded ≈ the $25 intro rate). One-line change: `MONITORING_INCLUDED_MONTHS = 4` in `build/content_pages.py`, then rebuild. If flipped to 3, pricing copy updates everywhere from the constant.
+1. **Monitoring months included with the Final card: 3 or 4.** DECIDED 2026-11-12: **3** (`MONITORING_INCLUDED_MONTHS = 3` in `build/content_pages.py`; pricing copy everywhere follows the constant).
 2. **GitHub push token** — provided 2026-11-11; used for pushes and Pages deploy.
 
 ## Repo / branches
@@ -116,6 +116,78 @@ Dynamic routes: `GET/POST /get-audited`, `GET /verify/<token>`, `GET /card/<id>`
 See the "Stage 2 — Get Audited flow" section above for env vars, run
 instructions and the email-adapter/DNS split. Tests: `python3 -m pytest tests/ -q`.
 
+### Stage 3 — Monetization + Account (branch `stage-3-monetize`)
+
+Adds: `/final-card` landing · Stripe checkout (`POST /final/checkout`) ·
+webhook grant (`POST /stripe/webhook`) · Final card view + PDF
+(`/final/<id>`, `/final/<id>/pdf`) · dashboard with magic-link sign-in
+(`/dashboard`) · self-serve cancel (`POST /dashboard/cancel`) · monthly
+monitoring re-scans with grade-change emails · admin reconciliation for
+missed webhooks (`GET /admin/reconcile?token=...`, cron:
+`GET /admin/run-monitoring?token=...`).
+
+**Monitoring model (charge-at-purchase, the simpler faithful reading of the
+spec):** the one-time Final payment covers the audit + the 3 included months
+of monitoring. No Stripe subscription exists during the included months
+(`monthly_price_cents = 0`). When the included months end, the monthly job
+sees the card as due-renewal and the first `invoice.paid` webhook past expiry
+extends monitoring by a month at the then-current price. Cancel from the
+dashboard is self-serve and stops everything immediately (the Final card and
+the 60-day re-check window are unaffected). A Stripe subscription can be
+added later without a schema change (`stripe_subscription_id` is already on
+the FinalCard row).
+
+**Webhook-missed recovery:** Stripe retries failed deliveries; beyond that an
+admin can replay a purchase by checkout session id at
+`GET /admin/reconcile?token=<ADMIN_TOKEN>` → post the session id. The grant is
+idempotent, so replays never double-issue.
+
+### Additional environment variables (Stage 3)
+
+| Variable | Required | Default | Purpose |
+|---|---|---|---|
+| `STRIPE_API_KEY` | prod: yes | — (empty = checkout off, honest 503 page) | Stripe secret key. **Env only, never committed.** |
+| `STRIPE_WEBHOOK_SECRET` | prod: yes | — | Webhook signature verification (`whsec_...`). |
+| `STRIPE_TEST_MODE` | no | — | Set `1` when using Stripe test keys. |
+| `PRICE_FINAL_INTRO_CENTS` / `PRICE_FINAL_REGULAR_CENTS` | no | `9900` / `14900` | Final card price ($99 intro / $149 regular). |
+| `PRICE_MONITORING_INTRO_CENTS` / `PRICE_MONITORING_REGULAR_CENTS` | no | `2500` / `3000` | Monitoring after included months ($25 / $30 per month). |
+| `INTRO_FIRM_LIMIT` | no | `500` | Introductory price applies to the first 500 firms (tracked in `purchase_counter`). |
+| `RECHECK_WINDOW_DAYS` | no | `60` | Unlimited re-checks window from the original card (spec v1.22). |
+| `MONITORING_SCAN_INTERVAL_DAYS` | no | `30` | Monthly re-scan cadence. |
+| `MONITORING_POLL_SECONDS` | no | `3600` | How often the in-app scheduler looks for due scans. |
+| `ADMIN_TOKEN` | prod: yes | — (empty = admin endpoints closed) | Token for `/admin/reconcile` and `/admin/run-monitoring`. **Env only.** |
+
+### Stripe setup checklist (Tim / Devin, when going live)
+
+1. Create the product/price in Stripe (or let Checkout inline price it — the
+   app sends `price_data`, so no Stripe price objects are needed).
+2. Add a webhook endpoint at `https://aisharc.com/stripe/webhook` for:
+   `checkout.session.completed`, `invoice.paid`,
+   `customer.subscription.*`.
+3. Copy the signing secret to `STRIPE_WEBHOOK_SECRET`.
+4. Set `STRIPE_API_KEY` and `ADMIN_TOKEN` in the app's environment.
+5. Send a test purchase through the Stripe test cards and confirm the Final
+   card appears in the dashboard.
+
+### Stage 3 tests + smoke
+
+`python3 -m pytest tests/ -q` — 52 tests, no real Stripe/network calls
+(`billing.set_stripe_adapter(StripeStub())` in tests). Smoke:
+`python3 scripts/smoke_stage3.py` — runs the real app with the Stripe stub and
+a real browser: purchase → dashboard Final card → PDF → self-serve cancel;
+screenshots in `qa/stage3/`.
+
+### Stage 3 notes
+
+- Final card renders from the same card renderer as Preliminary/Sample,
+  extended with every finding + the prioritised fix list.
+  **TODO(audit-spec Rev 6):** the Rev 6 Final card layout file has NOT
+  arrived; when it does, the swap is one renderer change in
+  `app/pages.py::render_final_card` (plus stored fields on `FinalCard`).
+  Flag Devin within a week of PDF work (client profile open item).
+- The PDF export uses Playwright with the system Chromium
+  (`/usr/local/bin/chromium`, `--no-sandbox`).
+
 ## Later stages (so DNS can be planned once)
 - Stage 2 adds the FastAPI app (Get Audited flow). GitHub Pages can serve only static pages — when Stage 2 ships, the dynamic app needs a host (a small VPS/Fly/Railway etc.). Decision deferred; the marketing shell stays on Pages regardless.
-- Stage 3 adds Stripe checkout + dashboard; needs `STRIPE_API_KEY` env + webhook endpoint URL (same host decision as Stage 2).
+- Stage 3 (this branch) adds Stripe checkout + dashboard; needs `STRIPE_API_KEY`, `STRIPE_WEBHOOK_SECRET` and `ADMIN_TOKEN` env + the webhook endpoint URL (same host decision as Stage 2) — see the Stage 3 section above.

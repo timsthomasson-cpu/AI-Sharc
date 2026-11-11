@@ -11,10 +11,11 @@ from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app import mailer, pages, scanner, security
+from app import billing, mailer, monitoring, pages, scanner, security
 from app.config import settings
 from app.db import SessionLocal, get_db, init_db
 from app.models import AuditRequest, PreliminaryCard, VerifyToken, new_token, utcnow
+from app.routes_final import router as stage3_router
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message)s")
 
@@ -26,12 +27,18 @@ async def lifespan(_app):
         # set SECRET_KEY (see SETUP.md).
         import secrets
         settings.secret_key = secrets.token_hex(32)
+    if settings.stripe_api_key:
+        # Monitoring scheduler only in a live-configured app; tests set a stub
+        # adapter or no key and call the scan functions directly.
+        monitoring.start()
     yield
+    monitoring.stop()
 
 
 app = FastAPI(title="AI Sharc", docs_url=None, redoc_url=None, openapi_url=None,
               lifespan=lifespan)
 init_db()
+app.include_router(stage3_router)
 
 SITE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "site")
 STATIC_PAGES = ["index.html", "how-it-works.html", "pricing.html", "faq.html",

@@ -30,6 +30,24 @@ class Settings:
         # Cookie/redirect signing key. MUST be set in production; a random
         # ephemeral key is generated otherwise (sessions reset on restart).
         self.secret_key = os.environ.get("SECRET_KEY", "")
+        # Stage 3 — monetization. All secrets env-only; no Stripe key means
+        # checkout routes return a "billing not configured" page (dev safe).
+        self.stripe_api_key = os.environ.get("STRIPE_API_KEY", "")
+        self.stripe_webhook_secret = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
+        self.price_final_intro_cents = _int("PRICE_FINAL_INTRO_CENTS", 9900)
+        self.price_final_regular_cents = _int("PRICE_FINAL_REGULAR_CENTS", 14900)
+        self.price_monitoring_intro_cents = _int("PRICE_MONITORING_INTRO_CENTS", 2500)
+        self.price_monitoring_regular_cents = _int("PRICE_MONITORING_REGULAR_CENTS", 3000)
+        # Introductory Final price applies to the first 500 firms (locked pricing).
+        self.intro_firm_limit = _int("INTRO_FIRM_LIMIT", 500)
+        # Unlimited re-checks within 60 days of the original card (spec v1.22).
+        self.recheck_window_days = _int("RECHECK_WINDOW_DAYS", 60)
+        # Monthly monitoring job cadence and scan spacing, in days/hours.
+        self.monitoring_scan_interval_days = _int("MONITORING_SCAN_INTERVAL_DAYS", 30)
+        self.monitoring_poll_seconds = _int("MONITORING_POLL_SECONDS", 3600)
+        # Admin reconciliation endpoint token (webhook-missed recovery). Env only.
+        self.admin_token = os.environ.get("ADMIN_TOKEN", "")
+        self.stripe_test_mode = os.environ.get("STRIPE_TEST_MODE", "") == "1"
 
 
 settings = Settings()
