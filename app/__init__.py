@@ -1,0 +1,1 @@
+# AI Sharc — app package.

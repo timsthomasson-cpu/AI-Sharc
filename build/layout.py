@@ -73,8 +73,8 @@ def footer():
   </div>
 </footer>'''
 
-def page(slug, title, desc, body, og_type="website"):
-    canon = f"{BASE}/{slug}" if slug != "index.html" else BASE + "/"
+def page(slug, title, desc, body, og_type="website", canon=None):
+    canon = canon or (f"{BASE}/{slug}" if slug != "index.html" else BASE + "/")
     return f'''<!doctype html>
 <html lang="en">
 <head>

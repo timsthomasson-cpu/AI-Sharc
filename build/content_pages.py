@@ -84,7 +84,7 @@ get_body = _hero(
     '')
 get_body += _sec("", '''<div class="card form" style="max-width:560px">
 <h2 style="font-size:1.3rem">Submit your site</h2>
-<form action="#" method="post">
+<form action="/get-audited" method="post">
   <label for="url">Your website address</label>
   <input type="url" id="url" name="url" placeholder="https://yourbusiness.com" required>
   <label for="email">Business email</label>
