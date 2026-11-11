@@ -1,10 +1,10 @@
 # AI Sharc — per-page content. Every page returns (slug, title, meta_description, body_html).
 import textwrap
 
-# TIM TO CONFIRM: number of monitoring months included with the Final Report Card
-# (spec allows 3 or 4; 4 recommended because $99 / 4 = $24.75/mo embedded, matching the
-# $25 intro rate). This constant is the ONLY place the figure lives in the copy.
-MONITORING_INCLUDED_MONTHS = 4
+# Tim's decision (2026-11-12): 3 months included. Note: $99 / 3 = $33/mo equivalent —
+# higher than the $25 intro rate, so the "matches the intro" story no longer applies.
+# This constant is the ONLY place the figure lives in the copy.
+MONITORING_INCLUDED_MONTHS = 3
 
 def _sec(cls, inner):
     return f'<section class="{cls}"><div class="wrap">{inner}</div></section>'
