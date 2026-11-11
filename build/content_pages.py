@@ -129,6 +129,7 @@ pricing_body += _sec("", f'''
       <li>The full, deep audit of your site</li>
       <li>Complete graded card, every finding with its source</li>
       <li>Your full prioritised fix list</li>
+      <li>Unlimited re-checks for 60 days after your Final card</li>
       <li>Monitoring included for your first <strong>{MONITORING_INCLUDED_MONTHS}</strong> months</li>
       <li>Re-scan updates while monitoring is active</li>
     </ul>
@@ -145,7 +146,8 @@ pricing_body += _sec("", f'''
 </div>
 <p class="note" style="margin-top:16px">Monitoring included with the Final Report Card runs for the first
 <strong>{MONITORING_INCLUDED_MONTHS}</strong> months after purchase. After that it's $25/month introductory (regular $30/month),
-month-to-month.</p>''')
+month-to-month. The Final price also covers the original Report Card and unlimited re-checks of your site
+within 60 days of the original card &mdash; that window is separate from monitoring and doesn't count against it.</p>''')
 pricing_body += _sec("alt", '''<h2>What you're paying for &mdash; and what you're not</h2>
 <div class="grid g2">
 <div class="card"><h3>You are paying for</h3><ul class="tick"><li>An honest, sourced, graded read on how AI
