@@ -1,5 +1,8 @@
 # AI Sharc site layout — shared HTML shell (header/footer), no JS.
+import os
 BASE = "https://aisharc.com"
+# Flow host (Railway): the dynamic Get-Audited flow lives here; Pages serves the shell.
+FLOW_ORIGIN = os.environ.get("FLOW_ORIGIN", "https://aisharc.com")
 
 FIN = ('<svg class="fin" width="26" height="20" viewBox="-14 -48 132 102" aria-hidden="true">'
        '<path d="M 6 44 Q 50 -20 105 -34 Q 80 16 96 44 Z" fill="#00D4C8"/></svg>')
@@ -23,7 +26,7 @@ def header(active):
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="AI Sharc home">{FIN}<strong>AI&nbsp;Sharc</strong></a>
     <nav class="nav" aria-label="Main">{links}
-      <a class="btn btn-teal" style="padding:8px 16px" href="get-audited.html">Get audited</a>
+      <a class="btn btn-teal" style="padding:8px 16px" href="{FLOW_ORIGIN}/get-audited">Get audited</a>
     </nav>
   </div>
 </header>'''
@@ -49,7 +52,7 @@ def footer():
           <li><a href="how-it-works.html">How the audit works</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="sample-cards.html">Sample report cards</a></li>
-          <li><a href="get-audited.html">Get audited</a></li>
+          <li><a href="{FLOW_ORIGIN}/get-audited">Get audited</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
       </div>

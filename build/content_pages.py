@@ -1,5 +1,10 @@
 # AI Sharc — per-page content. Every page returns (slug, title, meta_description, body_html).
 import textwrap
+import os
+
+# Flow host (Railway) — where the dynamic Get-Audited flow lives. Pages serves the
+# marketing shell; the form + card viewer live on the app subdomain. One line to change.
+FLOW_ORIGIN = os.environ.get("FLOW_ORIGIN", "https://aisharc.com")
 
 # Tim's decision (2026-11-12): 3 months included. Note: $99 / 3 = $33/mo equivalent —
 # higher than the $25 intro rate, so the "matches the intro" story no longer applies.
@@ -16,7 +21,7 @@ def _hero(h1, lead, ctas):
 <p>{ctas}</p>
 </div></section>'''
 
-CTA_GET = '<a class="btn btn-teal" href="get-audited.html">Get your free Report Card</a>'
+CTA_GET = '<a class="btn btn-teal" href="{FLOW_ORIGIN}/get-audited">Get your free Report Card</a>'
 
 # ---------------------------------------------------------------- home
 home_body = _hero(
@@ -74,7 +79,7 @@ home_body += _sec("", '''
 <h2>Bite-sized fixes. Shark-sized results.</h2>
 <p style="max-width:70ch">You don't need a new website. You need the machines that shop to find, read and
 trust the one you have. Find out in minutes where you stand.</p>
-<p><a class="btn btn-teal" href="get-audited.html">Get audited &mdash; Preliminary is free</a></p>''')
+<p><a class="btn btn-teal" href="{FLOW_ORIGIN}/get-audited">Get audited &mdash; Preliminary is free</a></p>''')
 
 # ---------------------------------------------------------------- get audited (teaser)
 get_body = _hero(
@@ -84,7 +89,7 @@ get_body = _hero(
     '')
 get_body += _sec("", '''<div class="card form" style="max-width:560px">
 <h2 style="font-size:1.3rem">Submit your site</h2>
-<form action="/get-audited" method="post">
+<form action="{FLOW_ORIGIN}/get-audited" method="post">
   <label for="url">Your website address</label>
   <input type="url" id="url" name="url" placeholder="https://yourbusiness.com" required>
   <label for="email">Business email</label>
@@ -110,7 +115,7 @@ pricing_body = _hero(
     'Simple pricing. The Report Card is the product.',
     "The Preliminary Report Card is free, always. The Final Report Card is one payment. Monitoring after "
     "that is month-to-month and you can cancel any time, yourself, in your dashboard.",
-    '<a class="btn btn-teal" href="get-audited.html">Start free</a>')
+    '<a class="btn btn-teal" href="{FLOW_ORIGIN}/get-audited">Start free</a>')
 pricing_body += _sec("", f'''
 <div class="grid g3">
   <div class="card"><span class="badge">Free, always</span>
@@ -121,7 +126,7 @@ pricing_body += _sec("", f'''
       <li>Summary-level findings, each with its source</li>
       <li>Plain-English fixes to start on</li>
     </ul>
-    <p><a class="btn btn-outline" href="get-audited.html">Get it free</a></p></div>
+    <p><a class="btn btn-outline" href="{FLOW_ORIGIN}/get-audited">Get it free</a></p></div>
   <div class="card" style="border-color:var(--teal);border-width:2px"><span class="badge">One payment</span>
     <div class="price">$99 <small>introductory</small></div>
     <p style="margin-bottom:12px"><small>Final Report Card &mdash; regular price $149. Introductory price applies to the first 500 firms.</small></p>
@@ -133,7 +138,7 @@ pricing_body += _sec("", f'''
       <li>Monitoring included for your first <strong>{MONITORING_INCLUDED_MONTHS}</strong> months</li>
       <li>Re-scan updates while monitoring is active</li>
     </ul>
-    <p><a class="btn btn-teal" href="get-audited.html">Start with the free card</a></p></div>
+    <p><a class="btn btn-teal" href="{FLOW_ORIGIN}/get-audited">Start with the free card</a></p></div>
   <div class="card"><span class="badge">Month-to-month</span>
     <div class="price">$25<small>/mo introductory</small></div>
     <p style="margin-bottom:12px"><small>Monitoring after your included months &mdash; regular price $30/mo.</small></p>
@@ -192,7 +197,7 @@ you stand and gives you the first fixes &mdash; enough to start today.</p></div>
 <p>The deep audit. The complete card, every finding with its source, and your full fix list &mdash; plus
 monitoring for your first few months so you can watch the grade move as you work.</p></div>
 </div>
-<p style="margin-top:8px"><a class="btn btn-teal" href="get-audited.html">Start with the free Preliminary</a>
+<p style="margin-top:8px"><a class="btn btn-teal" href="{FLOW_ORIGIN}/get-audited">Start with the free Preliminary</a>
  <a class="btn btn-outline" href="sample-cards.html">See a sample card</a></p>''')
 hiw_body += _sec("alt", '''<h2>What we check</h2>
 <p style="max-width:70ch">In plain terms, we check everything that decides whether an AI agent can find,
@@ -298,4 +303,15 @@ sample_body += _sec("alt", '''<h2>What you won't see here</h2>
 <p style="max-width:70ch">Samples show the grade and summary-level findings, the way a Preliminary card
 does. The full line-by-line detail of an audit is only on a firm's own Final Report Card &mdash; it's
 specific to their site and we don't publish the scoring behind it.</p>
-<p><a class="btn btn-teal" href="get-audited.html">Get your own free card</a></p>''')
+<p><a class="btn btn-teal" href="{FLOW_ORIGIN}/get-audited">Get your own free card</a></p>''')
+
+# --- resolve FLOW_ORIGIN placeholders in every body (plain quote-blocks do not interpolate) ---
+def _resolve(body):
+    return body.replace("{FLOW_ORIGIN}", FLOW_ORIGIN)
+
+home_body = _resolve(home_body)
+get_body = _resolve(get_body)
+hiw_body = _resolve(hiw_body)
+pricing_body = _resolve(pricing_body)
+faq_body = _resolve(faq_body)
+sample_body = _resolve(sample_body)
