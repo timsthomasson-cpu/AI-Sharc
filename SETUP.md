@@ -188,6 +188,76 @@ screenshots in `qa/stage3/`.
 - The PDF export uses Playwright with the system Chromium
   (`/usr/local/bin/chromium`, `--no-sandbox`).
 
+
+## Railway deploy (the app host — Stage 3)
+
+The marketing shell stays on GitHub Pages. The dynamic app (Stage 2/3
+routes, Stripe checkout, dashboard, PDF export) runs on Railway, deployed
+from this repo. Configuration lives in the repo (`Dockerfile` +
+`railway.json`, Dockerfile builder), so deploying is a one-sitting job —
+nothing below needs a terminal.
+
+### The one sitting (Tim, with Devin on the env vars)
+
+1. **Project**: railway.com → logged in as Tim → **New Project** →
+   **Deploy from GitHub repo** → pick `timsthomasson-cpu/AI-Sharc`.
+2. **Branch**: when Railway shows the service, open it → **Settings** →
+   **Source** → set the branch to `stage-3-monetize`. Railway builds the
+   repo `Dockerfile` automatically (builder is set in `railway.json`).
+3. **Database**: back on the project canvas → **+ Create** →
+   **Database** → **Add PostgreSQL**.
+4. **Env vars**: on the app service → **Variables** → add:
+   - `DATABASE_URL` — click **Connect** on the Postgres service and copy
+     its `DATABASE_URL` (keep Railway's `postgresql://` value as-is; the
+     app's SQLAlchemy config also accepts it).
+   - `BASE_URL` = `https://app.aisharc.com`
+   - `FLOW_ORIGIN` = `https://app.aisharc.com`
+   - `SECRET_KEY` — new random value:
+     `python3 -c 'import secrets; print(secrets.token_hex(32))'` (Devin can
+     run this anywhere; paste the output). Sessions are signed with it.
+   - `MAILER` = `sendgrid`, `SENDGRID_API_KEY` and `MAIL_FROM` =
+     `cards@aisharc.com` — per the SendGrid section above.
+   - `ADMIN_TOKEN` — new random value, same generator (empty = admin
+     endpoints stay closed, so set it).
+   - `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` — add now or later; empty
+     keeps checkout off (honest 503 page). See the Stripe checklist below.
+5. **Custom domain**: app service → **Settings** → **Networking** →
+   **Custom Domain** → add `app.aisharc.com`. Railway shows a CNAME target.
+6. **DNS (Tim, at the registrar, after step 5)**:
+
+   | Type | Name | Value |
+   |---|---|---|
+   | CNAME | app | <the Railway-assigned CNAME target> |
+
+   Note: this is a separate subdomain from the Pages site — the existing
+   `@` / `www` / email records above stay untouched. The domain goes live
+   when the CNAME resolves; Railway provisions the TLS certificate
+   automatically.
+
+7. **Redeploy**: Railway redeploys on every push to `stage-3-monetize`.
+   First deploy: after the vars are set, click **Deploy** (or push once).
+
+### Stripe webhook URL — configure LAST
+
+Once `https://app.aisharc.com` resolves and the deploy is green
+(`https://app.aisharc.com/healthz` returns `{"ok": true}`):
+
+- Stripe Dashboard → Developers → **Webhooks** → **Add endpoint** →
+  URL: `https://app.aisharc.com/stripe/webhook` → events:
+  `checkout.session.completed`, `invoice.paid`,
+  `customer.subscription.*` → copy the signing secret to
+  `STRIPE_WEBHOOK_SECRET` (step 4) and redeploy.
+
+(The webhook is last because Stripe verifies the endpoint URL is reachable.
+Full checklist: "Stripe setup checklist" above.)
+
+### Health check
+
+Railway's healthcheck hits `GET /healthz` (path set in `railway.json`).
+Locally: `docker build -t aisharc . && docker run -p 8000:8000 aisharc` then
+`curl localhost:8000/healthz`. PDF export uses the apt Chromium from the
+image — no Playwright browser download happens at build time.
+
 ## Later stages (so DNS can be planned once)
 - Stage 2 adds the FastAPI app (Get Audited flow). GitHub Pages can serve only static pages — when Stage 2 ships, the dynamic app needs a host (a small VPS/Fly/Railway etc.). Decision deferred; the marketing shell stays on Pages regardless.
 - Stage 3 (this branch) adds Stripe checkout + dashboard; needs `STRIPE_API_KEY`, `STRIPE_WEBHOOK_SECRET` and `ADMIN_TOKEN` env + the webhook endpoint URL (same host decision as Stage 2) — see the Stage 3 section above.

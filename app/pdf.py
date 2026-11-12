@@ -6,7 +6,10 @@ import tempfile
 
 log = logging.getLogger("aisharc.pdf")
 
-CHROMIUM = "/usr/local/bin/chromium"
+# Chromium binary: env override (Railway/containers install via apt), else
+# the local-dev default below.
+CHROMIUM = os.environ.get("PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH",
+                          "/usr/local/bin/chromium")
 
 
 def render_pdf(html, out_path):
