@@ -26,8 +26,8 @@ the machines both check first.</p>
 TRADES = [
   dict(
     slug="hvac-contractor.html",
-    title="AI Audit for HVAC Contractors in Texas — AI Sharc Report Card",
-    desc="Free AI-readiness Report Card for Texas HVAC contractors. See if AI shopping agents can find, read and trust your site — graded A–F, every finding sourced.",
+    title="AI Audit for HVAC Contractors — AI Sharc Report Card",
+    desc="Free AI-readiness Report Card for HVAC contractors. See if AI shopping agents can find, read and trust your site — graded A–F, every finding sourced.",
     trade="HVAC Contractor",
     hero_h1="When an AC dies at 9pm, will the machines recommend <span class=\"accent\">you?</span>",
     hero_lead="Homeowners increasingly ask AI assistants who to call — in Texas first. AI Sharc grades how easily AI agents can find, read and trust your HVAC website — and hands you the fixes.",
@@ -44,8 +44,8 @@ TRADES = [
     ]),
   dict(
     slug="plumber.html",
-    title="AI Audit for Plumbers in Texas — AI Sharc Report Card",
-    desc="Free AI-readiness Report Card for Texas plumbers. Find out if AI assistants can find, read and trust your website — graded A–F, every finding cited with its source.",
+    title="AI Audit for Plumbers — AI Sharc Report Card",
+    desc="Free AI-readiness Report Card for plumbers. Find out if AI assistants can find, read and trust your website — graded A–F, every finding cited with its source.",
     trade="Plumber",
     hero_h1="The burst pipe won't wait. Neither will the homeowner asking AI <span class=\"accent\">who to call.</span>",
     hero_lead="Water emergencies are the fastest decisions a homeowner makes. AI Sharc grades whether AI agents can find, read and trust your plumbing website fast enough to recommend you.",
@@ -62,8 +62,8 @@ TRADES = [
     ]),
   dict(
     slug="electrician.html",
-    title="AI Audit for Electricians in Texas — AI Sharc Report Card",
-    desc="Free AI-readiness Report Card for Texas electricians. See whether AI shopping agents can find, read and trust your site — graded A–F, every finding sourced.",
+    title="AI Audit for Electricians — AI Sharc Report Card",
+    desc="Free AI-readiness Report Card for electricians. See whether AI shopping agents can find, read and trust your site — graded A–F, every finding sourced.",
     trade="Electrician",
     hero_h1="Panel upgrades, EV chargers, whole-home rewires — do the machines know <span class=\"accent\">you do that?</span>",
     hero_lead="Electrical work runs on trust. AI Sharc grades how easily AI agents can find, read and trust your electrician website when a homeowner asks who to hire.",
@@ -80,12 +80,12 @@ TRADES = [
     ]),
   dict(
     slug="roofing-contractor.html",
-    title="AI Audit for Roofing Contractors in Texas — AI Sharc Report Card",
-    desc="Free AI-readiness Report Card for Texas roofing contractors. See if AI agents can find, read and trust your roofing website — graded A–F, every finding cited.",
+    title="AI Audit for Roofing Contractors — AI Sharc Report Card",
+    desc="Free AI-readiness Report Card for roofing contractors. See if AI agents can find, read and trust your roofing website — graded A–F, every finding cited.",
     trade="Roofing Contractor",
     hero_h1="Storm season sends homeowners to AI with one question: <span class=\"accent\">which roofer can I trust?</span>",
-    hero_lead="Roofing has no Texas state licence, so trust has to come from somewhere else. AI Sharc grades whether AI agents can find, read and trust the proof on your roofing website.",
-    why="Roofing is the biggest single hire a homeowner makes, and Texas doesn't license roofers at the state level — so an AI agent has no licence to lean on. It recommends the firm whose site proves, in readable text, that it's real: insurance, manufacturer certifications, local track record. If that proof is missing or locked in images, the machines can't tell you apart from a storm-chaser.",
+    hero_lead="Roofing has no state licence in Texas — and in most states, so trust has to come from somewhere else. AI Sharc grades whether AI agents can find, read and trust the proof on your roofing website.",
+    why="Roofing is the biggest single hire a homeowner makes, and most states (Texas included) don't license roofers at the state level — so an AI agent has no licence to lean on. It recommends the firm whose site proves, in readable text, that it's real: insurance, manufacturer certifications, local track record. If that proof is missing or locked in images, the machines can't tell you apart from a storm-chaser.",
     what_looks=[
       ("Proof instead of licence",
        "Insurance, manufacturer certifications (GAF, Owens Corning and similar) and warranties stated in text — the signals that stand in for a state licence."),
@@ -96,7 +96,7 @@ TRADES = [
       ("Material and service specifics",
        "Replacement, repair, inspection and materials named so agents match the job to you."),
     ],
-    note="Note: Texas does not licence roofing contractors at the state level, so our audit never claims licence-based checks for roofers. Your grade rests on the proof signals above — the honest stand-ins.",
+    note="Note: most states, including Texas, do not licence roofing contractors at the state level, so our audit never claims licence-based checks for roofers. Your grade rests on the proof signals above — the honest stand-ins.",
   ),
 ]
 

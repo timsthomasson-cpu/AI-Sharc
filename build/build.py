@@ -10,7 +10,7 @@ from build import content_legal as cl
 
 PAGES = [
     ("index.html", "AI Sharc — Is your store ready for the machines that shop?",
-     "Free AI-readiness Report Card for Texas home trades. AI Sharc grades how easily AI shopping agents can find, read and trust your website — and shows you the fixes.",
+     "Free AI-readiness Report Card for home-trade contractors. AI Sharc grades how easily AI shopping agents can find, read and trust your website — and shows you the fixes.",
      cp.home_body),
     ("get-audited.html", "Get Your Free AI Readiness Report Card — AI Sharc",
      "Submit your website and business email. Verify with one click and view your free Preliminary Report Card: your A–F grade, with sourced findings.",

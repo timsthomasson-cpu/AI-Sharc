@@ -56,7 +56,7 @@ home_body += _sec("", '''
   <div class="card"><span class="badge">$99 introductory</span><h3>2. Final Report Card</h3>
   <p>The full deep audit: your complete graded card, every finding with its source, and your fix list.
   Includes monitoring so you can watch the grade move.</p></div>
-  <div class="card"><span class="badge">Built for Texas home trades</span><h3>3. Fix and watch it climb</h3>
+  <div class="card"><span class="badge">Built for home trades &mdash; Texas first</span><h3>3. Fix and watch it climb</h3>
   <p>Work the fixes. Your monitoring subscription keeps checking, so you see the grade respond as your
   site becomes easier for AI agents to read and trust.</p></div>
 </div>
