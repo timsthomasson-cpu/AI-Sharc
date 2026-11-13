@@ -6,7 +6,7 @@ SHARED_CTA = ('<a class="btn btn-teal" href="get-audited.html">Get your free Rep
 
 def trade_page(slug, trade, hero_h1, hero_lead, why, what_looks, extra_html="", note=""):
     body = f'''<section class="hero"><div class="wrap">
-<p style="text-transform:uppercase;letter-spacing:0.08em;font-size:0.85rem;color:var(--teal);font-weight:500;margin:0 0 10px">Texas {trade}</p>
+<p style="text-transform:uppercase;letter-spacing:0.08em;font-size:0.85rem;color:var(--teal);font-weight:500;margin:0 0 10px">{trade}</p>
 <h1>{hero_h1}</h1>
 <p class="lead">{hero_lead}</p>
 <p>{SHARED_CTA}</p>
@@ -30,14 +30,14 @@ TRADES = [
     desc="Free AI-readiness Report Card for Texas HVAC contractors. See if AI shopping agents can find, read and trust your site — graded A–F, every finding sourced.",
     trade="HVAC Contractor",
     hero_h1="When an AC dies at 9pm, will the machines recommend <span class=\"accent\">you?</span>",
-    hero_lead="Texas homeowners increasingly ask AI assistants who to call. AI Sharc grades how easily AI agents can find, read and trust your HVAC website — and hands you the fixes.",
+    hero_lead="Homeowners increasingly ask AI assistants who to call — in Texas first. AI Sharc grades how easily AI agents can find, read and trust your HVAC website — and hands you the fixes.",
     why="HVAC is the highest-stakes emergency hire in the home. A homeowner with a dead compressor asks their AI assistant who to call — and the assistant can only name firms whose sites it can find, read and trust. If your maintenance plans, emergency service and licence are buried in images or PDFs, the machines skip you.",
     what_looks=[
       ("Emergency and service clarity in text",
        "Can a machine tell, in plain text, that you answer emergency calls and what your hours are?"),
       ("Maintenance plans as offerings",
        "Agents recommend firms with recurring-revenue plans. If your plan isn't described in text, it doesn't exist to them."),
-      ("Texas TDLR licence signals",
+      ("Your state licence signals",
        "Your TACLIC/contractor licence details stated clearly, where homeowners and machines both look."),
       ("Service area in words",
        "The towns and counties you serve, written out — not just a map graphic."),
@@ -54,7 +54,7 @@ TRADES = [
       ("24/7 and emergency language in text",
        "Is 'we answer 24/7' actually written on your site, in words a machine can read?"),
       ("Licence and master-plumber proof",
-       "Your Texas licence stated in text where trust decisions happen."),
+       "Your state licence stated in text where trust decisions happen."),
       ("Water heater, repipe and drain services named",
        "Each service named in its own words, so agents can match the job to you."),
       ("Service area in words",
@@ -71,7 +71,7 @@ TRADES = [
     what_looks=[
       ("High-ticket services in text",
        "EV charger installs, panel upgrades and generators named clearly — these are the jobs worth winning."),
-      ("Texas licence signals",
+      ("Your state licence signals",
        "Your licence details in text where agents and homeowners check for trust."),
       ("Permit and safety signals",
        "Whether your site shows the careful, permitted way you work — the trust an agent needs to recommend you."),

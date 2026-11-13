@@ -57,7 +57,7 @@ def footer():
         </ul>
       </div>
       <div>
-        <h4>Built for Texas home trades</h4>
+        <h4>Built for home trades &mdash; Texas first</h4>
         <ul>{trade_links}</ul>
       </div>
       <div>

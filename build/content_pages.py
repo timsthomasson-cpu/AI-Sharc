@@ -62,12 +62,13 @@ home_body += _sec("", '''
 </div>
 <p style="margin-top:24px"><a class="btn btn-outline" href="how-it-works.html">How the audit works</a></p>''')
 home_body += _sec("alt", '''
-<h2>Made for licensed home trades in Texas</h2>
+<h2>Made for home trades &mdash; Texas first</h2>
 <p style="max-width:70ch">We built the audit around what your customers actually check: licence,
-service area, response time and trust. Pick your trade to see what matters for your kind of business.</p>
+service area, response time and trust. We started with Texas home trades &mdash; the same audit
+works for home-trade firms anywhere in the US. Pick your trade to see what matters for your kind of business.</p>
 <div class="grid g2">
   <div class="card"><h3><a href="hvac-contractor.html">HVAC Contractor</a></h3><p>Stay-ahead maintenance
-  plans, emergency calls and Texas TDLR licence rules.</p></div>
+  plans, emergency calls and the licence rules your state checks.</p></div>
   <div class="card"><h3><a href="plumber.html">Plumber</a></h3><p>Emergency jobs, water-heater replacements
   and the licence checks homeowners run before they call.</p></div>
   <div class="card"><h3><a href="electrician.html">Electrician</a></h3><p>Panel upgrades, EV chargers and
@@ -214,8 +215,9 @@ FAQ = [
   "shopping agents &mdash; ChatGPT, Gemini, voice assistants &mdash; can find, read and trust your business "
   "website. You get the grade and a plain-English fix list. We audit; we don't touch your site."),
  ("Who is it for?",
-  "Home-services firms, starting with licensed home trades in Texas: HVAC contractors, plumbers, "
-  "electricians and roofing contractors. If homeowners hire you after finding you online, this is for you."),
+  "Home-services firms, starting with licensed home trades: HVAC contractors, plumbers, "
+  "electricians and roofing contractors. We launched in Texas and the audit works anywhere in the "
+  "US. If homeowners hire you after finding you online, this is for you."),
  ("What do AI shopping agents have to do with my business?",
   "More customers ask AI assistants for recommendations instead of searching. The assistant can only "
   "recommend businesses whose websites it can find, read and trust. If yours hides that information, the "
