@@ -261,3 +261,17 @@ image — no Playwright browser download happens at build time.
 ## Later stages (so DNS can be planned once)
 - Stage 2 adds the FastAPI app (Get Audited flow). GitHub Pages can serve only static pages — when Stage 2 ships, the dynamic app needs a host (a small VPS/Fly/Railway etc.). Decision deferred; the marketing shell stays on Pages regardless.
 - Stage 3 (this branch) adds Stripe checkout + dashboard; needs `STRIPE_API_KEY`, `STRIPE_WEBHOOK_SECRET` and `ADMIN_TOKEN` env + the webhook endpoint URL (same host decision as Stage 2) — see the Stage 3 section above.
+
+## PRODUCTION GATE — Supabase cutover BEFORE Stripe goes live (agreed 2026-11-13)
+
+The Railway/Postgres deployment is the SANDBOX. Production database = Supabase (Postgres).
+
+Order of operations (Tim + Devin + Marketing Manager):
+1. Create the Supabase project (supabase.com, GitHub login) — region close to customers (US East for Texas).
+2. Copy Supabase's connection string (Project Settings → Database → Connection string → use the **connection pooler** / "Transaction" mode URI, port 6543) and replace `DATABASE_URL` in Railway's variables → auto-redeploy.
+3. Verify: `https://app.aisharc.com/healthz` + one submit→verify→card flow (tables are auto-created on first boot).
+4. If the sandbox accumulated real sign-ups worth keeping: export via `pg_dump` from Railway Postgres, import to Supabase, BEFORE announcing anything. (Sandbox-only test rows: skip migration.)
+5. THEN Stripe: keys into Railway, webhook endpoint `https://app.aisharc.com/stripe/webhook` (checkout.session.completed, invoice.paid, customer.subscription.*), signing secret as `STRIPE_WEBHOOK_SECRET`.
+6. FLOW_ORIGIN flip + gh-pages redeploy (Marketing Manager) → launch.
+
+Do NOT put live Stripe keys in while DATABASE_URL still points at sandbox Postgres.
