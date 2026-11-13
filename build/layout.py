@@ -84,6 +84,7 @@ def page(slug, title, desc, body, og_type="website", canon=None):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
+  <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{canon}">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">

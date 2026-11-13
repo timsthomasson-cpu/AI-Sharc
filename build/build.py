@@ -71,8 +71,12 @@ def main():
     sm.append("</urlset>")
     with open(os.path.join(out_dir, "sitemap.xml"), "w") as f:
         f.write("\n".join(sm) + "\n")
+    robots_hold = os.environ.get("PRELAUNCH_HOLD", "1") == "1"
     with open(os.path.join(out_dir, "robots.txt"), "w") as f:
-        f.write("User-agent: *\nAllow: /\nSitemap: https://aisharc.com/sitemap.xml\n")
+        if robots_hold:
+            f.write("User-agent: *\nDisallow: /\n")
+        else:
+            f.write("User-agent: *\nAllow: /\nSitemap: https://aisharc.com/sitemap.xml\n")
     print(f"Wrote {len(written)} pages + sitemap.xml + robots.txt to site/:")
     print("  " + ", ".join(sorted(written)))
 
