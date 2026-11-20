@@ -1,6 +1,6 @@
 # AI Sharc audit database
 
-Migrations for the Supabase Postgres audit database (Spec v2.9 §13; Licensed Home Trade Field Mapping Rev 9).
+Migrations for the Supabase Postgres audit database (Spec v2.9 §13; Licensed Home Trade Field Mapping Rev 10).
 
 | Project | Role | Status |
 |---|---|---|
@@ -13,11 +13,11 @@ Migrations for the Supabase Postgres audit database (Spec v2.9 §13; Licensed Ho
 - `audit_summary` view — total points, passed Items, High issues, grade and eligible rank are derived here, never loaded
 - `load_audit_bundle(jsonb)` — loader entry point (service role only). Skips a file whose sha256 is already loaded, rejects a file whose checked_at does not match the filename timestamp or whose rows do not reconcile to 36 (7/21/8); one bad audit does not stop the rest.
 
-- `agent_runs`, `agent_run_firms`, `agent_observation_rows`, `observation_reason_codes` and `load_observation_bundle(jsonb)`: built in the test project on Tim's instruction, 2026-11-20. Field Mapping Rev 9 still marks `agent_runs` as "documentation only; do not build" (Spec §15 override, test project only).
+- `agent_runs`, `agent_run_firms`, `agent_observation_rows`, `observation_reason_codes` and `load_observation_bundle(jsonb)`: built in the test project on Tim's instruction, 2026-11-20. Field Mapping Rev 10 records them as built in the test project.
 
 ## Not built
 
-`queries` (still documentation only in Field Mapping Rev 9).
+`queries` (still documentation only in Field Mapping Rev 10).
 
 ## Loading a run
 
