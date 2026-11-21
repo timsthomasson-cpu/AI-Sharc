@@ -17,9 +17,9 @@ Hard rules (Design Rev 9 §2.5, Spec §4.3):
 - Category results are derived in code from the Item results, never by
   the scorer model.
 
-The API key is never handled here: the call uses the registered
-custom.meta-model-api connection via the dynamic-credentials surrogate,
-exactly as the connector helper does. No key, token, or surrogate is
+The API key comes from the META_MODEL_API_KEY environment variable when it is
+set (Railway secret); otherwise, on Muse, the call uses the registered
+custom.meta-model-api connection via the dynamic-credentials surrogate. No key, token, or surrogate is
 ever written to an output file.
 
 Pricing (official): Muse Spark standard $1.25 / 1M input tokens,
@@ -35,8 +35,7 @@ import sys
 import urllib.request
 from typing import Any, Dict, List, Optional
 
-sys.path.insert(0, "/opt/muse/skills/custom-connector-setup/bin")
-from dynamic_credentials import add_surrogate_to_request, read_json_response
+import os
 
 API_URL = "https://api.meta.ai/v1/responses"
 MODEL = "muse-spark-1.3"
@@ -117,8 +116,16 @@ def call_model_no_tools(prompt: str, timeout: int = 300) -> Dict[str, Any]:
         headers={"Content-Type": "application/json"},
         method="POST",
     )
-    add_surrogate_to_request(request, CONNECTION,
-                             allowed_hosts=ALLOWED_HOSTS)
+    key = os.environ.get("META_MODEL_API_KEY")
+    if key:
+        # Railway and other hosts: the key comes from a secret environment variable, never a file or log.
+        request.add_header("Authorization", "Bearer " + key)
+        read_json_response = lambda r: json.loads(r.read().decode("utf-8"))  # noqa: E731
+    else:
+        # Muse: the registered connection's credentials surrogate.
+        sys.path.insert(0, "/opt/muse/skills/custom-connector-setup/bin")
+        from dynamic_credentials import add_surrogate_to_request, read_json_response
+        add_surrogate_to_request(request, CONNECTION, allowed_hosts=ALLOWED_HOSTS)
 
     class NoRedirect(urllib.request.HTTPRedirectHandler):
         def redirect_request(self, *args):
