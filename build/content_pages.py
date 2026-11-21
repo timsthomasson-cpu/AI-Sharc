@@ -174,11 +174,11 @@ hiw_body += _sec("", '''<h2>Three questions, one grade</h2>
 <p style="max-width:70ch">An AI shopping agent &mdash; ChatGPT, Gemini, a voice assistant &mdash; only
 recommends businesses it can deal with. Our audit asks the same three questions it asks, in the same order:</p>
 <div class="grid g3">
-<div class="card"><h3>Can they find you?</h3><p>When someone asks an AI for your service in your area, can
+<div class="card"><img src="assets/img/find.svg" alt="" style="width:100%;max-width:200px;display:block;margin:0 auto 12px"><h3>Can they find you?</h3><p>When someone asks an AI for your service in your area, can
 the agent even tell that you exist and serve that area?</p></div>
-<div class="card"><h3>Can they read you?</h3><p>Once it lands on your site, can the machine actually read
+<div class="card"><img src="assets/img/read.svg" alt="" style="width:100%;max-width:200px;display:block;margin:0 auto 12px"><h3>Can they read you?</h3><p>Once it lands on your site, can the machine actually read
 what you do, where you do it, and how to reach you? Or is that information locked in images and forms?</p></div>
-<div class="card"><h3>Can they trust you?</h3><p>Does your site give an agent reasons to recommend you over
+<div class="card"><img src="assets/img/trust.svg" alt="" style="width:100%;max-width:200px;display:block;margin:0 auto 12px"><h3>Can they trust you?</h3><p>Does your site give an agent reasons to recommend you over
 the next firm &mdash; the proof, the specifics and the signals that separate real businesses from thin ones?</p></div>
 </div>''')
 hiw_body += _sec("alt", '''<h2>A graded report card, not a wall of tech talk</h2>

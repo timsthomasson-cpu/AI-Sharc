@@ -4,12 +4,13 @@ from build.layout import page
 SHARED_CTA = ('<a class="btn btn-teal" href="get-audited.html">Get your free Report Card</a> '
               '<a class="btn btn-ghost" href="how-it-works.html">How the audit works</a>')
 
-def trade_page(slug, trade, hero_h1, hero_lead, why, what_looks, extra_html="", note=""):
-    body = f'''<section class="hero"><div class="wrap">
-<p style="text-transform:uppercase;letter-spacing:0.08em;font-size:0.85rem;color:var(--teal);font-weight:500;margin:0 0 10px">{trade}</p>
+def trade_page(slug, trade, hero_h1, hero_lead, why, what_looks, extra_html="", note="", img="hvac"):
+    body = f'''<section class="hero"><div class="wrap" style="display:flex;gap:24px;align-items:center">
+<img src="assets/img/trade-{img}.svg" alt="" style="width:150px;flex-shrink:0">
+<div><p style="text-transform:uppercase;letter-spacing:0.08em;font-size:0.85rem;color:var(--teal);font-weight:500;margin:0 0 10px">{trade}</p>
 <h1>{hero_h1}</h1>
 <p class="lead">{hero_lead}</p>
-<p>{SHARED_CTA}</p>
+<p>{SHARED_CTA}</p></div>
 </div></section>'''
     body += f'''<section><div class="wrap"><h2>Why AI agents matter for a {trade.lower()}</h2>
 <p style="max-width:70ch">{why}</p></div></section>'''
@@ -25,7 +26,7 @@ the machines both check first.</p>
 
 TRADES = [
   dict(
-    slug="hvac-contractor.html",
+    slug="hvac-contractor.html", img="hvac",
     title="AI Audit for HVAC Contractors — AI Sharc Report Card",
     desc="Free AI-readiness Report Card for HVAC contractors. See if AI shopping agents can find, read and trust your site — graded A–F, every finding sourced.",
     trade="HVAC Contractor",
@@ -43,7 +44,7 @@ TRADES = [
        "The towns and counties you serve, written out — not just a map graphic."),
     ]),
   dict(
-    slug="plumber.html",
+    slug="plumber.html", img="plumbing",
     title="AI Audit for Plumbers — AI Sharc Report Card",
     desc="Free AI-readiness Report Card for plumbers. Find out if AI assistants can find, read and trust your website — graded A–F, every finding cited with its source.",
     trade="Plumber",
@@ -61,7 +62,7 @@ TRADES = [
        "Towns and ZIP-level areas listed as text, not locked in a map image."),
     ]),
   dict(
-    slug="electrician.html",
+    slug="electrician.html", img="electrical",
     title="AI Audit for Electricians — AI Sharc Report Card",
     desc="Free AI-readiness Report Card for electricians. See whether AI shopping agents can find, read and trust your site — graded A–F, every finding sourced.",
     trade="Electrician",
@@ -79,7 +80,7 @@ TRADES = [
        "The towns you serve, written in text a machine can quote."),
     ]),
   dict(
-    slug="roofing-contractor.html",
+    slug="roofing-contractor.html", img="roofing",
     title="AI Audit for Roofing Contractors — AI Sharc Report Card",
     desc="Free AI-readiness Report Card for roofing contractors. See if AI agents can find, read and trust your roofing website — graded A–F, every finding cited.",
     trade="Roofing Contractor",

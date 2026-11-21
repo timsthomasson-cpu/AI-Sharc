@@ -7,6 +7,7 @@ from build.layout import page
 from build import content_pages as cp
 from build import content_trade as ct
 from build import content_legal as cl
+from build import content_digest as cd
 
 PAGES = [
     ("index.html", "AI Sharc — Is your store ready for the machines that shop?",
@@ -33,6 +34,9 @@ PAGES = [
     ("terms.html", "Terms of Service — AI Sharc",
      "Terms for the AI Sharc audit service: what the audit is and isn't, payments, cancellation, sourced findings and our no-guarantee rule.",
      cl.terms_body),
+    ("digest/index.html", "The Digest — How AI Shopping Agents Are Changing Home Trades | AI Sharc",
+     "Plain-English articles on how AI assistants find, read and trust home-trade businesses — and what to do about it. One a week, sourced.",
+     cd.DIGEST_INDEX_INTRO + cd.digest_index_body()),
     ("contact.html", "Contact & About — AI Sharc, Coppell TX",
      "About AI Sharc and how to reach us: PO Box 1622, Coppell, TX 75019. The AI Shopping Health Audit Report Card for home trades.",
      cl.contact_body),
@@ -57,6 +61,10 @@ def main():
         with open(os.path.join(out_dir, t["slug"]), "w") as f:
             f.write(page(t["slug"], t["title"], t["desc"], body))
         written.append(t["slug"])
+    for a in cd.ARTICLES:
+        with open(os.path.join(out_dir, "digest", a["slug"]), "w") as f:
+            f.write(page("digest/" + a["slug"], a["title"] + " — AI Sharc", a["desc"], a["body"]))
+        written.append("digest/" + a["slug"])
     # sitemap
     urls = []
     for slug, title, desc, body in PAGES:
@@ -64,6 +72,9 @@ def main():
         urls.append(loc)
     for t in ct.TRADES:
         urls.append(f"https://aisharc.com/{t['slug']}")
+    urls.append("https://aisharc.com/digest/index.html")
+    for a in cd.ARTICLES:
+        urls.append(f"https://aisharc.com/digest/{a['slug']}")
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for loc in urls:
