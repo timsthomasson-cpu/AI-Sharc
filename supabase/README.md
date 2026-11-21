@@ -2,7 +2,7 @@
 
 Migrations for the Supabase Postgres audit database (Spec v2.9 §13; Licensed Home Trade Field Mapping Rev 13).
 
-Note (2026-11-21): the migration files here cover the 2026-11-20 build. The test database has since had two more migrations (central_firm_list_rev11, firms_verification_status), a firm_review_queue table and the reference schema (Field Mapping Rev 11–13). They are not in this folder yet.
+Note (2026-11-21): `20261121120000_central_firm_list.sql` records the firm-list changes applied to the test database that day (Field Mapping Rev 11–13), and `20261121150000_loaders_spec_v2_12.sql` updates both load functions to Spec v2.12 §13 (verification status; agent mentions linked by a person's match or the ladder, name-only matches queued, unmatched mentions added as agent-named firms). Both are applied to the test database only.
 
 | Project | Role | Status |
 |---|---|---|

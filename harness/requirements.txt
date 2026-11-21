@@ -1,0 +1,15 @@
+# AI Sharc audit harness — core runtime (what the audit worker needs to run audits).
+# Python 3.12.3.
+# Browser: Chromium 159.0.8154.6, installed via `playwright install chromium`
+# (plus OS dependencies via `playwright install-deps chromium`).
+# Everything else the core audit uses is Python stdlib (sqlite3, json, xml, urllib).
+#
+# Not in this file (same folder, only used by the study/analysis scripts):
+#   openpyxl==3.1.2, scipy==1.11.4, numpy==1.26.4, pandas==2.1.4
+# And the card/spec tooling lives in a separate venv (~/workspace/tools/wp-venv):
+#   weasyprint==70.0, python-docx==1.2.0
+playwright==1.65.2
+requests==2.31.0
+
+# Orchestrator (database access from Railway):
+psycopg[binary]==3.2.3
