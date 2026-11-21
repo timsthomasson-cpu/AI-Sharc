@@ -1,6 +1,7 @@
 # AI Sharc — What we need from Shopping Agents
 
-**Date:** 2026-11-19 — Rev 7 (Spec v2.9)
+**Date:** 2026-11-21 — Rev 8 (Spec v2.10)
+**Rev 8 (2026-11-21) (Spec v2.10):** §2 task text now names the service area — "Find a [service] firm whose service area includes [town], TX [ZIP] for …" — instead of the town, so the comparison covers the firms that serve the ZIP, not only the firms located in it (wording decided by Tim 2026-11-21). No shopping query has been run with this wording yet (as of 2026-11-21). No other change.
 **Rev 7 (2026-11-19) (Spec v2.9):** §3.2 first two bullets aligned with Specification §4.3 rule 2 — a result that cannot be tied to a source is Not accessible, not Missing; Missing requires citing the page where the fact should appear. Accompanies Field Mapping for Shopping Agents Rev 4 (2026-11-19). No other change.
 **Rev 6 (2026-11-19) (Spec v2.8):** §3.2 contradiction fixed — the two bullets that told directed-audit agents to record Not observed now use Missing / Not completed; Not observed stays for shopping-query observations only (§3.1). Accompanies Field Mapping for Shopping Agents Rev 4 (2026-11-19). No other change.
 **From:** AI Sharc (aisharc.com)
@@ -20,11 +21,17 @@ We ask you to run the shopping query: three standard shopping tasks, as a fresh 
 
 | # | Task | Form |
 |---|---|---|
-| 1 | Combined | "Find a [service] firm in [town], TX [ZIP] for [service need] installation and repair and compare the firms you find." |
-| 2 | Repair only | "Find a [service] firm in [town], TX [ZIP] for [service need] repair and compare the firms you find." |
-| 3 | Installation / replacement only | "Find a [service] firm in [town], TX [ZIP] for [service need] installation and replacement and compare the firms you find." |
+| 1 | Combined | "Find a [service] firm whose service area includes [town], TX [ZIP] for [service need] installation and repair and compare the firms you find." |
+| 2 | Repair only | "Find a [service] firm whose service area includes [town], TX [ZIP] for [service need] repair and compare the firms you find." |
+| 3 | Installation / replacement only | "Find a [service] firm whose service area includes [town], TX [ZIP] for [service need] installation and replacement and compare the firms you find." |
 
-Example (HVAC, Coppell, TX 75019, AC): Task 1 — "Find an HVAC firm in Coppell, TX 75019 for AC installation and repair and compare the firms you find."
+Example (HVAC, Houston, TX 77002, AC):
+
+- Task 1 — combined (installation and repair): "Find an HVAC firm whose service area includes Houston, TX 77002 for AC installation and repair and compare the firms you find."
+- Task 2 — repair: "Find an HVAC firm whose service area includes Houston, TX 77002 for AC repair and compare the firms you find."
+- Task 3 — installation and replacement: "Find an HVAC firm whose service area includes Houston, TX 77002 for AC installation and replacement and compare the firms you find."
+
+No shopping query has been run with this wording yet (as of 2026-11-21). Runs made before Rev 8 used the earlier wording ("Find an HVAC firm in [town], TX [ZIP] for …") and keep it.
 
 For the shopping query:
 
