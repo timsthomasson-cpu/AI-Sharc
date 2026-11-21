@@ -10,9 +10,9 @@
 
 | Document | Live revision | Role | Audience | File in this Project |
 |---|---|---|---|---|
-| AI Sharc Audit Specification | v2.10 (2026-11-21) | Canonical governing document; wins every conflict | Internal only | audit-specification-v2.10.md |
-| Definition of Terms | Rev 8.3 (2026-11-19) | Governing (words only) | Internal | definition-of-terms-rev8.3.md (text copy of .xlsx) |
-| Licensed Home Trade Field Mapping (internal) | Rev 11 (2026-11-21) | Governing; holds the Database fields sheet | Internal | licensed-home-trade-field-mapping-rev11.md (text copy of .xlsx) |
+| AI Sharc Audit Specification | v2.11 (2026-11-21) | Canonical governing document; wins every conflict | Internal only | audit-specification-v2.11.md |
+| Definition of Terms | Rev 8.4 (2026-11-21) | Governing (words only) | Internal | definition-of-terms-rev8.4.md (text copy of .xlsx) |
+| Licensed Home Trade Field Mapping (internal) | Rev 12 (2026-11-21) | Governing; holds the Database fields sheet | Internal | licensed-home-trade-field-mapping-rev12.md (text copy of .xlsx) |
 | Overview for Shopping Agents | Rev 8 (2026-11-21) | Governing | Agent-facing | overview-for-shopping-agents-rev8.md |
 | Field Mapping for Shopping Agents | Rev 4 (2026-11-19) | Governing (the audit rubric) | Agent-facing | field-mapping-for-shopping-agents-rev4.md (text copy of .xlsx) |
 | Shopping Query Return Template | Rev 8 (2026-11-21) | Governing (return format) | Agent-facing | shopping-query-return-template-rev8.md (text copy of .xlsx) |
@@ -35,6 +35,7 @@ Superseded and not live: How the AI Sharc audit is performed (Rev 4, 2026-11-11)
 | 2026-11-20 | Licensed Home Trade Field Mapping Rev 10: Database fields sheet brought into step with the database built in the test database (Test AI Sharc Orchestrator) — firms.firm_id; audits loader columns and the four website-access columns; delivery_checks gap closed; agent_runs, agent_run_firms, agent_observation_rows and observation_reason_codes built (test database only) with their added columns; match status is a join; session_state values; Read Me A4 to Spec v2.9. No scoring change. | Tim |
 | 2026-11-20 | Shopping Agent Observation Design Rev 17: §9.4 aligned with Field Mapping Rev 10 and the database as built (observation tables built in the test database, not yet in East; added columns; session_state values; match status is a join; duplicate workbooks skipped by file hash). | Tim |
 | 2026-11-21 | Spec v2.10: §3 shopping-query task text names the service area ("Find an HVAC firm whose service area includes [town], TX [ZIP] for …"), three tasks listed; §13 new subsection "Firm list and firm matching" (central firm list, verified base, matching ladder, review queue, merge and load rules, firm name not unique). Field Mapping Rev 11: firms becomes the central firm list (28 columns added, name no longer unique, slug rule, db_firm_id), firm_review_queue table, ladder replaces the exact-name join for agent mentions. Overview Rev 8 and Return Template Rev 8: new task wording, with the note that no shopping query has been run with it yet. No scoring change. | Tim |
+| 2026-11-21 | Verified firm defined: a Meta place ID or an own website, either one is enough (Tim). Spec v2.11 (§13 rule; verification status per firm; an agent-named firm with neither is unverified), Definition of Terms Rev 8.4 (Verified firm, Unverified firm), Field Mapping Rev 12 (firms.verification_status; UNIQUE licence_type + licence_number). No scoring change. | Tim |
 
 ## Open items
 
