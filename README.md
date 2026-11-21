@@ -5,6 +5,6 @@ find, read, and trust a home-services firm's website, and issues a graded
 Report Card with exact fixes.
 
 - Governing documents: see governing/ — 00-registry.md lists the live revision of each
-  (Audit Specification v2.11, internal, not published). Originals (.xlsx, .docx, .pdf) are in governing/originals/.
+  (Audit Specification v2.12, internal, not published). Originals (.xlsx, .docx, .pdf) are in governing/originals/.
 - Website requirements: see docs/ (v1.0 locked)
 - Launch: Texas HVAC
