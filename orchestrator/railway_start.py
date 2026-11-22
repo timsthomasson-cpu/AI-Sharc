@@ -94,5 +94,8 @@ def run(query_id):
 
 
 if __name__ == "__main__":
+    task = os.environ.get("RUN_TASK", "").strip()
+    if task == "google_places_check":
+        sys.exit(subprocess.call([sys.executable, os.path.join(HERE, "google_places_check.py")], cwd=HERE))
     qid = os.environ.get("RUN_QUERY_ID", "").strip()
     sys.exit(run(qid) if qid else self_check())
