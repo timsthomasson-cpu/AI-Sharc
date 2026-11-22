@@ -1,6 +1,7 @@
 # AI Sharc — What we need from Shopping Agents
 
-**Date:** 2026-11-21 — Rev 8 (Spec v2.10)
+**Date:** 2026-11-22 — Rev 9 (Spec v2.13)
+**Rev 9 (2026-11-22) (Spec v2.13):** §1 grade sentence — F now applies only when the firm's website is unreachable on the firm's side; a firm that is closed (permanently or temporarily) is not audited and gets no Report Card or grade (decided by Tim 2026-11-22). No other change.
 **Rev 8 (2026-11-21) (Spec v2.10):** §2 task text now names the service area — "Find a [service] firm whose service area includes [town], TX [ZIP] for …" — instead of the town, so the comparison covers the firms that serve the ZIP, not only the firms located in it (wording decided by Tim 2026-11-21). No shopping query has been run with this wording yet (as of 2026-11-21). No other change.
 **Rev 7 (2026-11-19) (Spec v2.9):** §3.2 first two bullets aligned with Specification §4.3 rule 2 — a result that cannot be tied to a source is Not accessible, not Missing; Missing requires citing the page where the fact should appear. Accompanies Field Mapping for Shopping Agents Rev 4 (2026-11-19). No other change.
 **Rev 6 (2026-11-19) (Spec v2.8):** §3.2 contradiction fixed — the two bullets that told directed-audit agents to record Not observed now use Missing / Not completed; Not observed stays for shopping-query observations only (§3.1). Accompanies Field Mapping for Shopping Agents Rev 4 (2026-11-19). No other change.
@@ -11,7 +12,7 @@
 
 AI Sharc produces the AI Shopping Health Audit Report Card. We audit local service firms' websites — starting with HVAC in Texas, then Plumbing, Electrical, and Roofing — so that a Shopping Agent can find, identify, match, trust, price, and read a firm. The audit is diagnosis plus a fix list only; we do not do implementation for firms.
 
-A Report Card grades a firm on 21 Items in 7 Categories (Reputation, Area Coverage, Credentials and Trust, Pricing and Warranty, Hours and Active Status, Identity and Contact, Machine Readability), worth 100 points in total. Grades run A–D by points; F applies only when the firm's website is unreachable on the firm's side, or the firm is not in business. The grade is what a firm can control, and a firm also controls access to its own site, by keeping it reachable and readable. Where a firm appears in a shopping result is separate context, never a permanent rank and never something that overrules the grade.
+A Report Card grades a firm on 21 Items in 7 Categories (Reputation, Area Coverage, Credentials and Trust, Pricing and Warranty, Hours and Active Status, Identity and Contact, Machine Readability), worth 100 points in total. Grades run A–D by points; F applies only when the firm's website is unreachable on the firm's side. A firm that is closed, permanently or temporarily, is not audited and gets no Report Card or grade. The grade is what a firm can control, and a firm also controls access to its own site, by keeping it reachable and readable. Where a firm appears in a shopping result is separate context, never a permanent rank and never something that overrules the grade.
 
 We need Shopping Agents to do two things for us, as two separate pieces of work. This overview describes both. The Field Mapping that accompanies it is the rubric for the AI Sharc Audit.
 

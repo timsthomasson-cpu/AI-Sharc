@@ -6,15 +6,15 @@
 
 **Formats.** Markdown documents here are the masters. Spreadsheets are stored here as text copies for reading and search; the .xlsx file is the controlling original. Word and PDF versions are produced from the masters when needed. Original files (.xlsx, .docx, .pdf) are kept in the AI-Sharc GitHub repository (timsthomasson-cpu/ai-sharc) under governing/originals/, alongside these Markdown masters under governing/. Copies of the live files are kept in the Google Drive folder AI Sharc → Governing documents — live (superseded files in its Archive folder). Supabase Storage will hold copies once the database is built.
 
-## Live revisions (as of 2026-11-21)
+## Live revisions (as of 2026-11-22)
 
 | Document | Live revision | Role | Audience | File in this Project |
 |---|---|---|---|---|
-| AI Sharc Audit Specification | v2.12 (2026-11-21) | Canonical governing document; wins every conflict | Internal only | audit-specification-v2.12.md |
-| Definition of Terms | Rev 8.4 (2026-11-21) | Governing (words only) | Internal | definition-of-terms-rev8.4.md (text copy of .xlsx) |
-| Licensed Home Trade Field Mapping (internal) | Rev 13 (2026-11-21) | Governing; holds the Database fields sheet | Internal | licensed-home-trade-field-mapping-rev13.md (text copy of .xlsx) |
-| Overview for Shopping Agents | Rev 8 (2026-11-21) | Governing | Agent-facing | overview-for-shopping-agents-rev8.md |
-| Field Mapping for Shopping Agents | Rev 4 (2026-11-19) | Governing (the audit rubric) | Agent-facing | field-mapping-for-shopping-agents-rev4.md (text copy of .xlsx) |
+| AI Sharc Audit Specification | v2.13 (2026-11-22) | Canonical governing document; wins every conflict | Internal only | audit-specification-v2.13.md |
+| Definition of Terms | Rev 8.5 (2026-11-22) | Governing (words only) | Internal | definition-of-terms-rev8.5.md (text copy of .xlsx) |
+| Licensed Home Trade Field Mapping (internal) | Rev 14 (2026-11-22) | Governing; holds the Database fields sheet | Internal | licensed-home-trade-field-mapping-rev14.md (text copy of .xlsx) |
+| Overview for Shopping Agents | Rev 9 (2026-11-22) | Governing | Agent-facing | overview-for-shopping-agents-rev9.md |
+| Field Mapping for Shopping Agents | Rev 5 (2026-11-22) | Governing (the audit rubric) | Agent-facing | field-mapping-for-shopping-agents-rev5.md (text copy of .xlsx) |
 | Shopping Query Return Template | Rev 8 (2026-11-21) | Governing (return format) | Agent-facing | shopping-query-return-template-rev8.md (text copy of .xlsx) |
 | Template 1 Crosswalk | Rev 1 (adopted 2026-10-30) | Governing (trade categories and licences) | Internal | template-1-crosswalk-rev1.md |
 | Buying Pattern Trade Groups | Rev 1 (2026-11-05) | Reference | Internal | buying-pattern-trade-groups-rev1.md (text copy of .xlsx) |
@@ -38,8 +38,10 @@ Superseded and not live: How the AI Sharc audit is performed (Rev 4, 2026-11-11)
 | 2026-11-21 | Verified firm defined: a Meta place ID or an own website, either one is enough (Tim). Spec v2.11 (§13 rule; verification status per firm; an agent-named firm with neither is unverified), Definition of Terms Rev 8.4 (Verified firm, Unverified firm), Field Mapping Rev 12 (firms.verification_status; UNIQUE licence_type + licence_number). No scoring change. | Tim |
 | 2026-11-21 | Licence reference list: Spec v2.12 (§13 — current TDLR A/C Contractor licences kept in the test database separately from the central firm list; for finding firms and licences, never for grading; name matches kept as leads) and Field Mapping Rev 13 (reference.tdlr_ac_contractors, reference.tdlr_name_matches). No scoring change. | Tim |
 | 2026-11-21 | Change process: approved files now also go to the Google Drive folder AI Sharc → Governing documents — live, with superseded files moved to its Archive folder (Tim). | Tim |
+| 2026-11-22 | Closed firms and Google Places (Tim). Spec v2.13: a permanently or temporarily closed firm is not audited — no Report Card, grade or rank — and stays in the firm list with its firm status; closed firms' status re-checked (temporarily closed every 30 days, permanently closed every 6 months, all before a query covering their town); F now means only an unreachable website (replaces the 2026-11-15 rule). Google Business Profile read through the Google Places API, storing only the place ID, the result and the date; G6 service area checked on another source, else Not confirmed; a Google place ID verifies a firm and joins rung 1 of the ladder; how a Google place ID is found; closure conflicts go to the review queue. Field Mapping Rev 14 (firms.google_place_id, firm_status values, review-queue reasons), Definition of Terms Rev 8.5 (Closed firm, Firm status, Google place ID), Overview Rev 9 and Field Mapping for Shopping Agents Rev 5 (closed firms not audited). No Item, Category, points or grade-band change. | Tim |
 
 ## Open items
 
 1. Shopping Agent Observation Design Rev 17 §2.2 still shows the earlier task wording ("Find a [service] firm in [town], TX [ZIP] for …"). It needs the Spec v2.10 §3 wording in its next revision.
 2. The Field Mapping .xlsx original for Rev 10 was never produced; the Rev 11 .xlsx was rebuilt from the Rev 9 .xlsx with the Rev 10 and Rev 11 changes applied.
+3. Shopping Agent Observation Design Rev 17 §1 (Gate disposition table), §2 and §9.1 field 10 still say a firm not in business is F. Under Spec v2.13 a closed firm is not audited; the next revision needs that wording.
