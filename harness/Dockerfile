@@ -5,7 +5,8 @@ ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 PLAYWRIGHT_BROWSERS_PATH=/ms-playwrigh
 WORKDIR /app
 
 COPY harness/requirements.txt /app/harness/requirements.txt
-RUN pip install -r /app/harness/requirements.txt \
+RUN apt-get update && apt-get install -y --no-install-recommends libatomic1 && rm -rf /var/lib/apt/lists/* \
+ && pip install -r /app/harness/requirements.txt \
  && python -m playwright install --with-deps chromium
 
 COPY harness /app/harness
