@@ -94,3 +94,23 @@ def test_dry_run_rejects_wrong_row_count(tmp_path):
     _audit_file(str(tmp_path), rows=35)
     out = _dry_run(str(tmp_path))
     assert "expected 36 (7/21/8)" in out
+
+
+class StatusCursor:
+    def __init__(self, status):
+        self.status, self.calls = status, []
+
+    def execute(self, sql, params):
+        self.calls.append(sql.split()[0])
+
+    def fetchone(self):
+        return (self.status,)
+
+
+def test_record_closed_sets_status_or_queues():
+    import load_results as LR
+    c = [{"firm_id": "x", "firm_status": "permanently closed", "source": "Meta place listing", "checked_at": "2026-11-22"}]
+    cur = StatusCursor(None)
+    assert LR.record_closed(cur, c) == (1, 0) and cur.calls[-1] == "update"
+    cur = StatusCursor("in business")
+    assert LR.record_closed(cur, c) == (0, 1) and cur.calls[-1] == "insert"

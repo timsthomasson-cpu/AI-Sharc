@@ -698,46 +698,17 @@ def _bbb_slug_name(slug: str) -> str:
 
 
 def web_search(query: str) -> str:
-    """Public web search via the web-search CLI. Returns the raw result
-    text (search-result page), or "" when the search fails. This is the
-    same route the Yelp and Birdeye readers use to find profile URLs."""
-    try:
-        out = subprocess.run(
-            ["/opt/hatch/bin/web-search", "-q", query],
-            capture_output=True, text=True, timeout=120)
-    except (subprocess.SubprocessError, OSError):
-        return ""
-    if out.returncode != 0:
-        return ""
-    try:
-        data = json.loads(out.stdout)
-        return _strip_line_numbers(data.get("content", "") or "")
-    except ValueError:
-        return _strip_line_numbers(out.stdout or "")
+    """Public web search (Brave on Railway, the Muse CLI on Muse; see search.py).
+    Returns the result text, or "" when the search fails."""
+    from aisharc_harness.evidence import search
+    return _strip_line_numbers(search.search_text(query))
 
 
 def web_search_top(query: str) -> List[Dict[str, str]]:
-    """Public web search via the web-search CLI, returning the top
-    results as {title, url, excerpt} dicts. Returns [] when the search
-    fails. The `top` array carries the result URLs; the `content` text
-    does not."""
-    try:
-        out = subprocess.run(
-            ["/opt/hatch/bin/web-search", "-q", query],
-            capture_output=True, text=True, timeout=120)
-    except (subprocess.SubprocessError, OSError):
-        return []
-    if out.returncode != 0:
-        return []
-    try:
-        data = json.loads(out.stdout)
-    except ValueError:
-        return []
-    top = data.get("top") or []
-    return [{"title": str(r.get("title") or ""),
-             "url": str(r.get("url") or ""),
-             "excerpt": str(r.get("excerpt") or "")}
-            for r in top if isinstance(r, dict)]
+    """Public web search returning the top results as {title, url, excerpt}
+    dicts; [] when the search fails (see search.py)."""
+    from aisharc_harness.evidence import search
+    return search.search_top(query)
 
 
 _BBB_PROFILE_RE = re.compile(

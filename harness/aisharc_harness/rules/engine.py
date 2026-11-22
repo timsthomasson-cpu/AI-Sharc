@@ -1276,14 +1276,12 @@ def _minimum_condition(website: Dict[str, Any]) -> tuple:
     Inability to Access Website Reason code, e.g. DEAD / PROXY-REFUSED /
     BLOCKED, or ""), readable (bool — some method produced text),
     has_website (bool), closed_permanently (bool), closed_flag (str).
-    A firm with no website at all is F; a permanently-closed firm is F
-    ("not in business"). A temporarily-closed firm is NOT F (Spec s.5:
-    only closed / permanently closed is an F condition).
+    A firm with no website at all is F. A closed firm (permanently or
+    temporarily) is not audited at all since Spec v2.13 s.5 — the runner
+    skips it before scoring — so closure is never an F reason here.
     """
     if not website.get("has_website", True):
         return "F", "NO-WEBSITE"
-    if website.get("closed_permanently"):
-        return "F", "NOT-IN-BUSINESS"
     if website.get("unreadable"):
         reason = website.get("reason") or ""
         if reason in FIRM_SIDE_REASONS:

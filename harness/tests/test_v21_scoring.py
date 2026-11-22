@@ -286,14 +286,15 @@ class TestMinimumCondition(unittest.TestCase):
         self.assertEqual(r.grade, "F")
         self.assertEqual(r.f_reason, "NO-WEBSITE")
 
-    def test_permanently_closed_is_F(self):
+    def test_closed_is_never_an_F_reason(self):
+        # Spec v2.13 s.5: a closed firm is not audited (the runner skips it);
+        # closure is no longer an F reason in the engine.
         ev = self._website_ev(unreadable=False, reason="", readable=True,
                               has_website=True, closed_permanently=True,
                               closed_flag="permanently closed (Meta listing)")
         r = score_audit("Example", "AC installation and repair",
                         "Coppell, TX 75019", "2026-11-17", ev, DEFS)
-        self.assertEqual(r.grade, "F")
-        self.assertEqual(r.f_reason, "NOT-IN-BUSINESS")
+        self.assertNotEqual(r.f_reason, "NOT-IN-BUSINESS")
 
     def test_temporarily_closed_is_not_F(self):
         ev = self._website_ev(unreadable=False, reason="", readable=True,

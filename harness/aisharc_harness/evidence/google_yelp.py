@@ -115,21 +115,10 @@ def _strip_line_numbers(text: str) -> str:
 
 
 def web_search(query: str) -> str:
-    """Public web search via the web-search CLI. Returns the raw result
-    text (search-result page), or "" when the search fails."""
-    try:
-        out = subprocess.run(
-            [WEB_SEARCH, "-q", query], capture_output=True, text=True,
-            timeout=SUBPROCESS_TIMEOUT_S)
-    except (subprocess.SubprocessError, OSError):
-        return ""
-    if out.returncode != 0:
-        return ""
-    try:
-        data = json.loads(out.stdout)
-        return _strip_line_numbers(data.get("content", "") or "")
-    except ValueError:
-        return _strip_line_numbers(out.stdout or "")
+    """Public web search (Brave on Railway, the Muse CLI on Muse; see search.py).
+    Returns the result text, or "" when the search fails."""
+    from aisharc_harness.evidence import search
+    return _strip_line_numbers(search.search_text(query))
 
 
 def browser_open(url: str) -> str:

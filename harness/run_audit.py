@@ -1345,8 +1345,8 @@ def build_evidence(firm: dict, disc: dict, run_date: str) -> tuple:
         names["meta"] = listing_name
     if yelp.get("accessible") and yelp.get("name"):
         names["yelp"] = yelp["name"]
-    # Closed flag (Spec s.5 F condition: closed / permanently closed).
-    # Temporarily closed is NOT an F condition.
+    # Closed flag. Since Spec v2.13 a closed firm is not audited: run_all
+    # skips it before this point (closure_check). Kept for the record.
     closed_flag = None
     closed_permanently = False
     if listing:
@@ -1923,6 +1923,28 @@ def validate(defs: Definitions) -> bool:
 # ---------------------------------------------------------------------------
 
 
+def closure_check(firm: dict) -> dict | None:
+    """Spec v2.13 s.5: a closed firm is not audited. Reads the firm's
+    listing (status check only) before any audit work. Returns
+    {"firm_status", "source", "checked_at"} when the listing shows the firm
+    permanently or temporarily closed, else None (open, or no readable
+    listing — an unreadable listing never marks a firm closed)."""
+    notes: list = []
+    listing = fetch_listing(firm.get("meta_place_id") or firm.get("place_id"),
+                            notes)
+    if not listing:
+        return None
+    if listing.get("is_permanently_closed"):
+        status = "permanently closed"
+    elif listing.get("is_temporarily_closed"):
+        status = "temporarily closed"
+    else:
+        return None
+    return {"firm_id": firm["firm_id"], "name": firm.get("name"),
+            "firm_status": status, "source": "Meta place listing",
+            "checked_at": RUN_DATE}
+
+
 def run_all(firm_ids: list | None = None, resume: bool = False,
             out_root_override: str | None = None,
             firms_file: str = "firms.json",
@@ -1956,8 +1978,16 @@ def run_all(firm_ids: list | None = None, resume: bool = False,
     os.makedirs(out_root, exist_ok=True)
 
     summaries = []
+    closed = []
     for firm in firms:
         fid = firm["firm_id"]
+        status = closure_check(firm)
+        if status:
+            # Not audited: no files, no grade, not ranked (Spec v2.13 s.5).
+            print("== %s (%s) == not audited: %s (%s)"
+                  % (firm["name"], fid, status["firm_status"], status["source"]))
+            closed.append(status)
+            continue
         existing = find_output_file(os.path.join(out_root, fid), "summary")
         if resume and existing and os.path.exists(existing):
             try:
@@ -2046,9 +2076,13 @@ def run_all(firm_ids: list | None = None, resume: bool = False,
         with open(path, "w", encoding="utf-8") as fh:
             json.dump(s, fh, indent=2, sort_keys=False)
 
+    # Closed firms are recorded for the firm list (firm_status), never audited.
+    with open(os.path.join(out_root, "closed-firms.json"), "w",
+              encoding="utf-8") as fh:
+        json.dump({"spec": "v2.13 s.5", "closed": closed}, fh, indent=2)
     report = write_run_report(out_root, summaries, eligible)
     return {"out_root": out_root, "summaries": summaries,
-            "eligible": eligible, "report": report}
+            "eligible": eligible, "closed": closed, "report": report}
 
 
 def write_run_report(out_root: str, summaries: list, eligible: list) -> str:
