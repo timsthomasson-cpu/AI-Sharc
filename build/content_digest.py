@@ -1,6 +1,14 @@
 # AI Sharc — The Digest: article content. Each article: (slug, title, desc, hero_kicker, body_html).
 # Sources verified 2026-11-13 via live search; every stat carries its source + year inline.
 # §12-safe: no scoring detail, no item lists, no gate names.
+import os
+
+# Flow host (Railway): the dynamic subscribe flow lives here; Pages serves the shell.
+FLOW_ORIGIN = os.environ.get("FLOW_ORIGIN", "https://aisharc.com")
+
+SUBSCRIBE_LINK = (f'<p class="note">Get The Digest by email &mdash; one sourced article a week. '
+                  f'<a href="{FLOW_ORIGIN}/digest/index.html#subscribe">Subscribe here</a>.</p>')
+
 
 def _a(kicker, title, lede, sections, cta=True):
     body = f'''<section class="hero"><div class="wrap">
@@ -12,7 +20,9 @@ def _a(kicker, title, lede, sections, cta=True):
         body += f'<section><div class="wrap"><h2>{h}</h2><p style="max-width:70ch">{p}</p></div></section>'
     if cta:
         body += ('<section class="alt"><div class="wrap"><p style="max-width:70ch">'
-                 '<a class="btn btn-teal" href="{FLOW_ORIGIN}/get-audited">See where your site stands &mdash; free</a></p></div></section>')
+                 f'<a class="btn btn-teal" href="{FLOW_ORIGIN}/get-audited">See where your site stands &mdash; free</a></p></div></section>')
+    # One-line subscribe link in every article footer.
+    body += f'<section><div class="wrap">{SUBSCRIBE_LINK}</div></section>'
     return body
 
 ARTICLES = [
@@ -87,10 +97,27 @@ DIGEST_INDEX_INTRO = ('<section class="hero"><div class="wrap" style="display:fl
   '</div></section>')
 
 
+def digest_subscribe_form():
+    """Double opt-in subscribe form: email + honeypot, plain POST, no JS.
+    The honeypot matches the get-audited form (hidden checkbox, class hp)."""
+    return f'''<section class="alt" id="subscribe"><div class="wrap">
+<h2>Get The Digest by email</h2>
+<p style="max-width:70ch">One article a week, every one sourced. No spam &mdash; unsubscribe with one click, any time.</p>
+<form action="{FLOW_ORIGIN}/digest/subscribe" method="post" style="max-width:460px">
+  <label for="digest-email">Your email</label>
+  <input type="email" id="digest-email" name="email" required placeholder="you@yourbusiness.com">
+  <p style="margin:8px 0"><label style="font-weight:400"><input type="checkbox" name="hp" class="hp" tabindex="-1" autocomplete="off"> Leave this box unchecked</label></p>
+  <p><button class="btn btn-teal" type="submit">Subscribe to The Digest</button></p>
+</form>
+<p class="note">Double opt-in: we email you a confirmation link first &mdash; you're subscribed only after you click it.</p>
+</div></section>'''
+
+
 def digest_index_body():
     cards = ""
     for a in ARTICLES:
         cards += (f'<div class="card"><h3><a href="{a["slug"]}">{a["title"]}</a></h3>'
                   f'<p>{a["desc"]}</p></div>')
     return ('<section><div class="wrap"><div class="grid g2">' + cards + '</div>'
-            '<p style="margin-top:16px"><a class="btn btn-teal" href="{FLOW_ORIGIN}/get-audited">Get your free Report Card</a></p></div></section>')
+            f'<p style="margin-top:16px"><a class="btn btn-teal" href="{FLOW_ORIGIN}/get-audited">Get your free Report Card</a></p></div></section>'
+            + digest_subscribe_form())

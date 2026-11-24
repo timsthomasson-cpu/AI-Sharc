@@ -2,7 +2,6 @@
 # the admin weekly-send endpoint. No JavaScript: plain POST forms, SSR pages
 # through the same shell as the rest of the app.
 import datetime as dt
-import logging
 
 from fastapi import APIRouter, Depends, Form, Request
 from fastapi.responses import HTMLResponse
@@ -16,8 +15,6 @@ from app.models import DigestSubscriber, FunnelEvent, new_token, utcnow
 
 router = APIRouter()
 
-log = logging.getLogger("aisharc.digest")
-
 CONFIRM_TTL_DAYS = 30
 
 _USED_OR_EXPIRED_BODY = (
@@ -27,8 +24,8 @@ _USED_OR_EXPIRED_BODY = (
     "link.</p></div></section>")
 
 
-def _page(slug, title, desc, body, status=200):
-    return HTMLResponse(pages.shell(slug, title, desc, body), status_code=status)
+def _page(slug, title, desc, body, status_code=200):
+    return HTMLResponse(pages.shell(slug, title, desc, body), status_code=status_code)
 
 
 def _check_email_page(email=""):
@@ -52,7 +49,7 @@ def _subscribe_form_page(message):
 <p class="note" style="color:#b3362c;font-weight:600">{message}</p>
 <form action="/digest/subscribe" method="post">
   <label for="email">Your email</label>
-  <input type="email" id="email" name="email" value="{_h.escape("")}" required>
+  <input type="email" id="email" name="email" required>
   <p style="margin:8px 0"><label style="font-weight:400"><input type="checkbox" name="hp" class="hp" tabindex="-1" autocomplete="off"> Leave this box unchecked</label></p>
   <p><button class="btn btn-teal" type="submit">Subscribe to The Digest</button></p>
 </form>

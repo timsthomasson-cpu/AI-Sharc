@@ -158,3 +158,44 @@ def sign_in_dashboard(client, email, monkeypatch):
     name, _, value = cookie.partition("=")
     client.cookies.set(name, value)
     return value
+
+
+def last_digest_subscriber():
+    from app.models import DigestSubscriber
+    db = _STATE["session_factory"]()
+    try:
+        return db.query(DigestSubscriber).order_by(DigestSubscriber.id.desc()).first()
+    finally:
+        db.close()
+
+
+def digest_subscriber_by_email(email):
+    from app.models import DigestSubscriber
+    db = _STATE["session_factory"]()
+    try:
+        return db.query(DigestSubscriber).filter(
+            DigestSubscriber.email == email).first()
+    finally:
+        db.close()
+
+
+def digest_send_count():
+    from app.models import DigestSend
+    db = _STATE["session_factory"]()
+    try:
+        return db.query(DigestSend).count()
+    finally:
+        db.close()
+
+
+def expire_digest_confirmation(email):
+    import datetime as dt
+    from app.models import DigestSubscriber
+    db = _STATE["session_factory"]()
+    try:
+        row = db.query(DigestSubscriber).filter(
+            DigestSubscriber.email == email).first()
+        row.confirmation_expires_at = utcnow() - dt.timedelta(minutes=1)
+        db.commit()
+    finally:
+        db.close()
