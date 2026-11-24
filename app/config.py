@@ -47,6 +47,9 @@ class Settings:
         self.monitoring_poll_seconds = _int("MONITORING_POLL_SECONDS", 3600)
         # Admin reconciliation endpoint token (webhook-missed recovery). Env only.
         self.admin_token = os.environ.get("ADMIN_TOKEN", "")
+        # Default article slug for the weekly Digest send (admin can override
+        # per call with ?slug=...). Env only.
+        self.digest_latest_slug = os.environ.get("DIGEST_LATEST", "")
         self.stripe_test_mode = os.environ.get("STRIPE_TEST_MODE", "") == "1"
 
 

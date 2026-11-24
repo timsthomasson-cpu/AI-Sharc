@@ -108,3 +108,44 @@ def build_trade_pages():
                           t["what_looks"], t.get("extra_html", ""), t.get("note", ""))
         out.append(page(t["slug"], t["title"], t["desc"], body))
     return out
+
+
+# --- Texas HVAC landing page (state x trade pilot; photos are example images) ---
+def texas_hvac_page():
+    from build.layout import page as _page, FLOW_ORIGIN
+    body = f"""<section class="hero"><div class="wrap" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+<img src="assets/img/trade-hvac.svg" alt="" style="width:150px;flex-shrink:0">
+<div><p style="text-transform:uppercase;letter-spacing:0.08em;font-size:0.85rem;color:var(--teal);font-weight:500;margin:0 0 10px">Texas HVAC Contractor</p>
+<h1>Can AI assistants recommend your HVAC company in Texas?</h1>
+<p class="lead">Texas homeowners increasingly ask AI assistants who to call. AI Sharc grades how easily
+AI agents can find, read and trust your HVAC website &mdash; and hands you the fixes.</p>
+<p>{SHARED_CTA}</p></div>
+</div></section>
+<section><div class="wrap"><img src="assets/img/photos/hvac-van.jpg" alt="Example image: HVAC service van at a Texas home" style="width:100%;border-radius:10px">
+<p class="note">Example image.</p></div></section>
+<section class="alt"><div class="wrap"><h2>What Texas homeowners ask AI &mdash; and what it checks</h2>
+<p style="max-width:70ch">"Who's a good AC repair company near me?" The assistant shortlists firms it can
+find, read and trust: services named in text, service towns listed, licence stated, proof visible. The
+audit grades exactly that &mdash; and every finding cites its source.</p></div></section>
+<section><div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center">
+<div><img src="assets/img/photos/hvac-tech.jpg" alt="Example image: HVAC technician at work" style="width:100%;border-radius:10px"></div>
+<div><h2>Stay-ahead maintenance plans, emergency calls, licence signals</h2>
+<p style="max-width:60ch">Texas homeowners check TDLR licence standing, service area and response time
+before they call. The audit checks whether an AI agent can see all three on your site &mdash; in text,
+not buried in images.</p></div></div></section>
+<section class="alt"><div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center">
+<div><h2>Your crew, your trucks, your proof</h2>
+<p style="max-width:60ch">Trust signals that read well to people often read as nothing to a machine.
+Photos of your crew and trucks help &mdash; but the licence number, the towns served and the services
+offered must be in text beside them.</p></div>
+<div><img src="assets/img/photos/hvac-truck-crew.jpg" alt="Example image: HVAC crew loading a service truck" style="width:100%;border-radius:10px"></div>
+</div></section>
+<section><div class="wrap"><h2>Get your Texas HVAC Report Card</h2>
+<p style="max-width:70ch">Free Preliminary, graded A&ndash;F, every finding sourced. See what AI agents
+see when Texas homeowners ask who to hire.</p>
+<p><a class="btn btn-teal" href="{FLOW_ORIGIN}/get-audited">Get audited &mdash; free</a>
+<a class="btn btn-ghost" href="how-it-works.html">How the audit works</a></p></div></section>"""
+    return _page("texas-hvac-contractor.html",
+        "AI Audit for HVAC Contractors in Texas — AI Sharc Report Card",
+        "Free AI-readiness Report Card for Texas HVAC contractors. See if AI shopping agents can find, read and trust your site — graded A–F, every finding sourced.",
+        body)

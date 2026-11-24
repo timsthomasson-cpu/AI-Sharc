@@ -138,3 +138,43 @@ def send_verification_email(to, verify_url):
         "AI Sharc · PO Box 1622, Coppell, TX 75019\n"
     )
     get_mailer().send(to, subject, text)
+
+
+def _digest_footer(unsubscribe_url):
+    """CAN-SPAM footer for every Digest email: physical postal address, a
+    working unsubscribe link, and why the recipient is getting it."""
+    return (
+        "\n\n"
+        "You're receiving this because you subscribed at aisharc.com/digest.\n"
+        f"Unsubscribe any time: {unsubscribe_url}\n"
+        "AI Sharc · PO Box 1622, Coppell, TX 75019\n"
+    )
+
+
+def send_digest_confirmation(to, confirm_url, unsubscribe_url=""):
+    """Double opt-in: the subscribe form emails this; the subscription is
+    live only after the reader clicks the link."""
+    subject = "Confirm your subscription to The Digest (one click)"
+    text = (
+        "Thanks for subscribing to The Digest — one article a week on how AI\n"
+        "shopping agents find, read and trust home-trade businesses.\n\n"
+        "Confirm it's you — one click:\n"
+        f"{confirm_url}\n\n"
+        "This link works once and expires in 30 days. If you didn't subscribe,\n"
+        "ignore this email and you won't hear from us.\n"
+        + _digest_footer(unsubscribe_url or f"{settings.base_url}/digest/index.html")
+    )
+    get_mailer().send(to, subject, text)
+
+
+def send_digest_weekly(to, article_title, article_url, unsubscribe_url):
+    """The weekly Digest email: article link only — no scoring detail (§12)."""
+    subject = f"The Digest: {article_title}"
+    text = (
+        "This week in The Digest:\n\n"
+        f"{article_title}\n"
+        f"{article_url}\n\n"
+        "Read the full article — every claim in it carries its source and year.\n"
+        + _digest_footer(unsubscribe_url)
+    )
+    get_mailer().send(to, subject, text)

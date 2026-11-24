@@ -4,7 +4,8 @@ import datetime as dt
 import secrets
 import uuid
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy import (Boolean, DateTime, ForeignKey, Integer, String, Text,
+                        UniqueConstraint)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db import Base
@@ -216,3 +217,48 @@ class DashboardSession(Base):
         if exp.tzinfo is None:
             exp = exp.replace(tzinfo=dt.timezone.utc)
         return self.used_at is None and utcnow() < exp
+
+
+class DigestSubscriber(Base):
+    """The Digest email subscriber. Double opt-in: signup creates an
+    unconfirmed row with a single-use confirmation token (30-day expiry,
+    same pattern as VerifyToken). The weekly send only covers confirmed,
+    non-unsubscribed rows; unsubscribed rows are never re-emailed until the
+    subscriber resubscribes and confirms again."""
+    __tablename__ = "digest_subscribers"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    email: Mapped[str] = mapped_column(String(255), unique=True, index=True)
+    created_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+    confirmed_at: Mapped[dt.datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True)
+    unsubscribed_at: Mapped[dt.datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True)
+    confirmation_token: Mapped[str] = mapped_column(String(128), unique=True, index=True)
+    confirmation_expires_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True))
+    # Long-lived, per-subscriber token carried in every Digest email footer.
+    unsubscribe_token: Mapped[str] = mapped_column(String(128), unique=True, index=True)
+    source: Mapped[str] = mapped_column(String(64), default="")
+
+    sends: Mapped[list["DigestSend"]] = relationship(back_populates="subscriber")
+
+    def confirmation_valid(self):
+        exp = self.confirmation_expires_at
+        if exp.tzinfo is None:  # SQLite returns naive UTC
+            exp = exp.replace(tzinfo=dt.timezone.utc)
+        return self.confirmed_at is None and utcnow() < exp
+
+
+class DigestSend(Base):
+    """One article emailed to one subscriber. Ledger for the weekly send:
+    unique per (subscriber, article), so a retried run never double-sends."""
+    __tablename__ = "digest_sends"
+    __table_args__ = (UniqueConstraint("subscriber_id", "article_slug", name="uq_digest_send"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    subscriber_id: Mapped[int] = mapped_column(
+        ForeignKey("digest_subscribers.id"), index=True)
+    article_slug: Mapped[str] = mapped_column(String(255))
+    sent_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+    subscriber: Mapped["DigestSubscriber"] = relationship(back_populates="sends")

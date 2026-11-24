@@ -68,7 +68,7 @@ service area, response time and trust. We started with Texas home trades &mdash;
 works for home-trade firms anywhere in the US. Pick your trade to see what matters for your kind of business.</p>
 <div class="grid g2">
   <div class="card"><h3><a href="hvac-contractor.html">HVAC Contractor</a></h3><p>Stay-ahead maintenance
-  plans, emergency calls and the licence rules your state checks.</p></div>
+  plans, emergency calls and the licence rules your state checks. <a href="texas-hvac-contractor.html">Texas HVAC page &rarr;</a></p></div>
   <div class="card"><h3><a href="plumber.html">Plumber</a></h3><p>Emergency jobs, water-heater replacements
   and the licence checks homeowners run before they call.</p></div>
   <div class="card"><h3><a href="electrician.html">Electrician</a></h3><p>Panel upgrades, EV chargers and

@@ -65,6 +65,9 @@ def main():
         with open(os.path.join(out_dir, "digest", a["slug"]), "w") as f:
             f.write(page("digest/" + a["slug"], a["title"] + " — AI Sharc", a["desc"], a["body"]))
         written.append("digest/" + a["slug"])
+    with open(os.path.join(out_dir, "texas-hvac-contractor.html"), "w") as f:
+        f.write(ct.texas_hvac_page())
+    written.append("texas-hvac-contractor.html")
     # sitemap
     urls = []
     for slug, title, desc, body in PAGES:
@@ -72,6 +75,7 @@ def main():
         urls.append(loc)
     for t in ct.TRADES:
         urls.append(f"https://aisharc.com/{t['slug']}")
+    urls.append('https://aisharc.com/texas-hvac-contractor.html')
     urls.append("https://aisharc.com/digest/index.html")
     for a in cd.ARTICLES:
         urls.append(f"https://aisharc.com/digest/{a['slug']}")
