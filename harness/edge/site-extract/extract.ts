@@ -4,7 +4,7 @@
 export type Page = { url: string; why: string; role: string; html: string };
 export type Kinds = Record<string, string[]>; // name_norm -> ["city","common","alias","county"]
 
-export const VERSION = "rules-2026-11-24a";
+export const VERSION = "rules-2026-11-24b";
 
 const SA_URL = /service[-_]?areas?|areas?[-_]?(we[-_]?)?serv|where[-_]?we[-_]?serve|locations?|cities|communities|coverage/i;
 const TRIGGER = /\b(serv(?:e|es|ed|ing)|service areas?|areas? (?:we )?serv\w*|proudly|communities|nearby|surrounding|throughout|in and around|locations?)\b/gi;
@@ -15,11 +15,37 @@ const STOP_ALWAYS = new Set(["comfort", "center", "mission", "commerce", "west",
   "frost", "post", "rule", "hart", "wells", "troy", "nash", "paris", "miami", "garden", "industry", "price", "quail", "wink", "normal",
   "venus", "lone star", "texas", "tx", "star", "lake", "bend", "point", "como", "nevada", "detroit", "loop", "carbon", "buffalo",
   "ace", "royal", "meadow", "china", "blue", "berry", "concord", "smiley", "alamo", "reno", "tioga", "progreso"]);
-// Person-like or ambiguous names: counted on service-area pages, and in phrase windows only inside a list ("..., Kyle, ...").
-const STOP_PERSON = new Set(["allen", "tyler", "bryan", "kyle", "marion", "morgan", "lucas", "gary", "nolan", "wilson", "hunt", "hughes",
-  "travis", "hamilton", "lamar", "crockett", "bowie", "joshua", "franklin", "madison", "lincoln", "jackson", "washington", "jefferson",
-  "henderson", "lancaster", "hawkins", "goodrich", "liberty", "orange", "temple", "cleveland", "atlanta", "trinity", "converse",
-  "sanger", "elgin", "hereford", "sweeny", "kingsland", "ivanhoe", "carthage", "mabank", "victoria"]);
+// Small towns (2010 population under 50,000) whose names are also common English words or first/last names
+// (word frequency from the wordfreq package, zipf >= 3.0). Counted only when written as a list item or "<name>, TX".
+const AMBIGUOUS = new Set(`
+  abbott addison adrian alamo alba albany albert alice allison alpine alto alton alvin ames amherst anderson andrews anna anthony
+  anton arcadia art athens atlanta aubrey aurora avalon avery bailey baird bangs barry bartlett beasley bedford bellevue bells
+  benjamin best bigfoot bishop black blackwell blanco blanket blessing bloomington blossom booker booth boston bowie boyd brady
+  brandon bridgeport briggs brock bronson bryson buffalo burke burlington burton cactus caldwell call calvert cameron campbell
+  canadian canton canyon carbon carlton carthage celeste center chandler channing charlotte cherokee chester chico china christine
+  cisco clarendon claude cleveland clifton clint clyde coleman columbus combine comfort commerce como cone converse cool cooper cost
+  cove covington crane crawford crockett crosby crossroads crowley dale damon dawson dayton dean decatur deport detroit devine diana
+  dickens dickinson donna dorchester douglass driscoll dublin early earth easton eddy eden edna elgin elsa emory ennis era fairfield
+  fate fayetteville ferris fife fischer flint florence forest franklin fred fresno frost fulton gail gainesville galveston garrison
+  gary geneva goldsmith gonzales gordon gorman graham granger greenville gregory groom groves guthrie guy hamilton happy harper hart
+  hartley haskell hawkins hays heartland heath henderson henrietta hereford hewitt higgins highlands hitchcock holland hooks howe
+  hubbard hull hunt huntington hurst imperial industry ingram ira irene italy jacksonville jasper jefferson joaquin josephine joshua
+  junction justin kaufman kemp kent kermit kirby klein kyle lakeside lancaster lawn leonard leroy lexington liberty lincoln linden
+  lindsay linn liverpool livingston lockhart lolita london loop lorenzo louise loving lucas malone manor maple marathon marble
+  marietta marion markham marlin marquez marshall mart mason maud maxwell may mccoy mclean meadow medina melissa melvin memphis
+  mercedes meridian merkel miami midfield midway milano miles milford mineral montague montgomery moody moore moran morgan morse
+  morton moscow mumford murphy mustang myra nada naples nash natalia nazareth nemo nevada newark newcastle newton nixon nolan norton
+  novice nursery omaha orange orchard otto paige palestine palmer pandora paradise paris parker penelope perry petersburg petty
+  phillips plains point ponder porter portland post powell princeton prosper putnam quail rainbow raisin randolph ranger rankin
+  reagan recycle reno rice richards ridge riverside riviera roanoke robinson rochelle rochester rogers roma roscoe rosenberg rule
+  rye sanctuary sanderson sanford santo saratoga sargent savoy scotland sebastian selma seymour sheffield shepherd sheridan sherman
+  sidney silver simms singleton smiley snyder somerset somerville speaks spur stafford stamford stanton staples stratford sudan
+  sumner sunset sur sylvester taft tarzan tatum taylor telephone tell thornton tool tow trent trenton trinidad trinity troy turkey
+  utopia valentine van vega venus vera vernon voss waller wallis warren washington webster welch wellington wells west westbrook
+  westfield wharton wheeler whitehouse whitney willis wilson winchester wink winnie winters
+`.trim().split(/\s+/));
+// Larger towns that are also first names or words: in phrase windows (not service-area pages) they need list context too.
+const STOP_PERSON = new Set(["allen", "tyler", "bryan", "victoria", "temple", "mission", "kyle"]);
 
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 const clip = (s: string, n = 240) => s.replace(/\s+/g, " ").trim().slice(0, n);
@@ -59,14 +85,22 @@ function parseLd(blocks: string[]) {
 
 type Hit = { name: string; norm: string; url: string; how: string };
 
+// Is text[start..end) set off like a list item: separators (or a line holding only the name) on both sides?
+function inList(text: string, start: number, end: number) {
+  const b = text.slice(Math.max(0, start - 8), start), a = text.slice(end, end + 8);
+  const sepB = start === 0 || /(?:^|[,|•·;/\n(]|\band|&)\s*$/.test(b);
+  const sepA = end >= text.length || /^\s*(?:[,|•·;/\n.)]|and\b|&|$)/.test(a);
+  return sepB && sepA;
+}
+
 // Find place names in a piece of text: runs of Capitalised (or ALL CAPS) words, longest match first.
+// strict = phrase window (not a service-area page): person-like and ambiguous names need list context.
 function findPlaces(text: string, kinds: Kinds, url: string, how: string, strict: boolean, places: Hit[], counties: Hit[]) {
   const RUN = /[A-Z][A-Za-z'.]*(?:[ -](?:[A-Z][A-Za-z'.]*|of|de|la|del))*/g;
   let m: RegExpExecArray | null;
   while ((m = RUN.exec(text))) {
-    const words = m[0].split(/[ -]+/).filter(Boolean);
-    const after = text.slice(m.index + m[0].length, m.index + m[0].length + 12);
-    const before = text.slice(Math.max(0, m.index - 3), m.index);
+    const pos: number[] = []; const words: string[] = [];
+    for (const w of m[0].matchAll(/[^ -]+/g)) { words.push(w[0]); pos.push(m.index + (w.index ?? 0)); }
     let i = 0;
     while (i < words.length) {
       let took = 0;
@@ -75,23 +109,20 @@ function findPlaces(text: string, kinds: Kinds, url: string, how: string, strict
         const n = norm(raw);
         const k = kinds[n];
         if (!k || n.length < 3) continue;
-        const isLast = i + L === words.length;
+        const s0 = pos[i], s1 = pos[i + L - 1] + words[i + L - 1].replace(/[.']+$/, "").length;
         const nextWord = words[i + L];
-        // "<X> County"
-        if (nextWord && /^county$/i.test(nextWord) && k.includes("county")) {
+        if (nextWord && /^county$/i.test(nextWord) && k.includes("county")) {   // "<X> County"
           counties.push({ name: raw + " County", norm: n, url, how }); took = L + 1; break;
         }
-        const placeKinds = k.filter((x) => x !== "county");
-        if (!placeKinds.length) {
+        if (!k.some((x) => x !== "county")) {                                   // county name without "County"
           if (L >= 2) { counties.push({ name: raw, norm: n, url, how }); took = L; break; }
           continue;
         }
-        const txAfter = isLast && /^\s*,?\s*(TX|Texas)\b/.test(after);
-        if (!txAfter && STOP_ALWAYS.has(n)) continue;
-        if (!txAfter && STOP_PERSON.has(n) && strict) {
-          // in phrase windows a person-like name counts only inside a list ("..., Kyle, ...")
-          const listy = (i > 0 ? false : /[,|•\n]\s*$/.test(before)) || (isLast && /^\s*[,|•\n]/.test(after));
-          if (!listy) continue;
+        const txAfter = /^\s*,?\s*(?:TX|Texas)\b/.test(text.slice(s1, s1 + 10));
+        if (!txAfter) {
+          if (STOP_ALWAYS.has(n)) continue;
+          if (L === 1 && AMBIGUOUS.has(n) && !inList(text, s0, s1)) continue;
+          if (strict && L === 1 && STOP_PERSON.has(n) && !inList(text, s0, s1)) continue;
         }
         places.push({ name: raw, norm: n, url, how }); took = L; break;
       }
