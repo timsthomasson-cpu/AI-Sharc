@@ -5,6 +5,7 @@ With no RUN_QUERY_ID set, it runs a self-check and exits:
   - which settings are present (names only; no value is ever printed),
   - the database connection (test database) and the two load functions,
   - one Brave search, if BRAVE_SEARCH_API_KEY is set,
+  - one Census 2020 population read (ZCTA 77002), if CENSUS_API_KEY is set,
   - Chromium starts and renders a page.
 
 With RUN_QUERY_ID set (e.g. hvac-houston-77002-t2), it audits that query:
@@ -20,7 +21,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(os.path.dirname(HERE), "harness"))
 
-SETTINGS = ["DATABASE_URL", "BRAVE_SEARCH_API_KEY", "GOOGLE_PLACES_API_KEY", "META_MODEL_API_KEY"]
+SETTINGS = ["DATABASE_URL", "BRAVE_SEARCH_API_KEY", "GOOGLE_PLACES_API_KEY", "META_MODEL_API_KEY", "CENSUS_API_KEY"]
 
 
 def check(label, fn):
@@ -53,6 +54,24 @@ def search_check():
     return "%d results" % len(top)
 
 
+def census_check():
+    """Read the 2020 Census total population for ZCTA 77002 (Decennial DHC, P1_001N).
+    The key is sent to api.census.gov only and is never printed."""
+    import json
+    import urllib.parse
+    import urllib.request
+    qs = urllib.parse.urlencode({"get": "P1_001N", "for": "zip code tabulation area:77002",
+                                 "key": os.environ["CENSUS_API_KEY"]})
+    with urllib.request.urlopen("https://api.census.gov/data/2020/dec/dhc?" + qs, timeout=30) as resp:
+        body = resp.read().decode("utf-8", "replace")
+    try:
+        rows = json.loads(body)
+    except ValueError:
+        # An invalid key returns an HTML page, not JSON.
+        raise RuntimeError("not JSON (the key may be invalid or not yet activated)")
+    return "ZCTA 77002 population (2020 Census) = %s" % rows[1][0]
+
+
 def chromium_check():
     from playwright.sync_api import sync_playwright
     with sync_playwright() as pw:
@@ -71,6 +90,8 @@ def self_check():
     results = [check("database", db_check), check("Chromium", chromium_check)]
     if os.environ.get("BRAVE_SEARCH_API_KEY"):
         results.append(check("Brave search", search_check))
+    if os.environ.get("CENSUS_API_KEY"):
+        results.append(check("Census API", census_check))
     print("self-check %s" % ("passed" if all(results) else "FAILED"))
     return 0 if all(results) else 1
 
