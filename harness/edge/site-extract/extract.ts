@@ -4,7 +4,7 @@
 export type Page = { url: string; why: string; role: string; html: string };
 export type Kinds = Record<string, string[]>; // name_norm -> ["city","common","alias","county"]
 
-export const VERSION = "rules-2026-11-24b";
+export const VERSION = "rules-2026-11-24c";
 
 const SA_URL = /service[-_]?areas?|areas?[-_]?(we[-_]?)?serv|where[-_]?we[-_]?serve|locations?|cities|communities|coverage/i;
 const TRIGGER = /\b(serv(?:e|es|ed|ing)|service areas?|areas? (?:we )?serv\w*|proudly|communities|nearby|surrounding|throughout|in and around|locations?)\b/gi;
@@ -14,7 +14,8 @@ const UNNAMED = /\b(?:and (?:many )?more|surrounding (?:areas|communities|cities
 const STOP_ALWAYS = new Set(["comfort", "center", "mission", "commerce", "west", "early", "earth", "van", "sunset", "cool", "energy",
   "frost", "post", "rule", "hart", "wells", "troy", "nash", "paris", "miami", "garden", "industry", "price", "quail", "wink", "normal",
   "venus", "lone star", "texas", "tx", "star", "lake", "bend", "point", "como", "nevada", "detroit", "loop", "carbon", "buffalo",
-  "ace", "royal", "meadow", "china", "blue", "berry", "concord", "smiley", "alamo", "reno", "tioga", "progreso"]);
+  "ace", "royal", "meadow", "china", "blue", "berry", "concord", "smiley", "alamo", "reno", "tioga", "progreso", "call", "best",
+  "tell", "happy", "cost", "may", "era", "panhandle", "guy", "art", "black", "silver", "tool"]);
 // Small towns (2010 population under 50,000) whose names are also common English words or first/last names
 // (word frequency from the wordfreq package, zipf >= 3.0). Counted only when written as a list item or "<name>, TX".
 const AMBIGUOUS = new Set(`
@@ -149,7 +150,7 @@ function slugPlaces(u: string, kinds: Kinds, places: Hit[]) {
   }
 }
 
-const ADDR = /(\d{1,6}[A-Za-z]?\s+(?:[NSEW]\.?\s+)?[A-Za-z0-9.'\- ]{2,50}?\b(?:St|Street|Rd|Road|Dr|Drive|Ave|Avenue|Blvd|Boulevard|Ln|Lane|Pkwy|Parkway|Fwy|Freeway|Hwy|Highway|Way|Ct|Court|Cir|Circle|Trl|Trail|Loop|Pl|Place|Expy|Expressway|Plaza|Tollway|Pike|Pass|Row|Bend|Crossing|Xing|Sq|Square)\.?(?:\s+(?:N|S|E|W|North|South|East|West)\b)?(?:,?\s*(?:Suite|Ste\.?|Unit|Bldg|Building|#)\s*[\w-]+)?)\s*,?\s+([A-Z][A-Za-z .'-]{2,30}?),?\s+(?:TX|Texas)\.?,?\s+(7[5-9]\d{3})(?:-\d{4})?\b/g;
+const ADDR = /(?<![\d\-().])(\d{1,6}[A-Za-z]?\s+(?:[NSEW]\.?\s+)?[A-Za-z][A-Za-z0-9.'\- ]{1,50}?\b(?:St|Street|Rd|Road|Dr|Drive|Ave|Avenue|Blvd|Boulevard|Ln|Lane|Pkwy|Parkway|Fwy|Freeway|Hwy|Highway|Way|Ct|Court|Cir|Circle|Trl|Trail|Loop|Pl|Place|Expy|Expressway|Plaza|Tollway|Pike|Pass|Row|Bend|Crossing|Xing|Sq|Square)\.?(?:\s+(?:N|S|E|W|North|South|East|West)\b)?(?:,?\s*(?:Suite|Ste\.?|Unit|Bldg|Building|#)\s*[\w-]+)?)\s*,?\s+([A-Z][A-Za-z .'-]{2,30}?),?\s+(?:TX|Texas)\.?,?\s+(7[5-9]\d{3})(?:-\d{4})?\b/g;
 
 const RX = {
   insurance: /\b(?:licensed|bonded)[ ,]*(?:and|&)?[ ,]*(?:bonded[ ,]*(?:and|&)?[ ,]*)?insured\b|\bfully insured\b|\binsured\b[ ,]*(?:and|&)[ ,]*(?:licensed|bonded)\b|\bliability insurance\b|\bworkers'? comp(?:ensation)?\b/i,
@@ -164,6 +165,9 @@ const INCL = {
   thermostat: /\bthermostats?\b/i,
   ductwork: /\bduct(?:work|s)?\b/i,
 };
+
+// Wording that advises the reader (buyer's guides, blog posts) rather than stating the firm's own position.
+const ADVICE = /\b(?:should|make sure|be sure to|ask (?:if|whether|for|about)|check (?:if|whether|that)|verify|look for|beware|when (?:choosing|hiring)|a (?:good|reputable) (?:contractor|company))\b/i;
 
 const PAGE_ORDER = (p: Page) => /about/.test(p.why) ? 0 : p.role === "home" ? 1 : /contact/.test(p.why) ? 2 : 3;
 
@@ -220,15 +224,19 @@ export function extract(pages: Page[], kinds: Kinds, inventory: { sitemap_urls?:
     // advice facts: first page (about > home > contact > others) that states it
     for (const [k, rx] of Object.entries(RX)) {
       if (first[k]) continue;
-      const m = text.match(rx);
-      if (m) first[k] = { wording: around(text, m.index ?? 0, m[0].length), url: p.url };
+      const g = new RegExp(rx.source, "gi"); let m: RegExpExecArray | null; let n = 0;
+      while ((m = g.exec(text)) && n++ < 20) {
+        const w = around(text, m.index, m[0].length);
+        if (k !== "freeEstimate" && ADVICE.test(w)) continue;   // "a contractor should carry insurance", "ask about financing options"
+        first[k] = { wording: w, url: p.url }; break;
+      }
     }
     for (const m of text.matchAll(/\bTACL\s*-?\s*([AB])?\s*[-#:]?\s*(0*\d{3,8})\s*([CE])?\b/gi))
       lic.add(`TACL${(m[1] || "").toUpperCase()}${m[2]}${(m[3] || "").toUpperCase()}`);
     // what an installation estimate includes: sentences on install / estimate / home pages that say "includes" or "covers"
     if (/install|estimate|replac|financ/.test(p.why) || p.role === "home" || /install|replac|estimate|quote/i.test(p.url)) {
       for (const s of text.split(/(?<=[.!?])\s+|\n/)) {
-        if (s.length > 600 || !/\b(?:includ\w*|cover\w*|comes? with|we (?:handle|take care of))\b/i.test(s)) continue;
+        if (s.length > 600 || !/\b(?:includes|included|comes? with|covers|covered|we (?:handle|take care of))\b/i.test(s)) continue;
         if (!/\b(?:install\w*|estimate|quote|replac\w*|new (?:system|unit))\b/i.test(s)) continue;
         for (const [k, rx] of Object.entries(INCL)) if (!incl[k] && rx.test(s)) incl[k] = { wording: clip(s), url: p.url };
       }
