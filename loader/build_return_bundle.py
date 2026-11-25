@@ -128,7 +128,7 @@ def build_run(folder, md_name, m):
         "checked_at": iso(ts), "repeat_number": rep,
         "model": ex.get("model"), "tools_used": ex.get("tools_used"),
         "signed_in_account": ex.get("signed_in_account"),
-        "fresh_session": "yes", "session_state": ex["session_state"],
+        "fresh_session": ex.get("fresh_session", "yes"), "session_state": ex["session_state"],
         "auditor": "Claude (orchestrator)",
         "prompt_version": ex["prompt_version"], "web_search_ran": ex["web_search_ran"],
         "sources_cited": ex.get("sources_cited") or [], "ranked": ex["ranked"],
