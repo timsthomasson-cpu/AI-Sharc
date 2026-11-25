@@ -22,6 +22,8 @@ async function kinds(): Promise<Kinds> {
   return kindsCache!;
 }
 
+// Some saved pages are several MB; keep only the first 900 KB of each so 30+ pages fit in the worker's memory.
+const MAX_BYTES = 900_000;
 type Errs = Map<string, number>;
 const dlErr = (errs: Errs, k: string) => { errs.set(k, (errs.get(k) || 0) + 1); return null; };
 async function download(path: string, errs: Errs): Promise<string | null> {
@@ -40,9 +42,9 @@ async function download(path: string, errs: Errs): Promise<string | null> {
   try {
     if (bytes[0] === 0x1f && bytes[1] === 0x8b) {
       const raw = await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
-      return new TextDecoder("utf-8", { fatal: false }).decode(raw);
+      return new TextDecoder("utf-8", { fatal: false }).decode(new Uint8Array(raw, 0, Math.min(raw.byteLength, MAX_BYTES)));
     }
-    return new TextDecoder("utf-8", { fatal: false }).decode(bytes);
+    return new TextDecoder("utf-8", { fatal: false }).decode(bytes.subarray(0, MAX_BYTES));
   } catch (e) { return dlErr(errs, String(e).slice(0, 60)); }   // truncated or corrupt file
 }
 
