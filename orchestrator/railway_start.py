@@ -9,6 +9,9 @@ With no RUN_QUERY_ID set, it runs a self-check and exits:
   - one OpenAI API call that lists the models the key can use, if OPENAI_API_KEY is set (no tokens used),
   - Chromium starts and renders a page.
 
+With RUN_TASK=openai_shopping_query, it runs the Prompt v1 shopping queries through the OpenAI API
+(orchestrator/openai_shopping_query.py) and stores the answers in staging.api_returns.
+
 With RUN_QUERY_ID set (e.g. hvac-houston-77002-t2), it audits that query:
 firm_registry -> run_query -> load_results audits. Output goes to RUNS_DIR (default /data/runs,
 a Railway volume if one is mounted; otherwise /tmp/runs, which is lost when the job ends).
@@ -134,5 +137,9 @@ def run(query_id):
 
 
 if __name__ == "__main__":
+    task = os.environ.get("RUN_TASK", "").strip()
+    if task == "openai_shopping_query":
+        import openai_shopping_query
+        sys.exit(openai_shopping_query.main())
     qid = os.environ.get("RUN_QUERY_ID", "").strip()
     sys.exit(run(qid) if qid else self_check())
