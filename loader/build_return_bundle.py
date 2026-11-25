@@ -27,6 +27,7 @@ AGENTS = {
     "meta-muse": ("Meta", "Muse", "MUSE-AGENT"),
     "meta-metaai": ("Meta", "Meta AI", "META-AI"),
     "openai-chatgpt": ("OpenAI", "ChatGPT", "CHATGPT"),
+    "openai-api": ("OpenAI", "OpenAI API (web search)", "OPENAI-API"),
 }
 
 # Prompt v1 task wording. {town}, {zip} filled from the query_id.
