@@ -6,6 +6,7 @@ With no RUN_QUERY_ID set, it runs a self-check and exits:
   - the database connection (test database) and the two load functions,
   - one Brave search, if BRAVE_SEARCH_API_KEY is set,
   - one Census 2020 population read (ZCTA 77002), if CENSUS_API_KEY is set,
+  - one OpenAI API call that lists the models the key can use, if OPENAI_API_KEY is set (no tokens used),
   - Chromium starts and renders a page.
 
 With RUN_QUERY_ID set (e.g. hvac-houston-77002-t2), it audits that query:
@@ -21,7 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(os.path.dirname(HERE), "harness"))
 
-SETTINGS = ["DATABASE_URL", "BRAVE_SEARCH_API_KEY", "GOOGLE_PLACES_API_KEY", "META_MODEL_API_KEY", "CENSUS_API_KEY"]
+SETTINGS = ["DATABASE_URL", "BRAVE_SEARCH_API_KEY", "GOOGLE_PLACES_API_KEY", "META_MODEL_API_KEY", "CENSUS_API_KEY", "OPENAI_API_KEY"]
 
 
 def check(label, fn):
@@ -72,6 +73,22 @@ def census_check():
     return "ZCTA 77002 population (2020 Census) = %s" % rows[1][0]
 
 
+def openai_check():
+    """List the models the OpenAI key can use. Costs nothing; the key is never printed."""
+    import json
+    import urllib.error
+    import urllib.request
+    req = urllib.request.Request("https://api.openai.com/v1/models",
+                                 headers={"Authorization": "Bearer " + os.environ["OPENAI_API_KEY"]})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            ids = [m.get("id", "") for m in json.loads(resp.read().decode("utf-8")).get("data", [])]
+    except urllib.error.HTTPError as exc:
+        raise RuntimeError("HTTP %d from OpenAI (401 = key not valid)" % exc.code)
+    gpt = sorted(i for i in ids if i.startswith(("gpt-", "o")))
+    return "%d models available; GPT models include %s" % (len(ids), ", ".join(gpt[-5:]) or "none")
+
+
 def chromium_check():
     from playwright.sync_api import sync_playwright
     with sync_playwright() as pw:
@@ -92,6 +109,8 @@ def self_check():
         results.append(check("Brave search", search_check))
     if os.environ.get("CENSUS_API_KEY"):
         results.append(check("Census API", census_check))
+    if os.environ.get("OPENAI_API_KEY"):
+        results.append(check("OpenAI API", openai_check))
     print("self-check %s" % ("passed" if all(results) else "FAILED"))
     return 0 if all(results) else 1
 
