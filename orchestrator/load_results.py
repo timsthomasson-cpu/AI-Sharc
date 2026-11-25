@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Load a finished harness run, or a folder of Shopping Query Return workbooks, into the audit database.
+"""Load a finished harness run, a folder of Shopping Query Return workbooks, or a folder of Prompt v1
+Shopping Query Returns (observation .md files with Claude's extracts) into the audit database.
 
 Validation happens twice: in the bundle builders (loader/build_bundle.py, loader/build_observation_bundle.py)
 and again inside the database functions load_audit_bundle() / load_observation_bundle(), which also skip a
@@ -8,6 +9,7 @@ file whose hash is already loaded and link firms by the matching ladder (Spec v2
 Usage:
   load_results.py audits <run_dir> [--dry-run]
   load_results.py observations <folder> [--dry-run]
+  load_results.py returns <inbox date folder> [--dry-run]
 
 --dry-run builds and checks the bundle and prints what would load, without connecting to the database.
 """
@@ -26,6 +28,9 @@ def build(kind, folder):
     if kind == "audits":
         import build_bundle
         build_bundle.main(folder, out)
+    elif kind == "returns":
+        import build_return_bundle
+        build_return_bundle.main(folder, out)
     else:
         import build_observation_bundle
         build_observation_bundle.main(folder, out)
@@ -70,7 +75,7 @@ def record_closed(cur, closed):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("kind", choices=["audits", "observations"])
+    ap.add_argument("kind", choices=["audits", "observations", "returns"])
     ap.add_argument("folder")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -80,6 +85,11 @@ def main():
         print("%d closed firms not audited: %s" % (len(closed), ", ".join(c["firm_id"] for c in closed)))
     bundle = build(args.kind, args.folder)
     items = bundle.get("audits" if args.kind == "audits" else "runs", [])
+    for name in bundle.pop("waiting_for_extract", []):
+        print("waiting for extract: %s" % name)
+    problems = bundle.pop("problems", [])
+    for p in problems:
+        print("not loaded: %s: %s" % (p["file"], p["reason"]))
     if not items and not closed:
         print("nothing to load")
         return
@@ -94,7 +104,8 @@ def main():
         return
 
     from db import connect
-    fn = "load_audit_bundle" if args.kind == "audits" else "load_observation_bundle"
+    fn = {"audits": "load_audit_bundle", "observations": "load_observation_bundle",
+          "returns": "load_shopping_query_return"}[args.kind]
     with connect() as con, con.cursor() as cur:
         cur.execute("select public.%s(%%s::jsonb)" % fn, (json.dumps(bundle, ensure_ascii=False),))
         result = cur.fetchone()[0]
@@ -102,7 +113,7 @@ def main():
             print("closed firms: %d status set, %d queued for review" % record_closed(cur, closed))
         con.commit()
     print(json.dumps(result, indent=2))
-    if result.get("rejected"):
+    if result.get("rejected") or problems:
         sys.exit(2)
 
 
