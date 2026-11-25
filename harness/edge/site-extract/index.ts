@@ -25,8 +25,10 @@ async function kinds(): Promise<Kinds> {
 async function download(path: string): Promise<string | null> {
   const r = await fetch(`${SB}/storage/v1/object/page-snapshots/${path}`, { headers: hdr });
   if (!r.ok || !r.body) return null;
-  const raw = await new Response(r.body.pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
-  return new TextDecoder("utf-8", { fatal: false }).decode(raw);
+  try {
+    const raw = await new Response(r.body.pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
+    return new TextDecoder("utf-8", { fatal: false }).decode(raw);
+  } catch { return null; }   // truncated or corrupt file
 }
 
 async function run(firm: string, runLabel: string) {

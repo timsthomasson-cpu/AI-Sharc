@@ -4,7 +4,7 @@
 export type Page = { url: string; why: string; role: string; html: string };
 export type Kinds = Record<string, string[]>; // name_norm -> ["city","common","alias","county"]
 
-export const VERSION = "rules-2026-11-24c";
+export const VERSION = "rules-2026-11-24d";
 
 const SA_URL = /service[-_]?areas?|areas?[-_]?(we[-_]?)?serv|where[-_]?we[-_]?serve|locations?|cities|communities|coverage/i;
 const TRIGGER = /\b(serv(?:e|es|ed|ing)|service areas?|areas? (?:we )?serv\w*|proudly|communities|nearby|surrounding|throughout|in and around|locations?)\b/gi;
@@ -108,8 +108,8 @@ function findPlaces(text: string, kinds: Kinds, url: string, how: string, strict
       for (let L = Math.min(4, words.length - i); L >= 1; L--) {
         const raw = words.slice(i, i + L).join(" ").replace(/[.']+$/, "");
         const n = norm(raw);
-        const k = kinds[n];
-        if (!k || n.length < 3) continue;
+        const k = Object.prototype.hasOwnProperty.call(kinds, n) ? kinds[n] : undefined;   // not "constructor" etc.
+        if (!Array.isArray(k) || n.length < 3) continue;
         const s0 = pos[i], s1 = pos[i + L - 1] + words[i + L - 1].replace(/[.']+$/, "").length;
         const nextWord = words[i + L];
         if (nextWord && /^county$/i.test(nextWord) && k.includes("county")) {   // "<X> County"
@@ -143,7 +143,8 @@ function slugPlaces(u: string, kinds: Kinds, places: Hit[]) {
     if (!words.length) continue;
     for (let L = Math.min(3, words.length); L >= 1; L--) {
       const n = words.slice(words.length - L).join(" ");
-      if (kinds[n] && kinds[n].some((k) => k !== "county") && !STOP_ALWAYS.has(n)) {
+      const kk = Object.prototype.hasOwnProperty.call(kinds, n) ? kinds[n] : undefined;
+      if (Array.isArray(kk) && kk.some((k) => k !== "county") && !STOP_ALWAYS.has(n)) {
         places.push({ name: n.replace(/\b\w/g, (c) => c.toUpperCase()), norm: n, url: u, how: "url slug" }); break;
       }
     }
