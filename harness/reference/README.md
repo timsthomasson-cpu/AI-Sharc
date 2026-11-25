@@ -8,3 +8,4 @@
   - `alias`: unincorporated places and villages with no postal city of their own, mapped to the postal city they sit in (for example Cinco Ranch → Katy, Four Corners → Houston)
 
 Used to turn the towns and counties a firm's website names into ZIP codes. Loaded into the `tx_zips` and `tx_place_names` tables. 2020 Census population needs census.gov access or a Census API key and can replace the 2010 figures later.
+- `tx_zip_coords.csv` — latitude and longitude of each ZIP centre (same source), used to drop service-area ZIPs more than 100 miles from a firm's home.
