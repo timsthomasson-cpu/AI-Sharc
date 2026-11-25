@@ -1,6 +1,7 @@
-# AI Sharc Shopping Query Prompt — v1
+# AI Sharc Shopping Query Prompt — v1 (document revision 2)
 
 Date: 2026-11-24 — approved by Tim 2026-11-24
+Revision 2: 2026-11-25 — matching follow-up and session rules added (Tim: "use the method that is the most reliable", 2026-11-25). The three task texts are unchanged; runs stay prompt version v1.
 Based on: Muse Clean-Instance Shopping Query — Houston HVAC, Rev 1
 Changes from Muse Rev 1:
 - Each task now asks the agent to rank the firms. Muse gets "using Muse ranking". ChatGPT and meta.ai are asked for their own assessment, not a ranking copied from another site, and to say what the ranking is based on (Tim, 2026-11-24).
@@ -57,7 +58,9 @@ Report only the run date, that all three files were saved to AI Sharc / Inbox / 
 
 ### Session rules
 
-- Use a fresh session for every task: logged out or incognito, with no chat history, memory or custom instructions.
+- Use a fresh session for every task: logged out, in a new incognito window, with no chat history, memory or custom instructions.
+- meta.ai: run one task, then close every incognito window before opening a new one for the next task (open incognito windows share one session, and meta.ai answers changed with earlier context on 2026-11-25).
+- ChatGPT: the three tasks may run at the same time in three incognito windows; record that they did.
 - Do not mention AI Sharc, firms or grades. Paste the task exactly as written. Do not add follow-ups.
 - If the agent asks a clarifying question, answer only "Use your best judgement" and record that a follow-up happened.
 
@@ -71,6 +74,16 @@ Find all HVAC firms whose service area includes Houston, TX 77002 for AC repair 
 
 Task 3 — installation and replacement:
 Find all HVAC firms whose service area includes Houston, TX 77002 for AC installation and replacement and compare the firms you find. Rank the firms you find using your own assessment, not a ranking copied from another site, and say what the ranking is based on.
+
+### Matching follow-up (after the answer)
+
+When the answer is complete, send one more message in the same chat, word for word:
+
+List the phone number and website for each firm you named.
+
+The first answer is the observation and is recorded unchanged. The follow-up reply is saved under it, marked "Follow-up (turn 1)", and is used only to match firms to the firm list, never for rank or audit evidence. Firms still unmatched after the follow-up are looked up in Google Places by name and city.
+
+Also save: the time each task was sent, a screenshot of any place list or map, and the sources list if the agent shows one.
 
 ### Save to Google Drive
 
@@ -89,7 +102,7 @@ Same folder: AI Sharc / Inbox / <YYYY-MM-DD>/. File names:
 5. checked_at: date and time sent, ISO 8601 with offset (America/Chicago)
 6. Session state: logged in, logged out or incognito; signed-in account if any
 7. The exact task text sent
-8. The full response, verbatim, including any follow-up
+8. The full response, verbatim; then, under "Follow-up (turn 1)", the matching follow-up and its reply
 9. Whether web search ran
 10. Sources cited, if any
 11. Confirmation that no business was contacted
