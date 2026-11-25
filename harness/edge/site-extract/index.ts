@@ -22,13 +22,21 @@ async function kinds(): Promise<Kinds> {
   return kindsCache!;
 }
 
-async function download(path: string): Promise<string | null> {
+type Errs = Map<string, number>;
+const dlErr = (errs: Errs, k: string) => { errs.set(k, (errs.get(k) || 0) + 1); return null; };
+async function download(path: string, errs: Errs): Promise<string | null> {
   const r = await fetch(`${SB}/storage/v1/object/page-snapshots/${path}`, { headers: hdr });
-  if (!r.ok || !r.body) return null;
+  if (!r.ok) { await r.body?.cancel(); return dlErr(errs, `HTTP ${r.status}`); }
+  // The file is gzip, but the storage CDN sometimes serves it with Content-Encoding: gzip, in which case
+  // fetch has already unzipped it. Unzip only when the bytes start with the gzip magic number.
+  const bytes = new Uint8Array(await r.arrayBuffer());
   try {
-    const raw = await new Response(r.body.pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
-    return new TextDecoder("utf-8", { fatal: false }).decode(raw);
-  } catch { return null; }   // truncated or corrupt file
+    if (bytes[0] === 0x1f && bytes[1] === 0x8b) {
+      const raw = await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
+      return new TextDecoder("utf-8", { fatal: false }).decode(raw);
+    }
+    return new TextDecoder("utf-8", { fatal: false }).decode(bytes);
+  } catch (e) { return dlErr(errs, String(e).slice(0, 60)); }   // truncated or corrupt file
 }
 
 async function run(firm: string, runLabel: string) {
@@ -39,10 +47,11 @@ async function run(firm: string, runLabel: string) {
   for (const r of rows) if (!latest.has(r.requested_url)) latest.set(r.requested_url, r); // newest copy of each URL
   const inv = (await rest(`site_inventories?firm_id=eq.${encodeURIComponent(firm)}&sitemap_urls=not.is.null&select=sitemap_urls,home_links&order=fetched_at.desc&limit=1`))?.[0] ?? null;
 
+  const dlErrors: Errs = new Map();
   const pages: Page[] = []; let failed = 0;
   const list = [...latest.values()].slice(0, 40);
   for (let i = 0; i < list.length; i += 6) {
-    const got = await Promise.all(list.slice(i, i + 6).map(async (r) => ({ r, html: await download(r.storage_path).catch(() => null) })));
+    const got = await Promise.all(list.slice(i, i + 6).map(async (r) => ({ r, html: await download(r.storage_path, dlErrors).catch((e) => dlErr(dlErrors, String(e).slice(0, 60))) })));
     for (const { r, html } of got) {
       if (html == null) { failed++; continue; }
       pages.push({ url: r.requested_url, why: r.selected_because || "", role: r.page_role, html });
@@ -51,7 +60,9 @@ async function run(firm: string, runLabel: string) {
   const out = pages.length ? extract(pages, await kinds(), inv) : null;
   const row = {
     firm_id: firm, run_label: runLabel, extractor_version: VERSION, pages_read: pages.length, pages_failed: failed,
-    ...(out || {}), note: pages.length ? null : "no saved pages with HTTP 200",
+    ...(out || {}),
+    note: [pages.length ? "" : (list.length ? "no saved page could be read" : "no saved pages with HTTP 200"),
+      dlErrors.size ? "download errors: " + [...dlErrors].map(([k, n]) => `${k} x${n}`).join("; ") : ""].filter(Boolean).join("; ") || null,
   };
   await rest("site_extractions", { method: "POST", body: JSON.stringify(row).replace(/\\u0000/g, "") });
 }
