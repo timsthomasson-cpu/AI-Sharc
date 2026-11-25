@@ -1,0 +1,103 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>AI Sharc — Preliminary Report Card</title><style>
+@page { size: Letter; margin: 0.6in 0.7in; background: #F8FAFC; }
+html { background: #F8FAFC; }
+body { background: #F8FAFC; font-family: 'Liberation Sans', 'Nimbus Sans', Arial, sans-serif;
+  color: #334155; font-size: 11pt; line-height: 1.45; margin: 0; }
+.banner { background: #124073; border-radius: 10px; color: #fff; padding: 16px 24px 18px; margin-bottom: 18px; }
+.banner .kicker { font-size: 10pt; letter-spacing: 3px; font-weight: bold; }
+.banner .row { display: flex; justify-content: space-between; align-items: baseline; }
+.banner h1 { font-size: 26pt; margin: 2px 0 0; line-height: 1.1; }
+.banner .rev { font-size: 10pt; font-weight: normal; }
+tr { break-inside: avoid; }
+.key, .key-title { break-inside: avoid; }
+.key-title { break-after: avoid; }
+.card { background: #fff; border-radius: 10px; padding: 16px 22px 18px; margin-bottom: 18px; }
+h2.sec { color: #124073; font-size: 13pt; letter-spacing: 1.5px; text-transform: uppercase;
+  border-bottom: 1px solid #D9E2EC; padding-bottom: 6px; margin: 0 0 10px; }
+p { margin: 0 0 10px; }
+p.muted { color: #475569; }
+p.small { color: #64748B; font-size: 8pt; }
+.gatesummary { font-size: 20pt; font-weight: bold; text-align: center; margin: 10px 0 0; }
+.gatesummary.pass { color: #10B981; }
+.gatesummary.fail { color: #EF4444; }
+table { border-collapse: collapse; width: 100%; }
+.company td { border: 1px solid #fff; background: #F0F9FF; padding: 8px 10px; vertical-align: top; }
+.company td.lbl { color: #64748B; font-size: 10pt; width: 14%; }
+.company td.val { color: #0F172A; font-weight: bold; width: 36%; }
+.grade-block { text-align: center; margin: 6px 0 18px; }
+.grade-block .lbl { color: #000000; font-weight: bold; font-size: 13.75pt; letter-spacing: 3px; }
+.grade-block .circle { width: 92px; height: 92px; border: 4px solid #0284C7; border-radius: 50%;
+  color: #0284C7; font-size: 44pt; font-weight: bold; line-height: 84px; margin: 10px auto 0; }
+.grade-block .circle.gA, .grade-block .circle.gB { border-color: #10B981; color: #10B981; }
+.grade-block .circle.gC { border-color: #EAB308; color: #EAB308; }
+.grade-block .circle.gD { border-color: #F59E0B; color: #F59E0B; }
+.grade-block .circle.gF { border-color: #EF4444; color: #EF4444; }
+.sectiongrade { text-align: center; font-size: 44pt; font-weight: bold; line-height: 1; margin: 6px 0 28px; }
+.sectiongrade-lbl { color: #64748B; font-weight: bold; font-size: 11pt; letter-spacing: 3px; text-align: center; margin: 10px 0 4px; }
+.sectiongrade.gA, .sectiongrade.gB { color: #10B981; }
+.sectiongrade.gC { color: #EAB308; }
+.sectiongrade.gD { color: #F59E0B; }
+.sectiongrade.gF { color: #EF4444; }
+.rows td { padding: 9px 4px; vertical-align: top; border: none; }
+.rows td.name { font-weight: bold; color: #0F172A; width: 30%; }
+.rows td.check { color: #475569; }
+.rows td.res { text-align: right; font-weight: bold; white-space: nowrap; width: 11%; }
+.pass { color: #10B981; } .fail { color: #EF4444; }
+.complete { color: #10B981; } .suggested { color: #ED7D31; }
+.grows td { padding: 8px 4px; vertical-align: middle; border: none; }
+.grows td.cat { font-weight: bold; color: #0F172A; width: 30%; }
+.grows td.item { color: #334155; padding-left: 16px; width: 30%; }
+.grows td.barp { width: 44%; }
+.grows td.pts { text-align: center; color: #475569; white-space: nowrap; }
+.grows td.res { text-align: right; font-weight: bold; white-space: nowrap; width: 11%; }
+.grows td.res.subtotal { color: #124073; }
+.bar { background: #F1F5F9; border-radius: 6px; height: 10px; }
+.bar .fill { height: 10px; border-radius: 6px; }
+.key { width: auto; font-size: 8pt; line-height: 1.2; margin: 0 auto 14px;
+  border: 1.5pt solid #124073; }
+.key th { color: #124073; text-align: left; padding: 3px 8px 3px 0; }
+.key td { padding: 3px 8px 3px 0; border-bottom: 1px solid #E2E8F0; }
+.key th:first-child, .key td:first-child { padding-left: 16px; }
+.key th:last-child, .key td:last-child { padding-right: 16px; }
+.key td.g { font-weight: bold; color: #0F172A; }
+.key-title { color: #124073; font-weight: bold; font-size: 11pt; text-align: center; margin: 14px 0 6px; }
+.score { text-align: center; color: #124073; font-weight: bold; font-size: 24pt; margin: 12px 0 4px; }
+.score.gA, .score.gB { color: #10B981; }
+.score.gC { color: #EAB308; }
+.score.gD { color: #F59E0B; }
+.score.gF { color: #EF4444; }
+.websitereadable { text-align: center; font-size: 22pt; font-weight: bold; margin: 14px 0 10px; }
+.websitereadable.pass { color: #10B981; }
+.websitereadable.fail { color: #EF4444; }
+.reviewstars { text-align: center; font-size: 22pt; font-weight: bold; margin: 0 0 10px; }
+.reviewstars .stars { color: #EAB308; }
+.reviewdetail { color: #124073; font-weight: bold; }
+.callout { background: #F0F9FF; border-left: 4px solid #0284C7; border-radius: 0 8px 8px 0;
+  padding: 14px 18px; margin-bottom: 18px; }
+.callout h3 { color: #0369A1; font-size: 13pt; margin: 0 0 4px; }
+.callout p { margin: 0; }
+.rankdonut { text-align: center; margin: 4px 0 2px; }
+.rankdonut svg { display: block; margin: 0 auto; }
+.rankline { font-weight: bold; color: #124073; font-size: 12pt; margin: 6px 0 2px; }
+.ranklabel { font-size: 9.5pt; color: #64748B; margin: 2px 0 0; }
+.rankcaveat { font-size: 9.5pt; color: #475569; margin: 2px 0 0; }
+.cta { background: #0284C7; border-radius: 10px; color: #fff; text-align: center;
+  padding: 16px; margin: 28px 0 18px; }
+.cta .t { font-size: 14pt; font-weight: bold; }
+.cta .s { font-size: 11pt; margin-top: 2px; }
+.ranking-suggestions td { padding: 9px 4px; vertical-align: top; border: none; }
+.ranking-suggestions td.name { font-weight: bold; color: #0F172A; width: 30%; }
+.ranking-suggestions td.sugg { color: #475569; }
+.obs { color: #10B981; } .rec { color: #ED7D31; }
+h2.cat { color: #124073; font-size: 16pt; margin: 0 0 8px; }
+h3.issue { font-size: 14pt; color: #0F172A; margin: 14px 0 6px; }
+h3.fix { font-size: 13pt; color: #124073; margin: 10px 0 4px; }
+pre.code { font-family: 'Liberation Mono', 'DejaVu Sans Mono', monospace; font-size: 9.5pt;
+  background: #F8FAFC; border-radius: 6px; padding: 10px 12px; margin: 0 0 10px;
+  white-space: pre-wrap; word-wrap: break-word; color: #0F172A; }
+.review td { padding: 6px 8px 6px 0; border-bottom: 1px solid #E2E8F0; vertical-align: top; }
+.review td.lbl { font-weight: bold; color: #0F172A; width: 32%; }
+.review th { color: #124073; text-align: left; padding: 4px 8px 4px 0; }
+.check { color: #334155; }
+p.price b { color: #0F172A; }
+</style></head><body><div class="banner"><div class="kicker">AI SHARC &nbsp;·&nbsp; SAMPLE REPORT — FICTIONAL FIRM</div><div class="row"><h1>Preliminary Report Card</h1><span class="rev">Sample — 2026-11-25</span></div></div><div class="card"><h2 class="sec">Company Info</h2><table class="company"><tr><td class="lbl">Company name</td><td class="val">AC Sharc</td><td class="lbl">Company address</td><td class="val">1200 Example Parkway, Suite 4, Lakeview Springs, TX 77999</td></tr><tr><td class="lbl">Unique primary phone</td><td class="val">(555) 014-2290</td><td class="lbl">Primary Business Category</td><td class="val">HVAC Contractor</td></tr><tr><td class="lbl">Services tested</td><td class="val">AC installation and replacement, as separate services</td><td class="lbl">Town and ZIP searched</td><td class="val">Lakeview Springs, TX 77999</td></tr><tr><td class="lbl">Date performed</td><td class="val">25 November 2026</td><td class="lbl">Meta Place ID</td><td class="val">Not accessible in this audit</td></tr><tr><td class="lbl">Primary email</td><td class="val" colspan="3">service@acsharc-example.com</td></tr><tr><td class="lbl">Query ID</td><td class="val" colspan="3">hvac-lakeview-77999-t1</td></tr></table></div><div style="height:14px"></div><h2 class="sec">SECTION 1: FINAL SCORE</h2><div class="grade-block"><div class="lbl">OVERALL GRADE</div><div class="circle gC">C</div></div><div class="card"><h2 class="sec">SECTION 2: WEBSITE ACCESS</h2><p class="muted">Website Access checks that the firm’s website can be reached and read by a Shopping Agent: that the site loads, and is not parked, suspended, or showing the wrong content. If the website is unreachable on the firm’s side, no points are given — Grade F. A firm that is closed is not audited and receives no Report Card. A readable website is the minimum condition for a grade; it is not scored and earns no points.</p><div style="height:14px"></div><p class="websitereadable pass">✓ Website readable.</p></div><div class="card"><h2 class="sec">SECTION 3: AI SHOPPING HEALTH AUDIT GRADE</h2><p class="muted">This grade shows the quality and accessibility of the data on your website. Each item is Pass or Fail and worth the points shown; a category’s score is the sum of the points of the items in it that passed, and the total is out of 100. Categories are shown in the order they impact a Shopping Agent’s ability to utilize your website.</p><p class="muted">The table below shows each category with its points subtotal. The Final Report Card will include: individual items contributing to each category, how each item is evaluated, and all suggested fixes.</p><table class="grows"><tr><td class="cat">1. Reputation</td><td class="barp"><div class="bar"><div class="fill" style="width: 0%; background: #EF4444;"></div></div></td><td class="res subtotal">0 of 22 points</td></tr><tr><td class="cat">2. Area Coverage</td><td class="barp"><div class="bar"><div class="fill" style="width: 45%; background: #EF4444;"></div></div></td><td class="res subtotal">9 of 20 points</td></tr><tr><td class="cat">3. Credentials and Trust</td><td class="barp"><div class="bar"><div class="fill" style="width: 0%; background: #EF4444;"></div></div></td><td class="res subtotal">0 of 10 points</td></tr><tr><td class="cat">4. Pricing and Warranty</td><td class="barp"><div class="bar"><div class="fill" style="width: 46%; background: #EF4444;"></div></div></td><td class="res subtotal">6 of 13 points</td></tr><tr><td class="cat">5. Hours and Active Status</td><td class="barp"><div class="bar"><div class="fill" style="width: 100%; background: #10B981;"></div></div></td><td class="res subtotal">7 of 7 points</td></tr><tr><td class="cat">6. Identity and Contact</td><td class="barp"><div class="bar"><div class="fill" style="width: 20%; background: #EF4444;"></div></div></td><td class="res subtotal">3 of 15 points</td></tr><tr><td class="cat">7. Machine Readability</td><td class="barp"><div class="bar"><div class="fill" style="width: 100%; background: #10B981;"></div></div></td><td class="res subtotal">13 of 13 points</td></tr></table><div style="height:14px"></div><p class="score gC">Score: 38 / 100</p><p class="muted" style="text-align:center">High Priority issues: 10</p><p class="muted">Category points: Reputation 0 of 22, Area Coverage 9 of 20, Credentials and Trust 0 of 10, Pricing and Warranty 6 of 13, Hours and Active Status 7 of 7, Identity and Contact 3 of 15, Machine Readability 13 of 13.</p><p class="muted">Each item is Pass or Fail and worth the points shown. A category’s score is the sum of the points of the items in it that passed. The total is out of 100.</p><div class="key-title">Grading key</div><table class="key"><tr><th>Grade</th><th>Meaning</th></tr><tr><td class="g">A</td><td>65 points or more</td></tr><tr><td class="g">B</td><td>50–64 points</td></tr><tr><td class="g">C</td><td>30–49 points</td></tr><tr><td class="g">D</td><td>Below 30 points, still eligible</td></tr><tr><td class="g">F</td><td>Website unreachable on the firm’s side — no points given</td></tr></table></div><div class="card"><h2 class="sec">SECTION 4: WHERE YOUR AI SHOPPING HEALTH GRADE RANKS IN YOUR SERVICE AREA</h2><p class="muted">Your AI Shopping Health Audit Grade in the previous section gives you a fixed letter grade based on how your website scores based on a set of fixed requirements.  Your AI Shopping Health Audit Ranking shows how you compare to the other companies in your specialty and service area. Here is where your ranking stands.</p></div><div class="rankdonut"><svg viewBox="0 0 120 120" width="132" height="132"><circle cx="60" cy="60" r="50" fill="none" stroke="#E2E8F0" stroke-width="10"/><circle cx="60" cy="60" r="50" fill="none" stroke="#FB8C00" stroke-width="10" stroke-dasharray="144.5 314.2" transform="rotate(-90 60 60)" stroke-linecap="round"/><text x="60" y="58" text-anchor="middle" font-size="16" font-weight="bold" fill="#FB8C00">46th</text><text x="60" y="76" text-anchor="middle" font-size="9" fill="#64748B">Percentile</text></svg><p class="ranklabel">AI Sharc audit percentile among the firms assessed.</p><p class="rankline">12th of 22 eligible in the service area</p><p class="rankcaveat">This score is a point in time and can constantly change, based on your score and the scores of the companies that were scored in your service area. Your ranking will move with customer location, requests, and the competitor set included. Your grade is the steadier guide.</p></div><div style="height:28px"></div><div class="cta"><div class="t">Click Here to receive your Final Report</div><div class="s">Includes suggested actions to Increase Your Ranking and an in depth analysis of your Customer Reviews</div></div><div class="card"><h2 class="sec">NOTES AND LIMITS</h2><p class="small">This report card does not guarantee inclusion or a ranking in any AI recommendation. It only measures AI Shopping Health on the evidence checked, for the query, town, and ZIP above, on the date performed.</p><p class="small">High Priority counts are issue counts, not fix-list row counts: one issue per row, so a row bundling two issues counts as two.</p><p class="small">To prove improvement, re-run the same shopping query, same category, same town and ZIP, on a new date, and record the new approximate ranking. If the category score improves but the approximate ranking does not, the report card must be recalibrated for that market.</p><p class="small">How pass and fail are decided (hard rules, version 2026-11-19): An item passes only if it meets its stated criteria exactly, with the source and date shown; there is no partial credit and no ‘close enough’. Each item is Pass or Fail and worth the points shown; a passed item earns its full points, a failed item earns 0. A category’s score is the sum of the points of the items in it that passed. The total is out of 100. Pass with warning counts as a pass: the item meets its criteria, but a note is shown with it, for example a rating that is readable with its platform, review count, and date, but differs across platforms. Ratings from different platforms are expected to differ, so they are reported per platform, never averaged, and a cross-platform difference on its own is not treated as a conflict. Grade F is given only when the website is unreachable on the firm’s side. A closed firm is not audited and receives no Report Card. The eight ranking suggestions — C3.2 BBB accreditation and rating consistent with bbb.org and C4.1 six-line warranty card, and the six Section 6 factors (S1 Booking and quote route, S2 Availability, S3 Price for this user, S4 Brand and system coverage, S5 Service-area dispatch, and S6 Machine discovery (llms.txt)) — are recommendations, not scored, and never change your grade. A ranking suggestion is shown as observed only where public evidence directly proves it; otherwise it is shown as a recommendation.</p></div><div class="card"><p class="small"><b>Sample report.</b> AC Sharc is a fictional company. Its name, address, phone, email, website, town and ZIP are invented for illustration; the scores show a typical mid-to-low C result.</p></div></body></html>
