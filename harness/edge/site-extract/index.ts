@@ -25,8 +25,15 @@ async function kinds(): Promise<Kinds> {
 type Errs = Map<string, number>;
 const dlErr = (errs: Errs, k: string) => { errs.set(k, (errs.get(k) || 0) + 1); return null; };
 async function download(path: string, errs: Errs): Promise<string | null> {
-  const r = await fetch(`${SB}/storage/v1/object/page-snapshots/${path}`, { headers: hdr });
-  if (!r.ok) { await r.body?.cancel(); return dlErr(errs, `HTTP ${r.status}`); }
+  // Storage rate-limits bursts (HTTP 429): back off and retry up to 4 times.
+  let r: Response | null = null;
+  for (let attempt = 0; attempt < 5; attempt++) {
+    r = await fetch(`${SB}/storage/v1/object/page-snapshots/${path}`, { headers: hdr });
+    if (r.status !== 429 && r.status < 500) break;
+    await r.body?.cancel();
+    await new Promise((res) => setTimeout(res, 800 * 2 ** attempt + Math.random() * 400));
+  }
+  if (!r || !r.ok) { await r?.body?.cancel(); return dlErr(errs, `HTTP ${r?.status}`); }
   // The file is gzip, but the storage CDN sometimes serves it with Content-Encoding: gzip, in which case
   // fetch has already unzipped it. Unzip only when the bytes start with the gzip magic number.
   const bytes = new Uint8Array(await r.arrayBuffer());
@@ -50,8 +57,8 @@ async function run(firm: string, runLabel: string) {
   const dlErrors: Errs = new Map();
   const pages: Page[] = []; let failed = 0;
   const list = [...latest.values()].slice(0, 40);
-  for (let i = 0; i < list.length; i += 6) {
-    const got = await Promise.all(list.slice(i, i + 6).map(async (r) => ({ r, html: await download(r.storage_path, dlErrors).catch((e) => dlErr(dlErrors, String(e).slice(0, 60))) })));
+  for (let i = 0; i < list.length; i += 3) {
+    const got = await Promise.all(list.slice(i, i + 3).map(async (r) => ({ r, html: await download(r.storage_path, dlErrors).catch((e) => dlErr(dlErrors, String(e).slice(0, 60))) })));
     for (const { r, html } of got) {
       if (html == null) { failed++; continue; }
       pages.push({ url: r.requested_url, why: r.selected_because || "", role: r.page_role, html });
