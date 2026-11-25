@@ -4,7 +4,7 @@
 export type Page = { url: string; why: string; role: string; html: string };
 export type Kinds = Record<string, string[]>; // name_norm -> ["city","common","alias","county"]
 
-export const VERSION = "rules-2026-11-24d";
+export const VERSION = "rules-2026-11-25a";
 
 const SA_URL = /service[-_]?areas?|areas?[-_]?(we[-_]?)?serv|where[-_]?we[-_]?serve|locations?|cities|communities|coverage/i;
 const TRIGGER = /\b(serv(?:e|es|ed|ing)|service areas?|areas? (?:we )?serv\w*|proudly|communities|nearby|surrounding|throughout|in and around|locations?)\b/gi;
@@ -250,6 +250,9 @@ export function extract(pages: Page[], kinds: Kinds, inventory: { sitemap_urls?:
   return {
     sa_places: dedupe(places), sa_counties: dedupe(counties), sa_zips_explicit: [...zips].sort(),
     sa_unnamed_extra: !!unnamed, sa_unnamed_wording: unnamed, sa_source_url: saUrl,
+    // every distinct office address on the site (multi-location firms), most-mentioned first
+    addresses: [...addrCount.values()].sort((x, y) => y.n - x.n).slice(0, 25)
+      .map(({ street, city, zip, src, url, n }) => ({ street, city, zip, source: src, url, mentions: n })),
     address_street: best?.street ?? null, address_city: best?.city ?? null, address_zip: best?.zip ?? null,
     address_source: best?.src ?? null, address_url: best?.url ?? null,
     insurance_stated: !!first.insurance, insurance_wording: first.insurance?.wording ?? null, insurance_url: first.insurance?.url ?? null,

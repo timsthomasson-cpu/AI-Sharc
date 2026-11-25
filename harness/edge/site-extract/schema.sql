@@ -33,3 +33,7 @@
 -- zip_reach (table) + build_zip_reach_v2(): companies per ZIP, companies counted from a website area, unique ZIPs and
 --   2010 population reached by those companies. Built one ZIP at a time in memory; build_zip_reach() (v1) needs large
 --   temp files and ran the test database out of disk on 2026-11-25 - do not use it.
+
+-- 2026-11-25 (decided with Tim, long-term): multi-location firms. site_extractions.addresses keeps every office
+--   address on the site (rules-2026-11-25a). firm_zip_basis keeps a listed ZIP if it is within 100 miles of the home
+--   point OR of any listed office; the 350-ZIP cap rises by 150 per extra office. Takes effect at the next extraction run.
