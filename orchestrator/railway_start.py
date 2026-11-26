@@ -11,6 +11,7 @@ With no RUN_QUERY_ID set, it runs a self-check and exits:
 
 With RUN_TASK=openai_shopping_query, it runs the Prompt v1 shopping queries through the OpenAI API
 (orchestrator/openai_shopping_query.py) and stores the answers in staging.api_returns.
+With RUN_TASK=meta_shopping_query, it does the same through the Meta Model API (agent prefix meta-api).
 
 With RUN_QUERY_ID set (e.g. hvac-houston-77002-t2), it audits that query:
 firm_registry -> run_query -> load_results audits. Output goes to RUNS_DIR (default /data/runs,
@@ -138,7 +139,9 @@ def run(query_id):
 
 if __name__ == "__main__":
     task = os.environ.get("RUN_TASK", "").strip()
-    if task == "openai_shopping_query":
+    if task in ("openai_shopping_query", "meta_shopping_query"):
+        if task == "meta_shopping_query":
+            os.environ["PROVIDER"] = "meta"
         import openai_shopping_query
         sys.exit(openai_shopping_query.main())
     qid = os.environ.get("RUN_QUERY_ID", "").strip()
