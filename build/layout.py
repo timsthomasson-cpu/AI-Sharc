@@ -10,6 +10,7 @@ FIN = ('<svg class="fin" width="26" height="20" viewBox="-14 -48 132 102" aria-h
 NAV = [
     ("how-it-works.html", "How it works"),
     ("pricing.html", "Pricing"),
+    ("texas-hvac-contractor.html", "Markets"),
     ("sample-cards.html", "Sample"),
     ("faq.html", "FAQ"),
     ("contact.html", "Contact"),
