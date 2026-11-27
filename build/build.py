@@ -1,6 +1,6 @@
 # AI Sharc — build script: assembles all static pages from layout + content modules.
 # Usage: python3 -m build.build  (from repo root)  → writes site/*.html
-import os, sys
+import os, sys, shutil
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from build.layout import page
@@ -68,6 +68,12 @@ def main():
     with open(os.path.join(out_dir, "texas-hvac-contractor.html"), "w") as f:
         f.write(ct.texas_hvac_page())
     written.append("texas-hvac-contractor.html")
+    # sample report cards (full HTML + PDF views)
+    samples_src = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "samples")
+    samples_dst = os.path.join(out_dir, "samples")
+    os.makedirs(samples_dst, exist_ok=True)
+    for f in os.listdir(samples_src):
+        shutil.copy2(os.path.join(samples_src, f), os.path.join(samples_dst, f))
     # sitemap
     urls = []
     for slug, title, desc, body in PAGES:

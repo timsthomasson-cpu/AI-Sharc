@@ -272,35 +272,24 @@ def _rc(grade, gcls, firm, headline, findings, note):
 
 sample_body = _hero(
     'Sample Report Cards',
-    "These are samples with dummy data &mdash; not real businesses. They show what a Preliminary Report "
-    "Card looks like: a grade and summary-level findings, each one citing its source.",
+    "Real samples of both cards, for a fictional firm (AC Sharc, dummy data). The Preliminary is what "
+    "you get free; the Final is the full deep audit. Open either one full-size, or download the PDF.",
     '')
-sample_body += _sec("", '''<h2>Sample 1 &mdash; a site the machines can't read</h2>''' + _rc(
-    "D", "g-d", "Sample Air &amp; Heat Co.",
-    "AI agents can find this business, but can't read what it sells.",
-    [("Services are images, not text",
-      "The homepage shows service photos with no text description a machine can read.",
-      "Source: homepage, service image row &middot; checked 2026-11-11 (dummy data)"),
-     ("No service area stated in text",
-      "The towns served appear only inside a map graphic.",
-      "Source: homepage, map section &middot; checked 2026-11-11 (dummy data)"),
-     ("Phone number not clickable",
-      "The phone number is plain text; phones can't tap it and agents can't extract it reliably.",
-      "Source: contact page footer &middot; checked 2026-11-11 (dummy data)")],
-    "Fixes are bite-sized: name each service in text, list the towns served, and make the phone number a tap-to-call link."))
-sample_body += '<h2>Sample 2 &mdash; a site agents can trust</h2>' + _rc(
-    "B", "g-b", "Sample Plumbing Co.",
-    "Strong overall. A few trust signals are missing for AI agents.",
-    [("Licence stated clearly",
-      "The licence type and number appear in the site footer, in text.",
-      "Source: site footer &middot; checked 2026-11-11 (dummy data)"),
-     ("Service pages name each town served",
-      "Each service page lists the towns it covers in plain text.",
-      "Source: /services pages &middot; checked 2026-11-11 (dummy data)"),
-     ("No customer reviews on site",
-      "The site shows no customer reviews anywhere, which weakens the trust picture for an agent.",
-      "Source: homepage and about page &middot; checked 2026-11-11 (dummy data)")],
-    "One small fix list. The firm is close to an A.")
+sample_body += _sec("", '''<div class="grid g2">
+<div class="card"><h3>Preliminary Report Card &mdash; sample</h3>
+<p>The free card: your overall grade and summary-level findings, each citing its source.</p>
+<p><a href="samples/sample-preliminary.html"><img src="assets/img/sample-preliminary.jpg"
+ alt="Sample Preliminary Report Card for fictional firm AC Sharc" style="width:100%;border:1px solid #ddd;border-radius:8px"></a></p>
+<p><a class="btn btn-outline" href="samples/sample-preliminary.html">Open the full card</a>
+ <a class="btn btn-ghost" href="samples/sample-preliminary.pdf">Download PDF</a></p></div>
+<div class="card"><h3>Final Report Card &mdash; sample</h3>
+<p>The paid card: the complete audit, every finding with its source, and the full prioritised fix list.</p>
+<p><a href="samples/sample-final.html"><img src="assets/img/sample-final.jpg"
+ alt="Sample Final Report Card for fictional firm AC Sharc" style="width:100%;border:1px solid #ddd;border-radius:8px"></a></p>
+<p><a class="btn btn-outline" href="samples/sample-final.html">Open the full card</a>
+ <a class="btn btn-ghost" href="samples/sample-final.pdf">Download PDF</a></p></div>
+</div>
+<p class="note" style="margin-top:12px">Both samples use dummy data for a fictional firm and are labelled as samples &mdash; not live audits.</p>''')
 sample_body += _sec("alt", '''<h2>What you won't see here</h2>
 <p style="max-width:70ch">Samples show the grade and summary-level findings, the way a Preliminary card
 does. The full line-by-line detail of an audit is only on a firm's own Final Report Card &mdash; it's
