@@ -1,0 +1,1822 @@
+zip,city,county,population_2010
+75001,Addison,Dallas County,12414
+75002,Allen,Collin County,63140
+75006,Carrollton,Dallas County,46364
+75007,Carrollton,Denton County,51624
+75009,Celina,Collin County,8785
+75010,Carrollton,Denton County,21607
+75013,Allen,Collin County,30347
+75019,Coppell,Dallas County,38666
+75020,Denison,Grayson County,21872
+75021,Denison,Grayson County,8036
+75022,Flower Mound,Denton County,22545
+75023,Plano,Collin County,45452
+75024,Plano,Collin County,36039
+75025,Plano,Collin County,50926
+75028,Flower Mound,Denton County,42226
+75032,Rockwall,Rockwall County,27986
+75034,Frisco,Denton County,72723
+75035,Frisco,Collin County,47553
+75038,Irving,Dallas County,27802
+75039,Irving,Dallas County,11032
+75040,Garland,Dallas County,59406
+75041,Garland,Dallas County,30700
+75042,Garland,Dallas County,37881
+75043,Garland,Dallas County,58094
+75044,Garland,Dallas County,40811
+75048,Sachse,Dallas County,20328
+75050,Grand Prairie,Dallas County,41041
+75051,Grand Prairie,Dallas County,39285
+75052,Grand Prairie,Dallas County,88996
+75054,Grand Prairie,Tarrant County,5053
+75056,The Colony,Denton County,47852
+75057,Lewisville,Denton County,12900
+75058,Gunter,Grayson County,2982
+75060,Irving,Dallas County,45980
+75061,Irving,Dallas County,53442
+75062,Irving,Dallas County,44537
+75063,Irving,Dallas County,35090
+75065,Lake Dallas,Denton County,10748
+75067,Lewisville,Denton County,60982
+75068,Little Elm,Denton County,34934
+75069,Mckinney,Collin County,34108
+75070,Mckinney,Collin County,74734
+75071,Mckinney,Collin County,36090
+75074,Plano,Collin County,44622
+75075,Plano,Collin County,33262
+75076,Pottsboro,Grayson County,7378
+75077,Lewisville,Denton County,35330
+75078,Prosper,Collin County,10592
+75080,Richardson,Dallas County,44009
+75081,Richardson,Dallas County,34156
+75082,Richardson,Collin County,21182
+75087,Rockwall,Rockwall County,28145
+75088,Rowlett,Dallas County,24712
+75089,Rowlett,Dallas County,30251
+75090,Sherman,Grayson County,23724
+75092,Sherman,Grayson County,22839
+75093,Plano,Collin County,47187
+75094,Plano,Collin County,20579
+75098,Wylie,Collin County,48197
+75101,Bardwell,Ellis County,646
+75102,Barry,Navarro County,1322
+75103,Canton,Van Zandt County,12851
+75104,Cedar Hill,Dallas County,45373
+75105,Chatfield,Navarro County,301
+75109,Corsicana,Navarro County,3658
+75110,Corsicana,Navarro County,28132
+75114,Crandall,Kaufman County,4660
+75115,Desoto,Dallas County,48877
+75116,Duncanville,Dallas County,19669
+75117,Edgewood,Van Zandt County,3722
+75119,Ennis,Ellis County,26601
+75124,Eustace,Henderson County,4446
+75125,Ferris,Ellis County,6691
+75126,Forney,Kaufman County,33396
+75127,Fruitvale,Van Zandt County,1593
+75132,Fate,Rockwall County,294
+75134,Lancaster,Dallas County,20276
+75135,Caddo Mills,Hunt County,5910
+75137,Duncanville,Dallas County,18861
+75140,Grand Saline,Van Zandt County,6958
+75141,Hutchins,Dallas County,5374
+75142,Kaufman,Kaufman County,18982
+75143,Kemp,Henderson County,14619
+75144,Kerens,Navarro County,3291
+75146,Lancaster,Dallas County,17993
+75147,Mabank,Kaufman County,6602
+75148,Malakoff,Henderson County,5842
+75149,Mesquite,Dallas County,56065
+75150,Mesquite,Dallas County,58730
+75152,Palmer,Ellis County,4606
+75153,Powell,Navarro County,605
+75154,Red Oak,Ellis County,36041
+75155,Rice,Navarro County,2579
+75156,Mabank,Henderson County,14580
+75157,Rosser,Kaufman County,310
+75158,Scurry,Kaufman County,4139
+75159,Seagoville,Dallas County,18339
+75160,Terrell,Kaufman County,23627
+75161,Terrell,Kaufman County,6165
+75163,Trinidad,Henderson County,2285
+75164,Josephine,Collin County,671
+75165,Waxahachie,Ellis County,37966
+75166,Lavon,Collin County,3070
+75167,Waxahachie,Ellis County,8436
+75169,Wills Point,Van Zandt County,14644
+75172,Wilmer,Dallas County,3956
+75173,Nevada,Collin County,4353
+75180,Balch Springs,Dallas County,23031
+75181,Mesquite,Dallas County,25908
+75182,Sunnyvale,Dallas County,5118
+75189,Royse City,Rockwall County,22406
+75201,Dallas,Dallas County,9409
+75202,Dallas,Dallas County,1666
+75203,Dallas,Dallas County,15721
+75204,Dallas,Dallas County,26279
+75205,Dallas,Dallas County,23061
+75206,Dallas,Dallas County,36248
+75208,Dallas,Dallas County,30171
+75209,Dallas,Dallas County,13653
+75210,Dallas,Dallas County,7482
+75211,Dallas,Dallas County,73146
+75212,Dallas,Dallas County,24884
+75214,Dallas,Dallas County,32950
+75215,Dallas,Dallas County,14648
+75216,Dallas,Dallas County,49416
+75217,Dallas,Dallas County,80324
+75218,Dallas,Dallas County,21665
+75219,Dallas,Dallas County,22124
+75220,Dallas,Dallas County,41891
+75223,Dallas,Dallas County,13947
+75224,Dallas,Dallas County,34034
+75225,Dallas,Dallas County,20892
+75226,Dallas,Dallas County,3506
+75227,Dallas,Dallas County,55029
+75228,Dallas,Dallas County,66551
+75229,Dallas,Dallas County,31571
+75230,Dallas,Dallas County,26934
+75231,Dallas,Dallas County,37052
+75232,Dallas,Dallas County,28682
+75233,Dallas,Dallas County,14043
+75234,Dallas,Dallas County,28794
+75235,Dallas,Dallas County,17177
+75236,Dallas,Dallas County,15949
+75237,Dallas,Dallas County,17101
+75238,Dallas,Dallas County,30483
+75240,Dallas,Dallas County,24296
+75241,Dallas,Dallas County,27066
+75243,Dallas,Dallas County,55406
+75244,Dallas,Dallas County,13266
+75246,Dallas,Dallas County,2770
+75248,Dallas,Dallas County,33395
+75249,Dallas,Dallas County,13373
+75252,Dallas,Collin County,24112
+75253,Dallas,Dallas County,18450
+75254,Dallas,Dallas County,23253
+75287,Dallas,Denton County,49004
+75401,Greenville,Hunt County,18552
+75402,Greenville,Hunt County,15920
+75407,Princeton,Collin County,14120
+75409,Anna,Collin County,11831
+75410,Alba,Wood County,4334
+75411,Arthur City,Lamar County,1118
+75412,Bagwell,Red River County,778
+75413,Bailey,Fannin County,305
+75414,Bells,Grayson County,3136
+75415,Ben Franklin,Delta County,144
+75416,Blossom,Lamar County,2893
+75417,Bogata,Red River County,2456
+75418,Bonham,Fannin County,14411
+75420,Brashear,Hopkins County,1076
+75421,Brookston,Lamar County,1003
+75422,Campbell,Hunt County,2883
+75423,Celeste,Hunt County,2982
+75424,Blue Ridge,Collin County,3297
+75426,Clarksville,Red River County,5301
+75428,Commerce,Hunt County,10089
+75431,Como,Hopkins County,2052
+75432,Cooper,Delta County,3323
+75433,Cumby,Hopkins County,2773
+75435,Deport,Lamar County,1185
+75436,Detroit,Red River County,1876
+75437,Dike,Hopkins County,1078
+75438,Dodd City,Fannin County,972
+75439,Ector,Fannin County,868
+75440,Emory,Rains County,6350
+75441,Enloe,Delta County,142
+75442,Farmersville,Collin County,8858
+75446,Honey Grove,Fannin County,3180
+75447,Ivanhoe,Fannin County,1080
+75448,Klondike,Delta County,655
+75449,Ladonia,Fannin County,1186
+75450,Lake Creek,Delta County,331
+75451,Leesburg,Camp County,1211
+75452,Leonard,Fannin County,4090
+75453,Lone Oak,Hunt County,3255
+75454,Melissa,Collin County,5699
+75455,Mount Pleasant,Titus County,28293
+75457,Mount Vernon,Franklin County,6522
+75459,Howe,Grayson County,4326
+75460,Paris,Lamar County,23592
+75462,Paris,Lamar County,11350
+75468,Pattonville,Lamar County,888
+75469,Pecan Gap,Delta County,371
+75470,Petty,Lamar County,288
+75471,Pickton,Hopkins County,1424
+75472,Point,Rains County,3548
+75473,Powderly,Lamar County,3855
+75474,Quinlan,Hunt County,14882
+75475,Randolph,Fannin County,129
+75476,Ravenna,Fannin County,1304
+75477,Roxton,Lamar County,977
+75478,Saltillo,Hopkins County,932
+75479,Savoy,Fannin County,1849
+75480,Scroggins,Franklin County,1646
+75481,Sulphur Bluff,Hopkins County,395
+75482,Sulphur Springs,Hopkins County,24385
+75486,Sumner,Lamar County,2346
+75487,Talco,Titus County,1541
+75488,Telephone,Fannin County,1161
+75489,Tom Bean,Grayson County,993
+75490,Trenton,Fannin County,2211
+75491,Whitewright,Grayson County,4801
+75492,Windom,Fannin County,516
+75493,Winfield,Titus County,611
+75494,Winnsboro,Wood County,10862
+75495,Van Alstyne,Grayson County,7095
+75496,Wolfe City,Hunt County,3351
+75497,Yantis,Wood County,3350
+75501,Texarkana,Bowie County,36298
+75503,Texarkana,Bowie County,24379
+75550,Annona,Red River County,808
+75551,Atlanta,Cass County,11007
+75554,Avery,Red River County,1806
+75555,Bivins,Cass County,1611
+75556,Bloomburg,Cass County,1133
+75558,Cookville,Titus County,1636
+75559,De Kalb,Bowie County,5568
+75560,Douglassville,Cass County,1088
+75561,Hooks,Bowie County,5395
+75563,Linden,Cass County,4282
+75565,Mc Leod,Cass County,361
+75566,Marietta,Cass County,782
+75567,Maud,Bowie County,4225
+75568,Naples,Morris County,2876
+75569,Nash,Bowie County,2874
+75570,New Boston,Bowie County,11518
+75571,Omaha,Morris County,2846
+75572,Queen City,Cass County,3491
+75574,Simms,Bowie County,1868
+75601,Longview,Gregg County,15849
+75602,Longview,Gregg County,23286
+75603,Longview,Gregg County,5456
+75604,Longview,Gregg County,29934
+75605,Longview,Gregg County,27823
+75630,Avinger,Marion County,2588
+75631,Beckville,Panola County,2787
+75633,Carthage,Panola County,13977
+75638,Daingerfield,Morris County,6036
+75639,De Berry,Panola County,3460
+75640,Diana,Upshur County,4652
+75641,Easton,Gregg County,223
+75643,Gary,Panola County,2074
+75644,Gilmer,Upshur County,11444
+75645,Gilmer,Upshur County,9778
+75647,Gladewater,Gregg County,13196
+75650,Hallsville,Harrison County,8611
+75651,Harleton,Harrison County,2189
+75652,Henderson,Rusk County,16638
+75654,Henderson,Rusk County,12417
+75656,Hughes Springs,Cass County,4804
+75657,Jefferson,Marion County,8246
+75661,Karnack,Harrison County,2807
+75662,Kilgore,Gregg County,24536
+75667,Laneville,Rusk County,1021
+75668,Lone Star,Morris County,1993
+75669,Long Branch,Panola County,606
+75670,Marshall,Harrison County,17290
+75672,Marshall,Harrison County,17097
+75681,Mount Enterprise,Rusk County,2562
+75682,New London,Rusk County,473
+75683,Ore City,Upshur County,3914
+75684,Overton,Rusk County,7548
+75686,Pittsburg,Camp County,12985
+75691,Tatum,Rusk County,4219
+75692,Waskom,Harrison County,5098
+75693,White Oak,Gregg County,6869
+75701,Tyler,Smith County,34373
+75702,Tyler,Smith County,27069
+75703,Tyler,Smith County,37166
+75704,Tyler,Smith County,8684
+75705,Tyler,Smith County,2168
+75706,Tyler,Smith County,8771
+75707,Tyler,Smith County,13711
+75708,Tyler,Smith County,7156
+75709,Tyler,Smith County,5062
+75750,Arp,Smith County,3937
+75751,Athens,Henderson County,17253
+75752,Athens,Henderson County,6986
+75754,Ben Wheeler,Van Zandt County,5783
+75755,Big Sandy,Upshur County,5719
+75756,Brownsboro,Henderson County,4002
+75757,Bullard,Smith County,10022
+75758,Chandler,Henderson County,9072
+75759,Cuney,Cherokee County,141
+75760,Cushing,Nacogdoches County,2614
+75762,Flint,Smith County,12466
+75763,Frankston,Anderson County,6005
+75764,Gallatin,Cherokee County,233
+75765,Hawkins,Wood County,7607
+75766,Jacksonville,Cherokee County,26388
+75770,Larue,Henderson County,2776
+75771,Lindale,Smith County,18361
+75773,Mineola,Wood County,12791
+75778,Murchison,Henderson County,3254
+75779,Neches,Anderson County,122
+75780,New Summerfield,Cherokee County,312
+75783,Quitman,Wood County,7219
+75784,Reklaw,Cherokee County,658
+75785,Rusk,Cherokee County,11263
+75789,Troup,Smith County,7593
+75790,Van,Van Zandt County,4203
+75791,Whitehouse,Smith County,13125
+75792,Winona,Smith County,3518
+75801,Palestine,Anderson County,16799
+75803,Palestine,Anderson County,22397
+75831,Buffalo,Leon County,5386
+75833,Centerville,Leon County,3324
+75835,Crockett,Houston County,12012
+75838,Donie,Freestone County,666
+75839,Elkhart,Anderson County,5069
+75840,Fairfield,Freestone County,7076
+75844,Grapeland,Houston County,5718
+75845,Groveton,Trinity County,3259
+75846,Jewett,Leon County,2718
+75847,Kennard,Houston County,1859
+75848,Kirvin,Freestone County,92
+75849,Latexo,Houston County,75
+75850,Leona,Leon County,671
+75851,Lovelady,Houston County,5050
+75852,Midway,Madison County,3762
+75853,Montalba,Anderson County,963
+75855,Oakwood,Leon County,2369
+75856,Pennington,Trinity County,196
+75859,Streetman,Freestone County,1923
+75860,Teague,Freestone County,6644
+75861,Tennessee Colony,Anderson County,9017
+75862,Trinity,Trinity County,10091
+75901,Lufkin,Angelina County,29036
+75904,Lufkin,Angelina County,34004
+75925,Alto,Cherokee County,4179
+75926,Apple Springs,Trinity County,1070
+75928,Bon Wier,Newton County,1411
+75929,Broaddus,San Augustine County,1599
+75930,Bronson,Sabine County,2023
+75931,Brookeland,Jasper County,2631
+75932,Burkeville,Newton County,1437
+75933,Call,Newton County,1599
+75935,Center,Shelby County,13685
+75936,Chester,Tyler County,889
+75937,Chireno,Nacogdoches County,994
+75938,Colmesneil,Tyler County,2608
+75939,Corrigan,Polk County,3992
+75941,Diboll,Angelina County,9105
+75942,Doucette,Tyler County,115
+75943,Douglass,Nacogdoches County,1262
+75944,Etoile,Nacogdoches County,1301
+75946,Garrison,Nacogdoches County,3578
+75948,Hemphill,Sabine County,6281
+75949,Huntington,Angelina County,7976
+75951,Jasper,Jasper County,16134
+75954,Joaquin,Shelby County,3280
+75956,Kirbyville,Jasper County,7623
+75959,Milam,Sabine County,923
+75960,Moscow,Polk County,913
+75961,Nacogdoches,Nacogdoches County,14910
+75964,Nacogdoches,Nacogdoches County,20097
+75965,Nacogdoches,Nacogdoches County,17591
+75966,Newton,Newton County,5371
+75968,Pineland,Sabine County,1766
+75969,Pollok,Angelina County,4116
+75972,San Augustine,San Augustine County,6620
+75973,Shelbyville,Shelby County,2599
+75974,Tenaha,Shelby County,3126
+75975,Timpson,Shelby County,3699
+75976,Wells,Cherokee County,827
+75977,Wiergate,Newton County,750
+75978,Woden,Nacogdoches County,144
+75979,Woodville,Tyler County,11423
+75980,Zavalla,Angelina County,2836
+76001,Arlington,Tarrant County,30460
+76002,Arlington,Tarrant County,30269
+76006,Arlington,Tarrant County,22639
+76008,Aledo,Parker County,13602
+76009,Alvarado,Johnson County,19759
+76010,Arlington,Tarrant County,55706
+76011,Arlington,Tarrant County,21594
+76012,Arlington,Tarrant County,25689
+76013,Arlington,Tarrant County,30680
+76014,Arlington,Tarrant County,34072
+76015,Arlington,Tarrant County,16658
+76016,Arlington,Tarrant County,30852
+76017,Arlington,Tarrant County,44724
+76018,Arlington,Tarrant County,26938
+76020,Azle,Tarrant County,27270
+76021,Bedford,Tarrant County,33673
+76022,Bedford,Tarrant County,13212
+76023,Boyd,Wise County,5832
+76028,Burleson,Johnson County,59744
+76031,Cleburne,Johnson County,17759
+76033,Cleburne,Johnson County,24819
+76034,Colleyville,Tarrant County,22748
+76035,Cresson,Parker County,1622
+76036,Crowley,Tarrant County,22352
+76039,Euless,Tarrant County,32925
+76040,Euless,Tarrant County,27524
+76041,Forreston,Ellis County,434
+76043,Glen Rose,Somervell County,7071
+76044,Godley,Johnson County,3866
+76048,Granbury,Hood County,21989
+76049,Granbury,Hood County,25130
+76050,Grandview,Johnson County,5875
+76051,Grapevine,Tarrant County,46320
+76052,Haslet,Tarrant County,15995
+76053,Hurst,Tarrant County,28421
+76054,Hurst,Tarrant County,11764
+76055,Itasca,Hill County,3084
+76058,Joshua,Johnson County,17123
+76059,Keene,Johnson County,4881
+76060,Kennedale,Tarrant County,6764
+76063,Mansfield,Tarrant County,61361
+76064,Maypearl,Ellis County,1883
+76065,Midlothian,Ellis County,28986
+76066,Millsap,Parker County,3142
+76067,Mineral Wells,Palo Pinto County,22117
+76070,Nemo,Somervell County,752
+76071,Newark,Wise County,3320
+76073,Paradise,Wise County,5327
+76077,Rainbow,Somervell County,590
+76078,Rhome,Wise County,8572
+76082,Springtown,Parker County,17748
+76084,Venus,Johnson County,8327
+76085,Weatherford,Parker County,8787
+76086,Weatherford,Parker County,20196
+76087,Weatherford,Parker County,24746
+76088,Weatherford,Parker County,11499
+76092,Southlake,Tarrant County,26669
+76093,Rio Vista,Johnson County,2095
+76102,Fort Worth,Tarrant County,8111
+76103,Fort Worth,Tarrant County,14572
+76104,Fort Worth,Tarrant County,17446
+76105,Fort Worth,Tarrant County,22194
+76106,Fort Worth,Tarrant County,35389
+76107,Fort Worth,Tarrant County,25917
+76108,Fort Worth,Tarrant County,38227
+76109,Fort Worth,Tarrant County,21710
+76110,Fort Worth,Tarrant County,30434
+76111,Fort Worth,Tarrant County,21685
+76112,Fort Worth,Tarrant County,38993
+76114,Fort Worth,Tarrant County,24741
+76115,Fort Worth,Tarrant County,20696
+76116,Fort Worth,Tarrant County,46746
+76117,Haltom City,Tarrant County,30645
+76118,Fort Worth,Tarrant County,13866
+76119,Fort Worth,Tarrant County,42761
+76120,Fort Worth,Tarrant County,15283
+76123,Fort Worth,Tarrant County,29722
+76126,Fort Worth,Tarrant County,19395
+76131,Fort Worth,Tarrant County,28374
+76132,Fort Worth,Tarrant County,24709
+76133,Fort Worth,Tarrant County,48394
+76134,Fort Worth,Tarrant County,23704
+76135,Fort Worth,Tarrant County,20684
+76137,Fort Worth,Tarrant County,54911
+76140,Fort Worth,Tarrant County,26340
+76148,Fort Worth,Tarrant County,23331
+76164,Fort Worth,Tarrant County,16748
+76177,Fort Worth,Tarrant County,4891
+76179,Fort Worth,Tarrant County,48058
+76180,North Richland Hills,Tarrant County,33444
+76182,North Richland Hills,Tarrant County,28209
+76201,Denton,Denton County,27107
+76205,Denton,Denton County,18510
+76207,Denton,Denton County,10579
+76208,Denton,Denton County,19782
+76209,Denton,Denton County,24018
+76210,Denton,Denton County,39556
+76225,Alvord,Wise County,3156
+76226,Argyle,Denton County,18419
+76227,Aubrey,Denton County,22141
+76228,Bellevue,Clay County,1119
+76230,Bowie,Montague County,9711
+76233,Collinsville,Grayson County,3235
+76234,Decatur,Wise County,15587
+76238,Era,Cooke County,431
+76239,Forestburg,Montague County,1087
+76240,Gainesville,Cooke County,26120
+76244,Keller,Tarrant County,60388
+76245,Gordonville,Grayson County,1780
+76247,Justin,Denton County,13098
+76248,Keller,Tarrant County,34647
+76249,Krum,Denton County,7194
+76250,Lindsay,Cooke County,937
+76251,Montague,Montague County,731
+76252,Muenster,Cooke County,2863
+76253,Myra,Cooke County,230
+76255,Nocona,Montague County,5411
+76258,Pilot Point,Denton County,6659
+76259,Ponder,Denton County,4618
+76261,Ringgold,Montague County,233
+76262,Roanoke,Denton County,27648
+76264,Sadler,Grayson County,1412
+76265,Saint Jo,Montague County,1893
+76266,Sanger,Denton County,13495
+76268,Southmayd,Grayson County,250
+76270,Sunset,Montague County,1853
+76271,Tioga,Grayson County,1352
+76272,Valley View,Cooke County,4745
+76273,Whitesboro,Grayson County,9135
+76301,Wichita Falls,Wichita County,16540
+76302,Wichita Falls,Wichita County,13206
+76305,Wichita Falls,Wichita County,4746
+76306,Wichita Falls,Wichita County,15991
+76308,Wichita Falls,Wichita County,19677
+76309,Wichita Falls,Wichita County,13862
+76310,Wichita Falls,Wichita County,17989
+76351,Archer City,Archer County,2035
+76354,Burkburnett,Wichita County,11270
+76357,Byers,Clay County,712
+76360,Electra,Wichita County,3502
+76363,Goree,Knox County,256
+76364,Harrold,Wilbarger County,193
+76365,Henrietta,Clay County,4831
+76366,Holliday,Archer County,2317
+76367,Iowa Park,Wichita County,13045
+76370,Megargel,Archer County,299
+76371,Munday,Knox County,1606
+76372,Newcastle,Young County,974
+76373,Oklaunion,Wilbarger County,162
+76374,Olney,Young County,4162
+76377,Petrolia,Clay County,802
+76379,Scotland,Archer County,591
+76380,Seymour,Baylor County,3820
+76384,Vernon,Wilbarger County,12991
+76388,Weinert,Haskell County,203
+76389,Windthorst,Archer County,1329
+76401,Stephenville,Erath County,25702
+76424,Breckenridge,Stephens County,8992
+76426,Bridgeport,Wise County,11302
+76427,Bryson,Jack County,804
+76429,Caddo,Stephens County,258
+76430,Albany,Shackelford County,2532
+76431,Chico,Wise County,3384
+76432,Blanket,Brown County,1370
+76433,Bluff Dale,Erath County,1416
+76435,Carbon,Eastland County,612
+76436,Carlton,Hamilton County,212
+76437,Cisco,Eastland County,5721
+76442,Comanche,Comanche County,7545
+76443,Cross Plains,Callahan County,1897
+76444,De Leon,Comanche County,3635
+76445,Desdemona,Eastland County,407
+76446,Dublin,Erath County,9000
+76448,Eastland,Eastland County,5628
+76449,Graford,Palo Pinto County,2434
+76450,Graham,Young County,13258
+76453,Gordon,Palo Pinto County,1125
+76454,Gorman,Eastland County,1688
+76455,Gustine,Comanche County,1014
+76457,Hico,Hamilton County,3960
+76458,Jacksboro,Jack County,6261
+76459,Jermyn,Jack County,146
+76460,Loving,Young County,421
+76462,Lipan,Hood County,2982
+76463,Mingus,Palo Pinto County,481
+76464,Moran,Shackelford County,506
+76466,Olden,Eastland County,332
+76469,Putnam,Callahan County,96
+76470,Ranger,Eastland County,3238
+76471,Rising Star,Eastland County,1906
+76472,Santo,Palo Pinto County,1499
+76474,Sidney,Comanche County,281
+76475,Strawn,Palo Pinto County,977
+76476,Tolar,Hood County,2637
+76483,Throckmorton,Throckmorton County,1063
+76484,Palo Pinto,Palo Pinto County,1147
+76486,Perrin,Jack County,1375
+76487,Poolville,Parker County,2507
+76490,Whitt,Parker County,91
+76491,Woodson,Throckmorton County,459
+76501,Temple,Bell County,16897
+76502,Temple,Bell County,31545
+76504,Temple,Bell County,24268
+76511,Bartlett,Williamson County,3317
+76513,Belton,Bell County,34172
+76518,Buckholts,Milam County,1581
+76519,Burlington,Bell County,626
+76520,Cameron,Milam County,8413
+76522,Copperas Cove,Coryell County,35534
+76524,Eddy,McLennan County,2867
+76525,Evant,Coryell County,1062
+76527,Florence,Williamson County,4058
+76528,Gatesville,Coryell County,16974
+76530,Granger,Williamson County,2540
+76531,Hamilton,Hamilton County,4978
+76534,Holland,Bell County,2615
+76537,Jarrell,Williamson County,3870
+76538,Jonesboro,Coryell County,761
+76539,Kempner,Lampasas County,7841
+76541,Killeen,Bell County,19206
+76542,Killeen,Bell County,40025
+76543,Killeen,Bell County,30430
+76544,Fort Hood,Bell County,29943
+76548,Harker Heights,Bell County,26344
+76549,Killeen,Bell County,44490
+76550,Lampasas,Lampasas County,11586
+76554,Little River Academy,Bell County,2104
+76556,Milano,Milam County,1461
+76557,Moody,McLennan County,5178
+76559,Nolanville,Bell County,5051
+76561,Oglesby,Coryell County,962
+76565,Pottsville,Hamilton County,74
+76566,Purmela,Coryell County,258
+76567,Rockdale,Milam County,8984
+76569,Rogers,Bell County,2498
+76570,Rosebud,Falls County,2572
+76571,Salado,Bell County,6790
+76574,Taylor,Williamson County,17661
+76577,Thorndale,Milam County,3046
+76578,Thrall,Williamson County,1766
+76579,Troy,Bell County,4258
+76621,Abbott,Hill County,1037
+76622,Aquilla,Hill County,1015
+76623,Avalon,Ellis County,242
+76624,Axtell,McLennan County,2231
+76626,Blooming Grove,Navarro County,1563
+76627,Blum,Hill County,1601
+76628,Brandon,Hill County,111
+76629,Bremond,Robertson County,1989
+76630,Bruceville,McLennan County,1840
+76631,Bynum,Hill County,522
+76632,Chilton,Falls County,1778
+76633,China Spring,McLennan County,4973
+76634,Clifton,Bosque County,7093
+76635,Coolidge,Limestone County,1341
+76636,Covington,Hill County,1497
+76637,Cranfills Gap,Bosque County,536
+76638,Crawford,McLennan County,2837
+76639,Dawson,Navarro County,1584
+76640,Elm Mott,McLennan County,3005
+76641,Frost,Navarro County,1674
+76642,Groesbeck,Limestone County,7057
+76643,Hewitt,McLennan County,13554
+76645,Hillsboro,Hill County,11039
+76648,Hubbard,Hill County,2302
+76649,Iredell,Bosque County,790
+76650,Irene,Hill County,104
+76651,Italy,Ellis County,3300
+76652,Kopperl,Bosque County,1087
+76653,Kosse,Limestone County,1082
+76654,Leroy,McLennan County,151
+76655,Lorena,McLennan County,7831
+76656,Lott,Falls County,2276
+76657,Mc Gregor,McLennan County,9307
+76660,Malone,Hill County,506
+76661,Marlin,Falls County,8708
+76664,Mart,McLennan County,3514
+76665,Meridian,Bosque County,2526
+76666,Mertens,Hill County,244
+76667,Mexia,Limestone County,11313
+76670,Milford,Ellis County,1377
+76671,Morgan,Bosque County,1777
+76673,Mount Calm,Hill County,1187
+76676,Penelope,Hill County,413
+76678,Prairie Hill,Limestone County,263
+76679,Purdon,Navarro County,1432
+76680,Reagan,Falls County,190
+76681,Richland,Navarro County,873
+76682,Riesel,McLennan County,2660
+76686,Tehuacana,Limestone County,285
+76687,Thornton,Limestone County,1466
+76689,Valley Mills,Bosque County,3996
+76690,Walnut Springs,Bosque County,1197
+76691,West,McLennan County,6454
+76692,Whitney,Hill County,10115
+76693,Wortham,Freestone County,1651
+76701,Waco,McLennan County,1826
+76704,Waco,McLennan County,8007
+76705,Waco,McLennan County,29155
+76706,Waco,McLennan County,35015
+76707,Waco,McLennan County,16697
+76708,Waco,McLennan County,24476
+76710,Waco,McLennan County,22686
+76711,Waco,McLennan County,9042
+76712,Woodway,McLennan County,23506
+76801,Brownwood,Brown County,25552
+76802,Early,Brown County,5075
+76820,Art,Mason County,125
+76821,Ballinger,Runnels County,4869
+76823,Bangs,Brown County,2945
+76825,Brady,McCulloch County,7091
+76827,Brookesmith,Brown County,433
+76828,Burkett,Coleman County,199
+76832,Cherokee,San Saba County,559
+76834,Coleman,Coleman County,5908
+76837,Eden,Concho County,3188
+76842,Fredonia,Mason County,191
+76844,Goldthwaite,Mills County,3550
+76845,Gouldbusk,Coleman County,178
+76848,Hext,Menard County,78
+76849,Junction,Kimble County,3944
+76852,Lohn,McCulloch County,212
+76853,Lometa,Lampasas County,1622
+76854,London,Kimble County,401
+76856,Mason,Mason County,3582
+76857,May,Brown County,1791
+76858,Melvin,McCulloch County,254
+76859,Menard,Menard County,1982
+76861,Miles,Runnels County,1995
+76862,Millersview,Concho County,198
+76864,Mullin,Mills County,890
+76865,Norton,Runnels County,160
+76866,Paint Rock,Concho County,623
+76870,Priddy,Mills County,251
+76871,Richland Springs,San Saba County,784
+76872,Rochelle,McCulloch County,717
+76873,Rockwood,Coleman County,55
+76875,Rowena,Runnels County,668
+76877,San Saba,San Saba County,4558
+76878,Santa Anna,Coleman County,1685
+76882,Talpa,Coleman County,252
+76884,Valera,Coleman County,172
+76887,Voca,McCulloch County,126
+76888,Voss,Coleman County,110
+76890,Zephyr,Brown County,940
+76901,San Angelo,Tom Green County,27969
+76903,San Angelo,Tom Green County,31905
+76904,San Angelo,Tom Green County,32718
+76905,San Angelo,Tom Green County,11335
+76930,Barnhart,Irion County,156
+76932,Big Lake,Reagan County,3390
+76933,Bronte,Coke County,1365
+76934,Carlsbad,Tom Green County,1296
+76935,Christoval,Tom Green County,1606
+76936,Eldorado,Schleicher County,3377
+76939,Knickerbocker,Tom Green County,51
+76941,Mertzon,Irion County,1348
+76943,Ozona,Crockett County,3693
+76945,Robert Lee,Coke County,1665
+76950,Sonora,Sutton County,4180
+76951,Sterling City,Sterling County,1143
+76953,Tennyson,Coke County,74
+76958,Water Valley,Tom Green County,310
+77002,Houston,Harris County,16793
+77003,Houston,Harris County,10508
+77004,Houston,Harris County,32692
+77005,Houston,Harris County,25528
+77006,Houston,Harris County,19664
+77007,Houston,Harris County,30853
+77008,Houston,Harris County,30482
+77009,Houston,Harris County,38094
+77011,Houston,Harris County,19547
+77012,Houston,Harris County,20719
+77013,Houston,Harris County,17602
+77014,Houston,Harris County,28684
+77015,Houston,Harris County,53621
+77016,Houston,Harris County,26989
+77017,Houston,Harris County,32561
+77018,Houston,Harris County,25563
+77019,Houston,Harris County,18944
+77020,Houston,Harris County,25464
+77021,Houston,Harris County,26042
+77022,Houston,Harris County,29557
+77023,Houston,Harris County,28998
+77024,Houston,Harris County,34775
+77025,Houston,Harris County,26137
+77026,Houston,Harris County,23940
+77027,Houston,Harris County,14331
+77028,Houston,Harris County,16808
+77029,Houston,Harris County,17814
+77030,Houston,Harris County,10258
+77031,Houston,Harris County,15762
+77032,Houston,Harris County,12757
+77033,Houston,Harris County,27965
+77034,Houston,Harris County,33678
+77035,Houston,Harris County,35896
+77036,Houston,Harris County,71969
+77037,Houston,Harris County,19819
+77038,Houston,Harris County,26713
+77039,Houston,Harris County,27562
+77040,Houston,Harris County,45081
+77041,Houston,Harris County,37146
+77042,Houston,Harris County,36385
+77043,Houston,Harris County,23358
+77044,Houston,Harris County,30949
+77045,Houston,Harris County,31255
+77046,Houston,Harris County,1196
+77047,Houston,Harris County,21077
+77048,Houston,Harris County,15294
+77049,Houston,Harris County,28521
+77050,Houston,Harris County,4611
+77051,Houston,Harris County,15085
+77053,Houston,Fort Bend County,28954
+77054,Houston,Harris County,22290
+77055,Houston,Harris County,41989
+77056,Houston,Harris County,18673
+77057,Houston,Harris County,39208
+77058,Houston,Harris County,16406
+77059,Houston,Harris County,16949
+77060,Houston,Harris County,40830
+77061,Houston,Harris County,24457
+77062,Houston,Harris County,25152
+77063,Houston,Harris County,34299
+77064,Houston,Harris County,45847
+77065,Houston,Harris County,35326
+77066,Houston,Harris County,31366
+77067,Houston,Harris County,30559
+77068,Houston,Harris County,10064
+77069,Houston,Harris County,16541
+77070,Houston,Harris County,46017
+77071,Houston,Harris County,25671
+77072,Houston,Harris County,56526
+77073,Houston,Harris County,34790
+77074,Houston,Harris County,37267
+77075,Houston,Harris County,37388
+77076,Houston,Harris County,33803
+77077,Houston,Harris County,52151
+77078,Houston,Harris County,14777
+77079,Houston,Harris County,31280
+77080,Houston,Harris County,45275
+77081,Houston,Harris County,47860
+77082,Houston,Harris County,49900
+77083,Houston,Harris County,70837
+77084,Houston,Harris County,95137
+77085,Houston,Harris County,16074
+77086,Houston,Harris County,28009
+77087,Houston,Harris County,36399
+77088,Houston,Harris County,49660
+77089,Houston,Harris County,48685
+77090,Houston,Harris County,32930
+77091,Houston,Harris County,23472
+77092,Houston,Harris County,33745
+77093,Houston,Harris County,46929
+77094,Houston,Harris County,8498
+77095,Houston,Harris County,66502
+77096,Houston,Harris County,32628
+77098,Houston,Harris County,13076
+77099,Houston,Harris County,47091
+77301,Conroe,Montgomery County,30769
+77302,Conroe,Montgomery County,18118
+77303,Conroe,Montgomery County,16710
+77304,Conroe,Montgomery County,21314
+77306,Conroe,Montgomery County,11931
+77316,Montgomery,Montgomery County,16036
+77318,Willis,Montgomery County,14281
+77320,Huntsville,Walker County,33678
+77327,Cleveland,Liberty County,20160
+77328,Cleveland,San Jacinto County,13993
+77331,Coldspring,San Jacinto County,6824
+77335,Goodrich,Polk County,2350
+77336,Huffman,Harris County,12471
+77338,Humble,Harris County,33971
+77339,Kingwood,Harris County,37512
+77340,Huntsville,Walker County,29809
+77345,Kingwood,Harris County,26122
+77346,Humble,Harris County,53578
+77350,Leggett,Polk County,66
+77351,Livingston,Polk County,32517
+77354,Magnolia,Montgomery County,30215
+77355,Magnolia,Montgomery County,24010
+77356,Montgomery,Montgomery County,24498
+77357,New Caney,Montgomery County,19987
+77358,New Waverly,Walker County,4993
+77359,Oakhurst,San Jacinto County,721
+77360,Onalaska,Polk County,5280
+77362,Pinehurst,Montgomery County,4600
+77363,Plantersville,Grimes County,3269
+77364,Pointblank,San Jacinto County,2223
+77365,Porter,Montgomery County,25769
+77367,Riverside,Walker County,143
+77368,Romayor,Liberty County,152
+77369,Rye,Liberty County,1018
+77371,Shepherd,San Jacinto County,7665
+77372,Splendora,Montgomery County,12164
+77373,Spring,Harris County,54609
+77374,Thicket,Hardin County,510
+77375,Tomball,Harris County,39351
+77376,Votaw,Hardin County,617
+77377,Tomball,Harris County,28708
+77378,Willis,Montgomery County,14685
+77379,Spring,Harris County,70544
+77380,Spring,Montgomery County,23136
+77381,Spring,Montgomery County,34961
+77382,Spring,Montgomery County,35369
+77384,Conroe,Montgomery County,11857
+77385,Conroe,Montgomery County,19534
+77386,Spring,Montgomery County,36407
+77388,Spring,Harris County,40384
+77389,Spring,Harris County,21255
+77396,Humble,Harris County,43317
+77401,Bellaire,Harris County,17491
+77406,Richmond,Fort Bend County,33682
+77407,Richmond,Fort Bend County,28595
+77412,Altair,Colorado County,106
+77414,Bay City,Matagorda County,23047
+77417,Beasley,Fort Bend County,2457
+77418,Bellville,Austin County,9585
+77419,Blessing,Matagorda County,1512
+77420,Boling,Wharton County,2205
+77422,Brazoria,Brazoria County,13933
+77423,Brookshire,Waller County,9483
+77426,Chappell Hill,Washington County,2100
+77429,Cypress,Harris County,72264
+77430,Damon,Brazoria County,2283
+77433,Cypress,Harris County,50539
+77434,Eagle Lake,Colorado County,4816
+77435,East Bernard,Wharton County,4539
+77437,El Campo,Wharton County,17054
+77441,Fulshear,Fort Bend County,4809
+77442,Garwood,Colorado County,1137
+77444,Guy,Fort Bend County,784
+77445,Hempstead,Waller County,11977
+77446,Prairie View,Waller County,5217
+77447,Hockley,Harris County,11872
+77449,Katy,Harris County,94382
+77450,Katy,Harris County,71889
+77451,Kendleton,Fort Bend County,77
+77453,Lane City,Wharton County,301
+77454,Lissie,Wharton County,217
+77455,Louise,Wharton County,2045
+77456,Markham,Matagorda County,1303
+77457,Matagorda,Matagorda County,651
+77458,Midfield,Matagorda County,468
+77459,Missouri City,Fort Bend County,56274
+77460,Nada,Colorado County,73
+77461,Needville,Fort Bend County,10679
+77464,Orchard,Fort Bend County,221
+77465,Palacios,Matagorda County,7161
+77466,Pattison,Waller County,690
+77468,Pledger,Matagorda County,131
+77469,Richmond,Fort Bend County,35321
+77470,Rock Island,Colorado County,338
+77471,Rosenberg,Fort Bend County,35241
+77473,San Felipe,Austin County,97
+77474,Sealy,Austin County,12782
+77475,Sheridan,Colorado County,773
+77476,Simonton,Fort Bend County,313
+77477,Stafford,Fort Bend County,35897
+77478,Sugar Land,Fort Bend County,24739
+77479,Sugar Land,Fort Bend County,74514
+77480,Sweeny,Brazoria County,8097
+77482,Van Vleck,Matagorda County,2307
+77483,Wadsworth,Matagorda County,311
+77484,Waller,Waller County,11068
+77485,Wallis,Austin County,4054
+77486,West Columbia,Brazoria County,6851
+77488,Wharton,Wharton County,14148
+77489,Missouri City,Fort Bend County,35554
+77493,Katy,Harris County,23104
+77494,Katy,Fort Bend County,61600
+77498,Sugar Land,Fort Bend County,49906
+77502,Pasadena,Harris County,37995
+77503,Pasadena,Harris County,24251
+77504,Pasadena,Harris County,24529
+77505,Pasadena,Harris County,23223
+77506,Pasadena,Harris County,35977
+77510,Santa Fe,Galveston County,13731
+77511,Alvin,Brazoria County,46627
+77514,Anahuac,Chambers County,4942
+77515,Angleton,Brazoria County,30309
+77517,Santa Fe,Galveston County,5315
+77518,Bacliff,Galveston County,8673
+77519,Batson,Hardin County,1191
+77520,Baytown,Harris County,36489
+77521,Baytown,Harris County,49507
+77523,Baytown,Chambers County,17031
+77530,Channelview,Harris County,31086
+77531,Clute,Brazoria County,15639
+77532,Crosby,Harris County,26236
+77533,Daisetta,Liberty County,1022
+77534,Danbury,Brazoria County,2863
+77535,Dayton,Liberty County,31295
+77536,Deer Park,Harris County,30690
+77538,Devers,Liberty County,934
+77539,Dickinson,Galveston County,38806
+77541,Freeport,Brazoria County,17412
+77545,Fresno,Fort Bend County,19431
+77546,Friendswood,Galveston County,47636
+77547,Galena Park,Harris County,9735
+77550,Galveston,Galveston County,23043
+77551,Galveston,Galveston County,17753
+77554,Galveston,Galveston County,8863
+77560,Hankamer,Chambers County,1005
+77561,Hardin,Liberty County,53
+77562,Highlands,Harris County,10459
+77563,Hitchcock,Galveston County,9103
+77564,Hull,Liberty County,1988
+77565,Kemah,Galveston County,5790
+77566,Lake Jackson,Brazoria County,28739
+77568,La Marque,Galveston County,14308
+77571,La Porte,Harris County,35666
+77573,League City,Galveston County,71580
+77575,Liberty,Liberty County,15949
+77577,Liverpool,Brazoria County,1368
+77578,Manvel,Brazoria County,12672
+77580,Mont Belvieu,Chambers County,312
+77581,Pearland,Brazoria County,42383
+77583,Rosharon,Brazoria County,28531
+77584,Pearland,Brazoria County,70228
+77585,Saratoga,Hardin County,1014
+77586,Seabrook,Harris County,20970
+77587,South Houston,Harris County,16568
+77590,Texas City,Galveston County,30374
+77591,Texas City,Galveston County,13131
+77597,Wallisville,Chambers County,777
+77598,Webster,Harris County,23059
+77611,Bridge City,Orange County,8219
+77612,Buna,Jasper County,8901
+77613,China,Jefferson County,1218
+77614,Deweyville,Newton County,603
+77615,Evadale,Jasper County,1012
+77616,Fred,Tyler County,1136
+77617,Gilchrist,Galveston County,73
+77619,Groves,Jefferson County,16147
+77622,Hamshire,Jefferson County,1390
+77623,High Island,Galveston County,448
+77624,Hillister,Tyler County,856
+77625,Kountze,Hardin County,8489
+77627,Nederland,Jefferson County,21454
+77629,Nome,Jefferson County,877
+77630,Orange,Orange County,26796
+77632,Orange,Orange County,22776
+77640,Port Arthur,Jefferson County,16875
+77642,Port Arthur,Jefferson County,37111
+77650,Port Bolivar,Galveston County,1896
+77651,Port Neches,Jefferson County,13043
+77655,Sabine Pass,Jefferson County,356
+77656,Silsbee,Hardin County,17110
+77657,Lumberton,Hardin County,20003
+77659,Sour Lake,Hardin County,4910
+77660,Spurger,Tyler County,1437
+77661,Stowell,Chambers County,962
+77662,Vidor,Orange County,27035
+77663,Village Mills,Hardin County,1353
+77664,Warren,Tyler County,2681
+77665,Winnie,Chambers County,6446
+77701,Beaumont,Jefferson County,14674
+77702,Beaumont,Jefferson County,2893
+77703,Beaumont,Jefferson County,15006
+77705,Beaumont,Jefferson County,40475
+77706,Beaumont,Jefferson County,28258
+77707,Beaumont,Jefferson County,17080
+77708,Beaumont,Jefferson County,11518
+77713,Beaumont,Jefferson County,12788
+77801,Bryan,Brazos County,15449
+77802,Bryan,Brazos County,23288
+77803,Bryan,Brazos County,30252
+77807,Bryan,Brazos County,9699
+77808,Bryan,Brazos County,10634
+77830,Anderson,Grimes County,2534
+77831,Bedias,Grimes County,3426
+77833,Brenham,Washington County,27492
+77835,Burton,Washington County,2351
+77836,Caldwell,Burleson County,11896
+77837,Calvert,Robertson County,1587
+77840,College Station,Brazos County,56171
+77845,College Station,Brazos County,48938
+77853,Dime Box,Lee County,953
+77856,Franklin,Robertson County,5096
+77857,Gause,Milam County,757
+77859,Hearne,Robertson County,6981
+77861,Iola,Grimes County,2506
+77864,Madisonville,Madison County,7647
+77865,Marquez,Leon County,1798
+77867,Mumford,Robertson County,105
+77868,Navasota,Grimes County,15511
+77871,Normangee,Leon County,3368
+77872,North Zulch,Madison County,1716
+77873,Richards,Grimes County,1292
+77876,Shiro,Grimes County,197
+77878,Snook,Burleson County,475
+77879,Somerville,Burleson County,4670
+77880,Washington,Washington County,1879
+77901,Victoria,Victoria County,41548
+77904,Victoria,Victoria County,25002
+77905,Victoria,Victoria County,13981
+77950,Austwell,Refugio County,197
+77951,Bloomington,Victoria County,2616
+77954,Cuero,DeWitt County,11506
+77957,Edna,Jackson County,8187
+77962,Ganado,Jackson County,3286
+77963,Goliad,Goliad County,5459
+77964,Hallettsville,Lavaca County,7569
+77968,Inez,Victoria County,2774
+77969,La Salle,Jackson County,154
+77970,La Ward,Jackson County,295
+77971,Lolita,Jackson County,911
+77974,Meyersville,Victoria County,455
+77975,Moulton,Lavaca County,1860
+77976,Nursery,Victoria County,126
+77977,Placedo,Victoria County,718
+77978,Point Comfort,Calhoun County,743
+77979,Port Lavaca,Calhoun County,17144
+77982,Port O Connor,Calhoun County,1253
+77983,Seadrift,Calhoun County,2209
+77984,Shiner,Lavaca County,4295
+77987,Sweet Home,Lavaca County,161
+77988,Telferner,Victoria County,326
+77990,Tivoli,Refugio County,699
+77993,Weesatche,Goliad County,148
+77994,Westhoff,DeWitt County,321
+77995,Yoakum,Lavaca County,9567
+78002,Atascosa,Bexar County,8255
+78003,Bandera,Bandera County,8689
+78004,Bergheim,Kendall County,1183
+78005,Bigfoot,Frio County,817
+78006,Boerne,Kendall County,27558
+78008,Campbellton,Atascosa County,345
+78009,Castroville,Medina County,7255
+78010,Center Point,Kerr County,3386
+78011,Charlotte,Atascosa County,2082
+78012,Christine,Atascosa County,436
+78013,Comfort,Kendall County,5930
+78014,Cotulla,La Salle County,4987
+78015,Boerne,Bexar County,9602
+78016,Devine,Medina County,9630
+78017,Dilley,Frio County,4787
+78019,Encinal,La Salle County,1855
+78022,George West,Live Oak County,4627
+78023,Helotes,Bexar County,24334
+78024,Hunt,Kerr County,1436
+78025,Ingram,Kerr County,4956
+78026,Jourdanton,Atascosa County,5861
+78027,Kendalia,Kendall County,459
+78028,Kerrville,Kerr County,37620
+78039,La Coste,Medina County,1657
+78040,Laredo,Webb County,42083
+78041,Laredo,Webb County,44153
+78043,Laredo,Webb County,42713
+78044,Laredo,Webb County,648
+78045,Laredo,Webb County,54713
+78046,Laredo,Webb County,64548
+78050,Leming,Atascosa County,767
+78052,Lytle,Atascosa County,6388
+78055,Medina,Bandera County,1774
+78056,Mico,Medina County,1917
+78057,Moore,Frio County,871
+78058,Mountain Home,Kerr County,1256
+78059,Natalia,Medina County,5387
+78061,Pearsall,Frio County,11031
+78063,Pipe Creek,Bandera County,9227
+78064,Pleasanton,Atascosa County,14102
+78065,Poteet,Atascosa County,10831
+78066,Rio Medina,Medina County,591
+78067,San Ygnacio,Zapata County,916
+78069,Somerset,Atascosa County,5137
+78070,Spring Branch,Comal County,14618
+78071,Three Rivers,Live Oak County,4248
+78072,Tilden,McMullen County,505
+78073,Von Ormy,Bexar County,8171
+78075,Whitsett,Live Oak County,123
+78076,Zapata,Zapata County,12612
+78101,Adkins,Bexar County,7898
+78102,Beeville,Bee County,27593
+78104,Beeville,Bee County,175
+78107,Berclair,Goliad County,360
+78108,Cibolo,Guadalupe County,27770
+78109,Converse,Bexar County,34603
+78112,Elmendorf,Bexar County,7941
+78113,Falls City,Karnes County,2435
+78114,Floresville,Wilson County,20103
+78116,Gillett,Karnes County,390
+78117,Hobson,Karnes County,545
+78118,Karnes City,Karnes County,3976
+78119,Kenedy,Karnes County,7680
+78121,La Vernia,Wilson County,11381
+78122,Leesville,Gonzales County,418
+78123,Mc Queeney,Guadalupe County,2397
+78124,Marion,Guadalupe County,5609
+78125,Mineral,Bee County,96
+78130,New Braunfels,Comal County,59546
+78132,New Braunfels,Comal County,19139
+78133,Canyon Lake,Comal County,16269
+78140,Nixon,Gonzales County,3380
+78141,Nordheim,DeWitt County,596
+78142,Normanna,Bee County,119
+78143,Pandora,Wilson County,85
+78145,Pawnee,Bee County,103
+78146,Pettus,Bee County,771
+78147,Poth,Wilson County,1919
+78148,Universal City,Bexar County,20139
+78151,Runge,Karnes County,1347
+78152,Saint Hedwig,Bexar County,2294
+78154,Schertz,Guadalupe County,30347
+78155,Seguin,Guadalupe County,45341
+78159,Smiley,Gonzales County,1023
+78160,Stockdale,Wilson County,4273
+78161,Sutherland Springs,Wilson County,864
+78162,Tuleta,Bee County,375
+78163,Bulverde,Comal County,9838
+78164,Yorktown,DeWitt County,3796
+78201,San Antonio,Bexar County,45307
+78202,San Antonio,Bexar County,11691
+78203,San Antonio,Bexar County,6099
+78204,San Antonio,Bexar County,11125
+78205,San Antonio,Bexar County,1453
+78207,San Antonio,Bexar County,55514
+78208,San Antonio,Bexar County,3736
+78209,San Antonio,Bexar County,39197
+78210,San Antonio,Bexar County,36865
+78211,San Antonio,Bexar County,31944
+78212,San Antonio,Bexar County,28415
+78213,San Antonio,Bexar County,40396
+78214,San Antonio,Bexar County,23341
+78215,San Antonio,Bexar County,1150
+78216,San Antonio,Bexar County,40267
+78217,San Antonio,Bexar County,32165
+78218,San Antonio,Bexar County,31917
+78219,San Antonio,Bexar County,15225
+78220,San Antonio,Bexar County,15965
+78221,San Antonio,Bexar County,35990
+78222,San Antonio,Bexar County,19408
+78223,San Antonio,Bexar County,50637
+78224,San Antonio,Bexar County,17601
+78225,San Antonio,Bexar County,13025
+78226,San Antonio,Bexar County,6648
+78227,San Antonio,Bexar County,46077
+78228,San Antonio,Bexar County,58811
+78229,San Antonio,Bexar County,28804
+78230,San Antonio,Bexar County,39089
+78231,San Antonio,Bexar County,7906
+78232,San Antonio,Bexar County,35120
+78233,San Antonio,Bexar County,43710
+78237,San Antonio,Bexar County,36929
+78238,San Antonio,Bexar County,23514
+78239,San Antonio,Bexar County,28736
+78240,San Antonio,Bexar County,51111
+78242,San Antonio,Bexar County,31395
+78244,San Antonio,Bexar County,30757
+78245,San Antonio,Bexar County,56511
+78247,San Antonio,Bexar County,49176
+78248,San Antonio,Bexar County,13638
+78249,San Antonio,Bexar County,49951
+78250,San Antonio,Bexar County,54903
+78251,San Antonio,Bexar County,49435
+78252,San Antonio,Bexar County,7372
+78253,San Antonio,Bexar County,29007
+78254,San Antonio,Bexar County,44817
+78255,San Antonio,Bexar County,10826
+78256,San Antonio,Bexar County,6855
+78257,San Antonio,Bexar County,3950
+78258,San Antonio,Bexar County,40586
+78259,San Antonio,Bexar County,22660
+78260,San Antonio,Bexar County,24844
+78261,San Antonio,Bexar County,13513
+78263,San Antonio,Bexar County,4673
+78264,San Antonio,Bexar County,12339
+78266,San Antonio,Comal County,5591
+78330,Agua Dulce,Nueces County,878
+78332,Alice,Jim Wells County,28710
+78336,Aransas Pass,San Patricio County,11949
+78339,Banquete,Nueces County,632
+78340,Bayside,Refugio County,379
+78341,Benavides,Duval County,1760
+78342,Ben Bolt,Jim Wells County,386
+78343,Bishop,Nueces County,4525
+78344,Bruni,Webb County,474
+78349,Concepcion,Duval County,505
+78351,Driscoll,Nueces County,621
+78352,Edroy,San Patricio County,179
+78353,Encino,Brooks County,433
+78355,Falfurrias,Brooks County,7081
+78357,Freer,Duval County,3161
+78358,Fulton,Aransas County,709
+78359,Gregory,San Patricio County,1944
+78361,Hebbronville,Jim Hogg County,5350
+78362,Ingleside,San Patricio County,9447
+78363,Kingsville,Kleberg County,30463
+78368,Mathis,San Patricio County,9227
+78369,Mirando City,Webb County,444
+78370,Odem,San Patricio County,4877
+78371,Oilton,Webb County,404
+78372,Orange Grove,Jim Wells County,5452
+78373,Port Aransas,Nueces County,3585
+78374,Portland,San Patricio County,16620
+78375,Premont,Jim Wells County,3352
+78376,Realitos,Duval County,554
+78377,Refugio,Refugio County,3821
+78379,Riviera,Kleberg County,1585
+78380,Robstown,Nueces County,23141
+78382,Rockport,Aransas County,19364
+78383,Sandia,Jim Wells County,3539
+78384,San Diego,Duval County,6640
+78385,Sarita,Kenedy County,277
+78387,Sinton,San Patricio County,9574
+78389,Skidmore,Bee County,1541
+78390,Taft,San Patricio County,5616
+78391,Tynan,Bee County,325
+78393,Woodsboro,Refugio County,2379
+78401,Corpus Christi,Nueces County,5391
+78402,Corpus Christi,Nueces County,536
+78404,Corpus Christi,Nueces County,17236
+78405,Corpus Christi,Nueces County,16867
+78406,Corpus Christi,Nueces County,1413
+78407,Corpus Christi,Nueces County,2955
+78408,Corpus Christi,Nueces County,12061
+78409,Corpus Christi,Nueces County,2939
+78410,Corpus Christi,Nueces County,26387
+78411,Corpus Christi,Nueces County,28024
+78412,Corpus Christi,Nueces County,36003
+78413,Corpus Christi,Nueces County,36953
+78414,Corpus Christi,Nueces County,30165
+78415,Corpus Christi,Nueces County,39271
+78416,Corpus Christi,Nueces County,15508
+78417,Corpus Christi,Nueces County,4176
+78418,Corpus Christi,Nueces County,29854
+78501,Mcallen,Hidalgo County,61219
+78503,Mcallen,Hidalgo County,21706
+78504,Mcallen,Hidalgo County,48703
+78516,Alamo,Hidalgo County,33722
+78520,Brownsville,Cameron County,59408
+78521,Brownsville,Cameron County,93818
+78526,Brownsville,Cameron County,42460
+78535,Combes,Cameron County,581
+78536,Delmita,Starr County,451
+78537,Donna,Hidalgo County,39454
+78538,Edcouch,Hidalgo County,10657
+78539,Edinburg,Hidalgo County,30783
+78541,Edinburg,Hidalgo County,42431
+78542,Edinburg,Hidalgo County,63293
+78543,Elsa,Hidalgo County,8447
+78545,Falcon Heights,Starr County,555
+78548,Grulla,Starr County,675
+78549,Hargill,Hidalgo County,990
+78550,Harlingen,Cameron County,53152
+78552,Harlingen,Cameron County,34111
+78557,Hidalgo,Hidalgo County,12547
+78558,La Blanca,Hidalgo County,882
+78559,La Feria,Cameron County,12751
+78560,La Joya,Hidalgo County,4368
+78561,Lasara,Willacy County,779
+78562,La Villa,Hidalgo County,2868
+78563,Linn,Hidalgo County,376
+78565,Los Ebanos,Hidalgo County,402
+78566,Los Fresnos,Cameron County,16230
+78567,Los Indios,Cameron County,533
+78569,Lyford,Willacy County,4039
+78570,Mercedes,Hidalgo County,32525
+78572,Mission,Hidalgo County,75221
+78573,Mission,Hidalgo County,34890
+78574,Mission,Hidalgo County,57071
+78575,Olmito,Cameron County,8056
+78576,Penitas,Hidalgo County,8775
+78577,Pharr,Hidalgo County,70840
+78578,Port Isabel,Cameron County,12516
+78579,Progreso,Hidalgo County,4580
+78580,Raymondville,Willacy County,14963
+78582,Rio Grande City,Starr County,40455
+78583,Rio Hondo,Cameron County,6623
+78584,Roma,Starr County,18128
+78585,Salineno,Starr County,396
+78586,San Benito,Cameron County,55878
+78588,San Isidro,Starr County,238
+78589,San Juan,Hidalgo County,38004
+78590,San Perlita,Willacy County,289
+78591,Santa Elena,Starr County,265
+78592,Santa Maria,Cameron County,836
+78593,Santa Rosa,Cameron County,6324
+78594,Sebastian,Willacy County,1990
+78595,Sullivan City,Hidalgo County,6082
+78596,Weslaco,Hidalgo County,63844
+78597,South Padre Island,Cameron County,2885
+78598,Port Mansfield,Willacy County,226
+78602,Bastrop,Bastrop County,25160
+78605,Bertram,Burnet County,4952
+78606,Blanco,Blanco County,5205
+78607,Bluffton,Llano County,166
+78608,Briggs,Burnet County,434
+78609,Buchanan Dam,Llano County,2012
+78610,Buda,Hays County,23502
+78611,Burnet,Burnet County,12977
+78612,Cedar Creek,Bastrop County,11457
+78613,Cedar Park,Williamson County,65099
+78614,Cost,Gonzales County,456
+78615,Coupland,Williamson County,1290
+78616,Dale,Caldwell County,7092
+78617,Del Valle,Travis County,22210
+78618,Doss,Gillespie County,324
+78619,Driftwood,Hays County,3026
+78620,Dripping Springs,Hays County,14367
+78621,Elgin,Bastrop County,21659
+78622,Fentress,Caldwell County,296
+78623,Fischer,Comal County,813
+78624,Fredericksburg,Gillespie County,21513
+78626,Georgetown,Williamson County,25996
+78628,Georgetown,Williamson County,23727
+78629,Gonzales,Gonzales County,11887
+78631,Harper,Gillespie County,2395
+78632,Harwood,Gonzales County,910
+78633,Georgetown,Williamson County,19349
+78634,Hutto,Williamson County,22791
+78636,Johnson City,Blanco County,3749
+78638,Kingsbury,Guadalupe County,2005
+78639,Kingsland,Llano County,7334
+78640,Kyle,Hays County,42954
+78641,Leander,Williamson County,44295
+78642,Liberty Hill,Williamson County,9467
+78643,Llano,Llano County,6139
+78644,Lockhart,Caldwell County,17081
+78645,Leander,Travis County,9773
+78648,Luling,Caldwell County,7683
+78650,Mc Dade,Bastrop County,1599
+78652,Manchaca,Travis County,4466
+78653,Manor,Travis County,16375
+78654,Marble Falls,Burnet County,17553
+78655,Martindale,Caldwell County,2739
+78656,Maxwell,Caldwell County,2271
+78657,Horseshoe Bay,Llano County,5509
+78659,Paige,Bastrop County,2903
+78660,Pflugerville,Travis County,68789
+78661,Prairie Lea,Caldwell County,335
+78662,Red Rock,Bastrop County,2268
+78663,Round Mountain,Blanco County,746
+78664,Round Rock,Williamson County,52932
+78665,Round Rock,Williamson County,35985
+78666,San Marcos,Hays County,63836
+78669,Spicewood,Travis County,8731
+78670,Staples,Guadalupe County,168
+78671,Stonewall,Gillespie County,654
+78672,Tow,Llano County,931
+78675,Willow City,Gillespie County,188
+78676,Wimberley,Hays County,12602
+78677,Wrightsboro,Gonzales County,92
+78681,Round Rock,Williamson County,50606
+78701,Austin,Travis County,6841
+78702,Austin,Travis County,21334
+78703,Austin,Travis County,19690
+78704,Austin,Travis County,42117
+78705,Austin,Travis County,31340
+78717,Austin,Williamson County,22538
+78719,Austin,Travis County,1764
+78721,Austin,Travis County,11425
+78722,Austin,Travis County,5901
+78723,Austin,Travis County,28330
+78724,Austin,Travis County,21696
+78725,Austin,Travis County,6083
+78726,Austin,Travis County,13122
+78727,Austin,Travis County,26689
+78728,Austin,Travis County,20299
+78729,Austin,Williamson County,27108
+78730,Austin,Travis County,7955
+78731,Austin,Travis County,24614
+78732,Austin,Travis County,14060
+78733,Austin,Travis County,8762
+78734,Austin,Travis County,17655
+78735,Austin,Travis County,16131
+78736,Austin,Travis County,6946
+78737,Austin,Hays County,12081
+78738,Austin,Travis County,12134
+78739,Austin,Travis County,16792
+78741,Austin,Travis County,44935
+78742,Austin,Travis County,820
+78744,Austin,Travis County,42820
+78745,Austin,Travis County,55614
+78746,Austin,Travis County,26928
+78747,Austin,Travis County,14808
+78748,Austin,Travis County,40651
+78749,Austin,Travis County,34449
+78750,Austin,Travis County,26814
+78751,Austin,Travis County,14385
+78752,Austin,Travis County,18064
+78753,Austin,Travis County,49301
+78754,Austin,Travis County,15036
+78756,Austin,Travis County,7194
+78757,Austin,Travis County,21310
+78758,Austin,Travis County,44072
+78759,Austin,Travis County,38891
+78801,Uvalde,Uvalde County,21780
+78802,Uvalde,Uvalde County,242
+78827,Asherton,Dimmit County,1219
+78828,Barksdale,Edwards County,258
+78829,Batesville,Zavala County,1207
+78830,Big Wells,Dimmit County,786
+78832,Brackettville,Kinney County,3598
+78833,Camp Wood,Real County,1299
+78834,Carrizo Springs,Dimmit County,7829
+78837,Comstock,Val Verde County,281
+78838,Concan,Uvalde County,275
+78839,Crystal City,Zavala County,8578
+78840,Del Rio,Val Verde County,48149
+78850,D Hanis,Medina County,1145
+78852,Eagle Pass,Maverick County,53040
+78860,El Indio,Maverick County,229
+78861,Hondo,Medina County,13701
+78870,Knippa,Uvalde County,984
+78872,La Pryor,Zavala County,1905
+78873,Leakey,Real County,1788
+78877,Quemado,Maverick County,989
+78879,Rio Frio,Real County,264
+78880,Rocksprings,Edwards County,1682
+78881,Sabinal,Uvalde County,2335
+78883,Tarpley,Bandera County,353
+78884,Utopia,Uvalde County,1158
+78885,Vanderpool,Bandera County,120
+78886,Yancey,Medina County,647
+78931,Bleiblerville,Austin County,323
+78932,Carmine,Fayette County,757
+78933,Cat Spring,Colorado County,1433
+78934,Columbus,Colorado County,6712
+78935,Alleyton,Colorado County,978
+78938,Ellinger,Fayette County,471
+78940,Fayetteville,Fayette County,2098
+78941,Flatonia,Fayette County,2962
+78942,Giddings,Lee County,8989
+78943,Glidden,Colorado County,352
+78944,Industry,Austin County,562
+78945,La Grange,Fayette County,10494
+78946,Ledbetter,Lee County,960
+78947,Lexington,Lee County,4475
+78948,Lincoln,Lee County,850
+78949,Muldoon,Fayette County,517
+78950,New Ulm,Austin County,2038
+78953,Rosanky,Bastrop County,934
+78954,Round Top,Fayette County,1071
+78956,Schulenburg,Fayette County,5381
+78957,Smithville,Bastrop County,9067
+78959,Waelder,Gonzales County,1837
+78962,Weimar,Colorado County,4733
+78963,West Point,Fayette County,909
+79001,Adrian,Oldham County,249
+79003,Allison,Wheeler County,162
+79005,Booker,Lipscomb County,1735
+79007,Borger,Hutchinson County,14542
+79009,Bovina,Parmer County,2166
+79010,Boys Ranch,Oldham County,802
+79011,Briscoe,Wheeler County,236
+79012,Bushland,Potter County,976
+79013,Cactus,Moore County,3423
+79014,Canadian,Hemphill County,3771
+79015,Canyon,Randall County,19277
+79018,Channing,Hartley County,548
+79019,Claude,Armstrong County,1707
+79021,Cotton Center,Hale County,138
+79022,Dalhart,Dallam County,10741
+79024,Darrouzett,Lipscomb County,405
+79027,Dimmitt,Castro County,5223
+79029,Dumas,Moore County,16177
+79031,Earth,Lamb County,1425
+79032,Edmonson,Hale County,157
+79033,Farnsworth,Ochiltree County,109
+79034,Follett,Lipscomb County,637
+79035,Friona,Parmer County,5309
+79036,Fritch,Hutchinson County,5128
+79039,Groom,Carson County,779
+79040,Gruver,Hansford County,1839
+79041,Hale Center,Hale County,3194
+79042,Happy,Swisher County,1169
+79043,Hart,Castro County,1487
+79044,Hartley,Hartley County,766
+79045,Hereford,Deaf Smith County,19473
+79046,Higgins,Lipscomb County,489
+79052,Kress,Swisher County,1259
+79053,Lazbuddie,Parmer County,137
+79054,Lefors,Gray County,594
+79056,Lipscomb,Lipscomb County,63
+79057,Mclean,Gray County,1206
+79059,Miami,Roberts County,837
+79061,Mobeetie,Wheeler County,316
+79062,Morse,Hansford County,218
+79063,Nazareth,Castro County,686
+79064,Olton,Lamb County,2739
+79065,Pampa,Gray County,20840
+79068,Panhandle,Carson County,3197
+79070,Perryton,Ochiltree County,9919
+79072,Plainview,Hale County,28849
+79078,Sanford,Hutchinson County,377
+79079,Shamrock,Wheeler County,2646
+79080,Skellytown,Carson County,605
+79081,Spearman,Hansford County,3912
+79082,Springlake,Lamb County,315
+79083,Stinnett,Hutchinson County,2661
+79084,Stratford,Sherman County,2366
+79086,Sunray,Moore County,2105
+79087,Texline,Dallam County,751
+79088,Tulia,Swisher County,5945
+79091,Umbarger,Randall County,147
+79092,Vega,Oldham County,1106
+79094,Wayside,Armstrong County,75
+79095,Wellington,Collingsworth County,2686
+79096,Wheeler,Wheeler County,2229
+79097,White Deer,Carson County,1150
+79098,Wildorado,Oldham County,517
+79101,Amarillo,Potter County,2817
+79102,Amarillo,Potter County,9963
+79103,Amarillo,Potter County,10594
+79104,Amarillo,Potter County,7869
+79106,Amarillo,Potter County,27967
+79107,Amarillo,Potter County,33844
+79108,Amarillo,Potter County,17726
+79109,Amarillo,Randall County,43516
+79110,Amarillo,Randall County,18811
+79118,Amarillo,Randall County,19726
+79119,Amarillo,Randall County,11539
+79121,Amarillo,Randall County,6575
+79124,Amarillo,Potter County,7819
+79201,Childress,Childress County,7040
+79220,Afton,Dickens County,197
+79225,Chillicothe,Hardeman County,976
+79226,Clarendon,Donley County,3153
+79227,Crowell,Foard County,1406
+79229,Dickens,Dickens County,424
+79230,Dodson,Collingsworth County,158
+79233,Estelline,Hall County,180
+79234,Flomot,Motley County,110
+79235,Floydada,Floyd County,3833
+79236,Guthrie,King County,262
+79237,Hedley,Donley County,513
+79239,Lakeview,Hall County,211
+79241,Lockney,Floyd County,2480
+79243,Mcadoo,Dickens County,90
+79244,Matador,Motley County,720
+79245,Memphis,Hall County,2476
+79247,Odell,Wilbarger County,64
+79248,Paducah,Cottle County,1493
+79250,Petersburg,Hale County,1508
+79251,Quail,Collingsworth County,45
+79252,Quanah,Hardeman County,3202
+79255,Quitaque,Briscoe County,571
+79256,Roaring Springs,Motley County,319
+79257,Silverton,Briscoe County,1067
+79259,Tell,Childress County,48
+79261,Turkey,Hall County,527
+79311,Abernathy,Hale County,3445
+79312,Amherst,Lamb County,971
+79313,Anton,Hockley County,1571
+79314,Bledsoe,Cochran County,56
+79316,Brownfield,Terry County,11451
+79322,Crosbyton,Crosby County,2049
+79323,Denver City,Yoakum County,6559
+79325,Farwell,Parmer County,2319
+79329,Idalou,Lubbock County,3300
+79330,Justiceburg,Garza County,114
+79331,Lamesa,Dawson County,13258
+79336,Levelland,Hockley County,16972
+79339,Littlefield,Lamb County,7230
+79342,Loop,Gaines County,352
+79343,Lorenzo,Crosby County,1571
+79344,Maple,Bailey County,56
+79345,Meadow,Terry County,920
+79346,Morton,Cochran County,2427
+79347,Muleshoe,Bailey County,7462
+79350,New Deal,Lubbock County,392
+79351,Odonnell,Lynn County,1326
+79355,Plains,Yoakum County,1942
+79356,Post,Garza County,6363
+79357,Ralls,Crosby County,2303
+79358,Ropesville,Hockley County,1116
+79359,Seagraves,Gaines County,2899
+79360,Seminole,Gaines County,13574
+79363,Shallowater,Lubbock County,5369
+79364,Slaton,Lubbock County,8172
+79366,Ransom Canyon,Lubbock County,1096
+79367,Smyer,Hockley County,645
+79370,Spur,Dickens County,1889
+79371,Sudan,Lamb County,1317
+79372,Sundown,Hockley County,1434
+79373,Tahoka,Lynn County,3307
+79376,Tokio,Yoakum County,95
+79377,Welch,Dawson County,277
+79378,Wellman,Terry County,236
+79379,Whiteface,Cochran County,666
+79380,Whitharral,Hockley County,197
+79381,Wilson,Lynn County,1263
+79382,Wolfforth,Lubbock County,6291
+79401,Lubbock,Lubbock County,8408
+79403,Lubbock,Lubbock County,16869
+79404,Lubbock,Lubbock County,11289
+79407,Lubbock,Lubbock County,19068
+79410,Lubbock,Lubbock County,9429
+79411,Lubbock,Lubbock County,7951
+79412,Lubbock,Lubbock County,15650
+79413,Lubbock,Lubbock County,21187
+79414,Lubbock,Lubbock County,17121
+79415,Lubbock,Lubbock County,17689
+79416,Lubbock,Lubbock County,32296
+79423,Lubbock,Lubbock County,32277
+79424,Lubbock,Lubbock County,39023
+79501,Anson,Jones County,3528
+79502,Aspermont,Stonewall County,1350
+79503,Avoca,Jones County,175
+79504,Baird,Callahan County,2787
+79505,Benjamin,Knox County,296
+79506,Blackwell,Nolan County,730
+79508,Buffalo Gap,Taylor County,1242
+79510,Clyde,Callahan County,7982
+79511,Coahoma,Howard County,1338
+79512,Colorado City,Mitchell County,8197
+79517,Fluvanna,Scurry County,200
+79518,Girard,Kent County,124
+79519,Goldsboro,Coleman County,74
+79520,Hamlin,Jones County,2449
+79521,Haskell,Haskell County,3980
+79525,Hawley,Jones County,2842
+79526,Hermleigh,Scurry County,979
+79527,Ira,Scurry County,251
+79528,Jayton,Kent County,619
+79529,Knox City,Knox County,1383
+79530,Lawn,Taylor County,480
+79532,Loraine,Mitchell County,940
+79533,Lueders,Jones County,472
+79534,Mc Caulley,Fisher County,181
+79535,Maryneal,Nolan County,183
+79536,Merkel,Taylor County,4988
+79537,Nolan,Nolan County,111
+79538,Novice,Coleman County,271
+79539,O Brien,Haskell County,178
+79540,Old Glory,Stonewall County,89
+79541,Ovalo,Taylor County,791
+79543,Roby,Fisher County,1186
+79544,Rochester,Haskell County,512
+79545,Roscoe,Nolan County,1788
+79546,Rotan,Fisher County,2006
+79547,Rule,Haskell County,758
+79548,Rule,Haskell County,174
+79549,Snyder,Scurry County,15652
+79553,Stamford,Jones County,3469
+79556,Sweetwater,Nolan County,12995
+79560,Sylvester,Fisher County,137
+79561,Trent,Taylor County,662
+79562,Tuscola,Taylor County,3669
+79563,Tye,Taylor County,1161
+79565,Westbrook,Mitchell County,295
+79566,Wingate,Taylor County,333
+79567,Winters,Runnels County,3373
+79601,Abilene,Taylor County,25085
+79602,Abilene,Taylor County,21519
+79603,Abilene,Taylor County,24288
+79605,Abilene,Taylor County,30098
+79606,Abilene,Taylor County,22885
+79701,Midland,Midland County,27728
+79703,Midland,Midland County,20592
+79705,Midland,Midland County,33536
+79706,Midland,Midland County,19571
+79707,Midland,Midland County,32854
+79713,Ackerly,Martin County,592
+79714,Andrews,Andrews County,14786
+79718,Balmorhea,Reeves County,721
+79719,Barstow,Ward County,397
+79720,Big Spring,Howard County,33640
+79730,Coyanosa,Pecos County,250
+79731,Crane,Crane County,4193
+79733,Forsan,Howard County,210
+79734,Fort Davis,Jeff Davis County,2137
+79735,Fort Stockton,Pecos County,13315
+79738,Gail,Borden County,275
+79739,Garden City,Glasscock County,963
+79741,Goldsmith,Ector County,288
+79742,Grandfalls,Ward County,490
+79743,Imperial,Pecos County,339
+79744,Iraan,Pecos County,1362
+79745,Kermit,Winkler County,6125
+79748,Knott,Howard County,173
+79749,Lenorah,Martin County,255
+79752,Mc Camey,Upton County,2245
+79754,Mentone,Loving County,80
+79755,Midkiff,Upton County,230
+79756,Monahans,Ward County,9066
+79758,Gardendale,Ector County,2197
+79761,Odessa,Ector County,30488
+79762,Odessa,Ector County,39056
+79763,Odessa,Ector County,34079
+79764,Odessa,Ector County,20725
+79765,Odessa,Ector County,6927
+79766,Odessa,Ector County,6115
+79772,Pecos,Reeves County,12747
+79777,Pyote,Ward County,170
+79778,Rankin,Upton County,878
+79780,Saragosa,Reeves County,224
+79781,Sheffield,Pecos County,303
+79782,Stanton,Martin County,3976
+79783,Tarzan,Martin County,201
+79785,Toyah,Reeves County,91
+79788,Wickett,Ward County,506
+79789,Wink,Winkler County,974
+79821,Anthony,El Paso County,7142
+79830,Alpine,Brewster County,7682
+79835,Canutillo,El Paso County,12690
+79836,Clint,El Paso County,5772
+79837,Dell City,Hudspeth County,579
+79838,Fabens,El Paso County,8699
+79839,Fort Hancock,Hudspeth County,1938
+79842,Marathon,Brewster County,498
+79843,Marfa,Presidio County,2503
+79845,Presidio,Presidio County,5138
+79847,Salt Flat,Hudspeth County,167
+79848,Sanderson,Terrell County,927
+79849,San Elizario,El Paso County,13208
+79851,Sierra Blanca,Hudspeth County,641
+79852,Terlingua,Brewster County,799
+79853,Tornillo,El Paso County,3729
+79854,Valentine,Jeff Davis County,213
+79855,Van Horn,Culberson County,2336
+79901,El Paso,El Paso County,11328
+79902,El Paso,El Paso County,21236
+79903,El Paso,El Paso County,18451
+79904,El Paso,El Paso County,35060
+79905,El Paso,El Paso County,26036
+79907,El Paso,El Paso County,55132
+79911,El Paso,El Paso County,1565
+79912,El Paso,El Paso County,77161
+79915,El Paso,El Paso County,40057
+79922,El Paso,El Paso County,8935
+79924,El Paso,El Paso County,59058
+79925,El Paso,El Paso County,40641
+79927,El Paso,El Paso County,39016
+79928,El Paso,El Paso County,49544
+79930,El Paso,El Paso County,28410
+79932,El Paso,El Paso County,24986
+79934,El Paso,El Paso County,19174
+79935,El Paso,El Paso County,18042
+79936,El Paso,El Paso County,111086
+79938,El Paso,El Paso County,53520
